@@ -1,0 +1,1 @@
+export const imgApi = "https://finnbet.com/COFFEE-FILE/api/img/get-img?path="

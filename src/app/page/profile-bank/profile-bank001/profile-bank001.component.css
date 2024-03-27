@@ -1,0 +1,82 @@
+.col {
+    padding-left: min(2vw, 5*2px);
+    padding-right: min(2vw, 5*2px);
+}
+
+.banner {
+    width: min(15vw, 5*13px);
+}
+
+.cls-1 {
+    isolation: isolate;
+}
+
+.cls-2 {
+    opacity: 0.2;
+    mix-blend-mode: multiply;
+}
+
+.cls-3 {
+    fill: #ffffff;
+}
+
+.cls-4 {
+    fill: #888888;
+}
+
+
+/* @media (max-width: 320px) {
+    .fonttext {
+        font-size: 4vw;
+    }
+    .screen {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    .fontBank {
+        font-size: 5vw;
+        color: #fff;
+    }
+    .fontbankAccount {
+        font-size: 6vw;
+        color: #fff;
+        letter-spacing: 4px;
+        font-family: "uni", sans-serif !important;
+    }
+    .fontbanName {
+        font-size: 5vw;
+        color: #fff;
+    }
+} */
+
+
+/* @media (min-width: 321px) and (max-width: 770px) { */
+
+.fonttext {
+    font-size: min(5vw, 5*5px);
+}
+
+.screen {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.fontBank {
+    font-size: min(5vw, 5*5px);
+    color: #fff;
+}
+
+.fontbankAccount {
+    font-size: min(6vw, 5*6px);
+    color: #fff;
+    letter-spacing: 3px;
+    font-family: "uni", sans-serif !important;
+}
+
+.fontbanName {
+    font-size: min(5vw, 5*5px);
+    color: #fff;
+}
+
+
+/* } */

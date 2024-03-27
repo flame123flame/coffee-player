@@ -1,0 +1,18 @@
+<div class="screen h-100">
+    <div class="row mt-4" style="    margin-right: 0px;
+    margin-left: -4px;">
+        <div class="col" style=" padding-right: 2px;padding-left: 0px;">
+            <button [ngClass]="{'activess1': tabIdx1 == 1, 'buttonPoy01': tabIdx1 ==  0}" (click)="tab01()" type="button" class="btn  btn-block  shadow">
+                <i class="fa fa-list-ol fa-lg mr-1"></i>
+                <b class="fontTab">รายงานเครดิตวันนี้</b></button>
+        </div>
+        <div class="col" style=" padding-right: 0px;padding-left: 2px;">
+            <button [ngClass]="{'activess2': tabIdx2 == 2, 'buttonPoy02': tabIdx2 == 0}" (click)="tab02()" type="button" class="btn   btn-block shadow">
+                <i class="fa fa-search fa-lg"></i>
+                <b class="fontTab">รายงานเครดิตย้อนหลัง</b></button>
+        </div>
+    </div>
+
+    <router-outlet></router-outlet>
+
+</div>

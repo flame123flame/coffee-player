@@ -1,0 +1,175 @@
+.screen {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.card {
+    background: #ffffff 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 13px;
+}
+
+.card-header {
+    padding: 0px;
+    padding: 0;
+    background-color: #ffde0b;
+    color: #020A2E;
+    border-top-left-radius: 13px;
+    border-top-right-radius: 13px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+.card-game {
+    height: calc(100% - 15px);
+    margin-bottom: 15px;
+    padding-top: 5px;
+    padding-bottom: 11px;
+    /* height: min(61vw, 5*74px); */
+    width: min(43.4vw, 7*41px);
+}
+
+.card.pd {
+    margin-bottom: min(4vw, 5*4px);
+}
+
+.list-box {
+    height: min(14vw, 5*14px);
+    width: min(14vw, 5*14px);
+    /* margin-right: px; */
+    /* border: 1px solid black; */
+    margin: 2px;
+}
+
+.row {
+    margin-right: 0px;
+    margin-left: 0px;
+    justify-content: space-between;
+    /* flex-wrap: initial; */
+}
+
+.imgdetail {
+    width: min(14vw, 5*14px);
+    margin-left: -5px;
+}
+
+.posit {
+    position: absolute;
+    bottom: 12px;
+    left: -9px;
+}
+
+h4 {
+    top: 0;
+    left: 0;
+    position: absolute;
+    padding-left: min(2vw, 5*2px);
+    padding-top: min(1vw, 5*1px);
+    z-index: 99;
+    color: #fff;
+}
+
+.img {
+    padding: min(3vw, 5*3px);
+    width: min(44vw, 5*44px);
+    margin-top: -21vw;
+    /* width should be 36vw */
+    height: min(32vw, 5*32px);
+    z-index: 1;
+}
+
+.card-mini {
+    width: min(32.5vw, 5*32.5px);
+    height: min(10.7vw, 5*10.7px);
+    background: transparent linear-gradient(106deg, #828B9E 0%, #32364E 100%) 0% 0% no-repeat padding-box;
+}
+
+.mid {
+    padding-left: 1px;
+    padding-right: 1px;
+    padding-bottom: min(2vw, 5*2px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mid2 {
+    padding-left: 1px;
+    padding-right: 1px;
+    /* padding-bottom: 2vw;ks */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.heart {
+    /* position: absolute;
+    z-index: 99;
+    color: palevioletred;
+    top: 0vw;
+    right: 0vw;
+    text-shadow: 0px 0px 6px palevioletred; */
+    position: absolute;
+    z-index: 99;
+    background-color: #fff;
+    color: palevioletred;
+    top: 0vw;
+    right: 0vw;
+    text-shadow: 0px 0px 6px palevioletred;
+}
+
+.icon {
+    height: 100%;
+    opacity: 0.05;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 0;
+}
+
+#imgUNcover {
+    /* padding: 8px; */
+    width: 100%;
+    object-fit: contain;
+    padding-left: 8px;
+    padding-top: 8px;
+    padding-right: 8px;
+}
+
+#imgUNcoverss {
+    width: 100%;
+    object-fit: contain;
+}
+
+*:focus {
+    outline: 0 !important;
+}
+
+.img_wrp {
+    display: inline-block;
+    position: relative;
+}
+
+.close02 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* width: 10vw; */
+}
+
+.close01 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    /* width: 10vw; */
+}
+
+@media (max-height: 600px) {
+    .play {
+        margin-left: min(3vw, 5*3px);
+    }
+    .card-game {
+        /* height: 39vw; */
+        width: min(42.4vw, 5*42.4px);
+    }
+}

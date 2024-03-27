@@ -1,0 +1,78 @@
+<div class="screen">
+    <!-- <div class="row mt-3">
+        <div class="col">
+            <b [routerLink]="['/lottery/series-lotery']" class="margin" style="font-size: 19px;font-weight: bold;color: #020A2E;"><i class="fa fa-reply mr-2 "
+                    aria-hidden="true"></i>เลขชุด</b>
+        </div>
+    </div> -->
+
+    <div class="card mt-3 mb-3" style="padding-right: 10px;padding-left: 10px;">
+        <div class="card-body" style="padding: 0 1.25rem 0.5rem 1.25rem;">
+
+            <div class="row mt-2">
+                <div class="col">
+                    <div class="form-group">
+                        <b style="font-size: min(5vw,5*5px);">ชื่อชุด</b>
+                        <input type="text" [(ngModel)]="textHeader" [ngClass]="{'is-invalid': isPassError == false}" class="  form-control form-control-sm" placeholder="ชื่อชุด">
+                        <div class="invalid-feedback">
+                            กรุณากรอกชื่อชุด
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card mt-3 mb-3" style="padding-right: 10px;padding-left: 10px;">
+        <div class="card-body" style="padding: 0 1.25rem 0.5rem 1.25rem;">
+            <div class="row mt-2">
+                <div class="col">
+                    <b style="font-size: min(5vw,5*5px);">สร้างชุดตัวตัวเลข</b>
+                </div>
+            </div>
+
+            <div class="row mt-2" *ngFor="let item of listData; let index = index">
+                <div class="col-5" style="padding-right: 2px;padding-left: 2px;">
+                    <select (change)="checkCode($event.target.value,index)" class="form-control">
+                        <option hidden selected>ประเภทการแทง</option>
+                        <option *ngFor="let item2 of setListLoto" [value]="item2.msdLottoKindCode">
+                            {{item2.msdLottoKindName}}</option>
+                    </select>
+                </div>
+                <div class="col-5" style="padding-right: 5px;padding-left: 5px;">
+                    <input (keyup)="updateInput($event.target.value,index)" type="text" class="form-control" [class.is-valid]="item.digit === item.lottoNumber?.toString().length&&'NaN'!=item.lottoNumber.toString()" [class.is-invalid]="item.digit !== item.lottoNumber?.toString().length||'NaN'==item.lottoNumber.toString()"
+                        [(ngModel)]="item.lottoNumber" [placeholder]="item.digit == -1?'-':'ใส่ตัวเลข '+item.digit+' ตัว'">
+                </div>
+                <div class="col-2" style="padding-right: 5px;padding-left: 5px;">
+                    <button type="button" (click)="removelistDetailForm(index)" class="btn   mr-2" style="background-color: #E90061;"><b style="color: #fff;"><i class="fa fa-trash-o"></i></b>
+                    </button>
+                </div>
+            </div>
+            <div class="row mt-2 mb-2">
+                <div class="col-5" style="padding-right: 2px;padding-left: 2px;">
+                    <button (click)="addList()" type="button" class="btn btn-outline-secondary btn-block"><i
+                            class="fa fa-plus"></i>
+                        เพิ่มเลขชุด</button>
+                </div>
+                <div class="col-5" style="padding-right: 5px;padding-left: 5px;">
+
+                </div>
+                <div class="col-2" style="padding-right: 5px;padding-left: 5px;">
+
+                </div>
+            </div>
+
+            <div class="row mt-5 mb-2">
+                <div class="col text-center " style="padding-right: 2px;padding-left: 2px;">
+                    <button [routerLink]="['/lottery/series-lotery']" type="button" class="btn mr-4" style="padding-left: 29px;background-color: #E90061;padding-right: 29px;"><b
+                            style="color: #fff;">ยกเลิก</b></button>
+                    <button type="button" class="btn " (click)="save()" style="padding-left: 29px;padding-right: 29px;background-color:  #020A2E;"><b
+                            style="color: #fff;">บันทึก</b></button>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+</div>

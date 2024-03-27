@@ -1,0 +1,370 @@
+.activeDefluet {
+    color: #fff;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 6px;
+    padding-bottom: 3px;
+    background-color: #B2B2B2;
+}
+
+.activeStepComplete {
+    color: #fff;
+    background-color: #020A2E;
+    padding-right: 8px;
+    padding-top: 6px;
+    padding-bottom: 3px;
+    padding-left: 8px;
+}
+
+.activeStep {
+    margin-top: -3px;
+    padding-left: 8px;
+    background-color: #F66700 !important;
+    color: #fff;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 8px;
+    padding-bottom: 5px;
+}
+
+.pagination>li>div {
+    border-radius: 50% !important;
+    margin: 0 5px;
+}
+
+#rr {
+    background-color: #020A2E !important;
+    height: 56px;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.btt {
+    background-color: #E90061;
+    color: #ffff;
+}
+
+.errorLogintext {
+    color: #d87a51;
+    font-size: min(4vw, 5*3px);
+    text-align: center;
+}
+
+.activeBank {
+    opacity: 1.0 !important;
+}
+
+.errorLogin {
+    color: #d87a51;
+    font-size: min(4vw, 5*3px);
+    text-align: initial;
+    margin-top: -11px;
+}
+
+.fontH {
+    font-size: 7vw;
+}
+
+.fontHeaderSecUserName {
+    font-size: 18px;
+    color: #020a2e;
+}
+
+.fontHeaderSecPhone {
+    margin-top: 12px;
+    font-size: 15px;
+    color: #020a2e;
+}
+
+.fontHeaderSecBankNumber {
+    color: #020a2e;
+    font-size: 20px;
+}
+
+.fontHeaderSecBank {
+    margin-top: 8px;
+    font-size: 16px;
+    color: #020a2e;
+}
+
+.fontHeaderSecName {
+    margin-top: 10px;
+    font-size: min(4vw, 5*6px);
+    color: #020a2e;
+}
+
+.fontHeaderSec {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #020a2e;
+}
+
+.list-box {
+    height: min(14vw, 5*14x);
+    width: min(14vw, 5*14px);
+    /* border: 1px solid black; */
+    margin: 2px;
+}
+
+.responsiveBlogin {
+    right: 0px;
+    z-index: 999;
+    padding-left: 28px;
+    padding-right: 28px;
+    /* bottom: 0; */
+    height: 50px;
+    color: #14171c;
+    background-color: #FFDF00;
+}
+
+.colorButton {
+    height: 45px;
+    background: #14171c 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 5px;
+    color: #fff;
+    /* opacity: 1; */
+}
+
+.fontSize {
+    font-size: 6vw;
+    color: #f4f4f4;
+}
+
+.fontCaedTop01 {
+    font-size: 20px;
+    margin-left: 8px;
+    color: #f4f4f4;
+    z-index: 999;
+}
+
+.scrollmenu {
+    overflow: auto;
+    white-space: nowrap;
+    overflow-y: hidden;
+}
+
+.scrollmenu .dun {
+    display: inline-block;
+}
+
+.scrollmenu card-image {
+    display: inline-block;
+    padding-top: 24px;
+}
+
+.fontCaedTop02 {
+    font-size: 12px;
+    margin-left: 8px;
+    color: #f4f4f4;
+    z-index: 999;
+}
+
+.iconSize {
+    width: 100px;
+}
+
+.imageCard {
+    position: absolute;
+    width: 80px;
+}
+
+#size-rl {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#size-l-card2 {
+    padding-left: 20px;
+    padding-right: 5px;
+}
+
+#size-r-card2 {
+    padding-left: 5px;
+    padding-right: 20px;
+}
+
+.carousel-inner {
+    position: relative;
+    width: 100%;
+    overflow: visible;
+}
+
+.fontH {
+    font-size: 14vw;
+    color: #f4f4f4;
+}
+
+.fontD {
+    font-size: 5vw;
+    color: #f4f4f4;
+}
+
+.fontH1 {
+    font-size: 14vw;
+    color: #14171c;
+}
+
+.fontD1 {
+    font-size: 5vw;
+    color: #14171c;
+}
+
+.bttStart {
+    padding-left: 40px;
+    padding-right: 40px;
+    border-radius: 34px;
+    color: #f4f4f4;
+}
+
+.carousel {
+    height: 400px;
+}
+
+.carousel-inner {
+    position: relative;
+    width: 100%;
+    overflow: visible;
+}
+
+.fontHeder {
+    color: #14171c;
+    font-size: min(8vw, 5*8px);
+}
+
+.fontHederBootom {
+    color: #14171c;
+    font-size: min(4.3vw, 5*4px);
+}
+
+.fonSub {
+    color: #14171c;
+    margin-top: min(1vw, 5*2px);
+    font-size: min(6vw, 5*6px);
+}
+
+.cardBorder {
+    padding-top: 7px;
+    padding-bottom: 7px;
+    border-radius: 12px;
+    margin-left: 50px;
+    margin-right: 50px;
+    border-style: solid;
+    border-color: #14171c;
+}
+
+.imageLanging {
+    /* width: min(16vw, 5*13px); */
+    width: auto;
+    max-width: 100%;
+    height: 100%;
+    max-height: 200px;
+    margin: auto;
+}
+
+.btt {
+    background-color: #FFDF00;
+    color: #02082F;
+    border-radius: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 10px;
+    margin-bottom: 40px;
+}
+
+@media (min-width: 321px) and (max-width: 770px) {
+    .witamge {
+        /* width: min(4vw 5*6px) !important; */
+        width: 100%;
+    }
+}
+
+@media (min-width: 770px) and (max-width: 2400px) {
+    .witamge {
+        /* width: min(4vw 5*6px) !important; */
+        width: 50%;
+    }
+}
+
+.fontButtom {
+    font-size: min(3.5vw, 5*3px);
+}
+
+.under-line {
+    width: auto;
+    max-width: 150px;
+}
+
+.ex-container {
+    /* position: absolute; */
+    top: 0;
+    bottom: 0;
+    background-color: #eff0f5 !important;
+}
+
+.nav {
+    width: min(75vw, 5*100px);
+    /* padding-top: 50px; */
+    background-color: transparent !important;
+}
+
+.nav-card {
+    height: 100%;
+    padding-left: 3%;
+    padding-right: 3%;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    background: #fff;
+    /* height: 1vh; */
+    padding-bottom: 50px;
+    border-top-left-radius: 13px;
+}
+
+.form-group .form-control {
+    padding-left: 1.375rem;
+    border-radius: 5px;
+    border: none;
+    color: #14171C;
+}
+
+.main {
+    border-radius: 5px !important;
+}
+
+.span3 {
+    font-size: 20px;
+}
+
+.notify-badge {
+    position: absolute;
+    right: -10px;
+    bottom: 0px;
+    text-align: center;
+    border-radius: 30px 30px 30px 30px;
+    color: white;
+    padding: 5px 10px;
+    font-size: 20px;
+    width: min(9.5vw, 5*8px);
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    height: 50px;
+    width: 100px;
+    outline: black;
+    background-size: 100%, 100%;
+    border-radius: 50%;
+    background-image: none;
+}
+
+.carousel-control-next-icon:after {
+    content: '>';
+    font-size: 50px;
+    color: black
+}
+
+.carousel-control-prev-icon:after {
+    content: '<';
+    font-size: 50px;
+    color: black;
+}

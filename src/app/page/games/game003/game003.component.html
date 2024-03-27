@@ -1,0 +1,32 @@
+<div class="screen">
+
+    <!-- <div class="row mt-3">
+        <div class="col text-center">
+            <img class="mr-3 mb-2" src="./assets/image/asset/casino.png" style="width: min(9vw,5*9px);">
+            <b style="font-size: min(7vw,5*7px);">คาสิโน</b>
+        </div>
+    </div> -->
+
+    <!-- <div class="row mt-4 mb-2" *ngFor="let item of listGames;">
+        <div class="col img_wrp" style="padding-right: 0px;padding-left: 0px;">
+            <img src='{{item.portraitImgUrl}}' id="imgUNcover">
+            <button (click)="goTo(item.providerCode,item.openType,item.portraitImgUrl)" type="button" class="btn bottonInimage "><b>เข้าเล่น</b></button>
+        </div>
+    </div> -->
+    <div *ngFor="let item of listGames" (click)="goTo(item.providerCode,item.openType,item.iconUrl)">
+        <div class="row mt-4">
+            <div class="col-12 ml-2 text-left" style="padding-right: 0px;padding-left: 0px;">
+                <b class="textGameButoom"> {{item.displayName}}</b>
+            </div>
+
+        </div>
+        <div class="row mt-2 mb-2">
+            <div class="col img_wrp" style="padding-right: 0px;padding-left: 0px;">
+                <img loading="lazy" [src]='imgApi +  item.portraitImgUrl' id="imgUNcover">
+                <button type="button" class="btn bottonInimage "><b>เข้าเล่น</b></button>
+            </div>
+        </div>
+        <hr style="margin-top: 0rem;margin-bottom: 0rem;">
+    </div>
+    <!-- <hr style="margin-top: 0rem;margin-bottom: 0rem;"> -->
+</div>

@@ -1,0 +1,26 @@
+.card {
+    border: none;
+    background: #ffffff 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 10px;
+    opacity: 1;
+    margin-bottom: min(4vw, 5*4px);
+    align-items: center;
+    /* justify-content: center; */
+    height: min(37vw, 5*37px);
+    width: min(42.4vw, 5*42.4px);
+}
+
+.fontH {
+    margin-top: 26px;
+    font-size: min(5vw, 5*5px);
+}
+
+.fontD {
+    margin-top: min(8vw, 5*10px);
+    font-size: min(7vw, 5*7px);
+}
+
+.cec {
+    /* justify-content: flex-start; */
+}

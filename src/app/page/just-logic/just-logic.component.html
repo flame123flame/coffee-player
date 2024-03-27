@@ -1,0 +1,48 @@
+<button (click)="logOut()">logout</button>
+<br>
+
+<br>
+
+<!-- 1. req otp -->
+<!-- must import FormsModule to module -->
+<ng-container *ngIf="state == 1">
+    <h6 *ngIf="delayMap[mobilePhone]?.time > 0">ใช้เบอร์นี้ได้อีกใน {{delayMap[mobilePhone].time}} วินาที</h6>
+    <input type="text" [(ngModel)]="mobilePhone" placeholder="mobile-phone" maxlength="10">
+    <button (click)="reqOtp()">confirm</button>
+    <br>
+</ng-container>
+
+<!-- 2. check otp -->
+<ng-container *ngIf="state == 2">
+    <h6>RefCode: {{refCode}}</h6>
+    <h6 *ngIf="statusOtp">status: {{statusOtp}} ({{countWrongOtp}})</h6>
+    <input type="text" [(ngModel)]="otp" placeholder="otp" maxlength="5">
+    <button (click)="checkOtp()">confirm</button>
+    <br>
+</ng-container>
+
+<!-- 3. กรอก username password -->
+<ng-container *ngIf="state == 3">
+    <input type="text" [(ngModel)]="username" placeholder="username">
+    <br>
+    <input type="text" [(ngModel)]="password" placeholder="password">
+    <br>
+    <input type="text" [(ngModel)]="recentPassword" placeholder="confirm password">
+    <br>
+    <button (click)="saveUsernamePassword()">confirm</button>
+    <br>
+</ng-container>
+
+<!-- 4. กรอก ชื่อจริง ธนาคาร บัญชีธนาคาร -->
+<ng-container *ngIf="state == 4">
+    <input type="text" [(ngModel)]="bankCode" placeholder="ธนาคาร">
+    <input type="text" [(ngModel)]="bankAccount" placeholder="เลขบัญชี">
+    <input type="text" [(ngModel)]="realName" placeholder="กรอกชื่อ-นามสกุล">
+    <button (click)="saveBank()">confirm</button>
+    <br>
+</ng-container>
+
+<ng-container *ngIf="state == 5">
+    <h6>สมัครสำเร็จ</h6>
+    <br>
+</ng-container>

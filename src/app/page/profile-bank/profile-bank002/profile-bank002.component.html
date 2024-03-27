@@ -1,0 +1,121 @@
+<div class="screen mt-3">
+    <div class="mt-4" [ngClass]="{'card': turnOverData.targetTurnOver!='0', '':turnOverData.targetTurnOver=='0' }">
+        <div class="row mt-3" *ngIf="turnOverData.targetTurnOver!='0' && !turnOverData.wording">
+            <div class="col text-center">
+                <span style="font-size:min( 5vw,5*5px);">เงื่อนไขยอดแทงโปรโมชั่น <span
+                        class="textPink"><b>{{turnOverData.targetTurnOver!=null?turnOverData.targetTurnOver:'-'}}
+                            เครดิต</b></span>
+                    <br>ขณะนี้มียอดแทง <span style="color: #00E38D;">
+                        <b>{{turnOverData.currentTurnOver!=null?turnOverData.currentTurnOver:'-'}}
+                            เครดิต</b></span></span>
+            </div>
+        </div>
+        <div *ngIf="turnOverData.wording" class="card" style="margin: min(3vw,5*3px);">
+            <div class="card-body text-center">
+                <span style="font-size:min( 3.5vw,5*3.5px);">
+                    {{turnOverData.wording}}</span>
+            </div>
+        </div>
+        <div class="row mt-2" style="   margin-bottom: 19px;">
+            <div class="col">
+                <div class="card " style="border: 0;" [style.background-color]="this.listUser.color2">
+                    <!-- <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' style="
+                border-radius: 10px; position: absolute; " fill='currentcolor'>
+                        <path [style.fill]="this.listUser.color" d='M64 64 L0 64 L0 0 L64 0 Z' />
+                        <path [style.fill]="this.listUser.color2" d='M0 64 L64 64 L64 36 C50 46 40 52 0 52 Z' />
+                    </svg> -->
+                    <svg xmlns='http://www.w3.org/2000/svg' style="
+                    border-radius: 10px; position: absolute; " viewBox='0 0 64 64' fill='currentcolor'>
+                        <path [style.fill]="this.listUser.color" d='M0 0 L64 0 L64 22 C52 34 46 38 0 38 Z' />
+                    </svg>
+                    <div style="z-index: 99;">
+                        <div class="row">
+                            <div class="col text-right">
+                                <p class="fontBank mr-3 mt-2">
+                                    <img [src]='this.listUser.src' width="40px"> {{listUser.bankNameTh}}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col text-right">
+                                <!-- <p class="fontBank mr-3 mt-2">{{listUser.bankCode}}</p> -->
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col ">
+                                <p class="fontbankAccount ml-3 mt-2">{{listUser.bankAccount}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col ">
+                                <p class="fontbanName ml-3 mt-1">{{listUser.realName}}</p>
+                            </div>
+                        </div>
+                        <div id="accordionExample" class="card-footer" style="border-top: 1px solid rgb(255 255 255 )">
+                            <div class="row mid" style="justify-content: space-between;">
+                                <p class="fontBank ml-1 ">เครดิต : {{money}}</p>
+                            </div>
+                            <div>
+                                <div class="row mt-1 mid">
+                                    <div class=" text-right" style="width: min( 20vw,5*20px);"> <span
+                                            style="font-size: 15px;color: white;">จำนวนเงิน</span>
+                                    </div>
+                                    <div class="col">
+                                        <input type="number" [(ngModel)]="number" class="form-control form-control-sm"
+                                            placeholder="ขั้นต่ำ 100 บาท">
+                                    </div>
+                                </div>
+                                <div class="row mt-1 mid">
+                                    <div class=" text-right" [(ngModel)]="userRemark" style="width: min( 20vw,5*20px);">
+                                        <span style="font-size: 15px;color: white;">หมายเหตุ</span>
+                                    </div>
+                                    <div class="col">
+                                        <textarea type="text" [(ngModel)]="userRemark"
+                                            class="form-control form-control-sm" placeholder="ระบุหมายเหตุ"></textarea>
+                                    </div>
+                                </div>
+                                <div *ngIf="number" (click)="isWithdrawFn()" id="headingOne"
+                                    data-target="#collapseOnein" aria-expanded="true" aria-controls="collapseOnein"
+                                    data-toggle="collapse" class="  card-blue text-center mr-2 mt-4 mid"
+                                    style="height:min(  10vw,5*10px);width: 100%;  border-radius: 8px !important;">
+                                    <span style="font-size:min(5vw,5*5px);">แจ้งถอนเครดิต</span>
+                                </div>
+                                <div *ngIf="!number" id="headingOne" data-target="#collapseOnein" aria-expanded="true"
+                                    aria-controls="collapseOnein" data-toggle="collapse"
+                                    class=" text-center mr-2 mt-4 mid"
+                                    style="height:min(  10vw,5*10px);width: 100%;  border-radius: 8px !important; background-color: rgba(255, 255, 255, .5);color: white;">
+                                    <span style="font-size:min(5vw,5*5px);">แจ้งถอนเครดิต</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="mid">
+    <ng-template #showAlertContirmText>
+        <div body class="mb-3 mt-2 mr-2">
+            <div class="screen mt-4 ">
+                <div class="row text-right" (click)="closeModal()">
+                    <i class="material-icons"
+                        style="position: absolute; right: min( 2vw,5*2px); top: min( 1vw,5*1vw);color: rgb(221, 75, 75);font-weight: bold;">cancel</i>
+                </div>
+                <div class="row " style="margin:min(  10vw,5*10px) 0 0 0;justify-content: center;">
+                    <img *ngIf="isSucces" src="assets/image/asset/Correct.svg" style="width: min( 20vw,5*20px);">
+                    <img *ngIf="!isSucces" src="assets/image/asset/warnning2.svg" style="width: min( 20vw,5*20px);">
+                </div>
+                <div class="mt-4 text-center mb-4"> <span style=" font-size:min( 5vw,5*5px);">
+                        <b>{{textError}}</b></span><br>
+                </div>
+                <div class="mt-4 row" style="justify-content: center;">
+                    <div (click)="closeModal()" class="card noShadow mid noShadow NoBorder ml-1"
+                        style="padding: min( 2vw,5*2px);width: 2min( 2vw,5*2px);border-radius: 7px !important;font-size: 4vw;background-color: #020A2E;">
+                        <b style="color: white;font-size: min(4vw,5*4px);">ตกลง</b>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</div>

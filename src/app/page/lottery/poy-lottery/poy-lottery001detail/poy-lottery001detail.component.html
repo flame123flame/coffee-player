@@ -1,0 +1,87 @@
+<div class="screen" style="    padding-left: 0.3rem;padding-right: 0.3rem;">
+    <div class="card  ">
+        <div class="card-body">
+
+            <div class="row">
+                <i (click)="back()" class="fa fa-arrow-circle-left ml-1" style="color:#020A2E;font-size: min(7vw,5*7px);cursor: pointer;"></i>
+                <div class="col " style="align-self: flex-end;">
+                    <b style="color:#020A2E;;font-size: min(5vw,5*5px);">{{lottoClassName}}</b>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="card mt-3 mb-4">
+        <div class="card-body" style="padding: 0 1.25rem 0.5rem 1.25rem;">
+            <div class="row mt-3">
+                <div class="col text-center">
+                    <b class="fontH1">เลขที่รายการ </b>
+                    <span style="color: #F66700;font-size: min(3.8vw,5*3.8px);">#{{codeText}}</span>
+                </div>
+            </div>
+            <hr style="background-color: #020A2E;">
+
+            <div class="row mt-2">
+                <div class="col-6 text-center" style="    border-right: 0.7px solid #020A2E;">
+                    <p class="fontD ">ราคารวมแทง</p>
+                    <b class="fontD2 mt-3" style="color: #00C157; ">{{sumBet | number}}฿</b>
+                </div>
+                <div class="col-6 text-center" style="    border-left: 0.7px solid #020A2E;">
+                    <p class="fontD">ผลได้เสียทั้งสิ้น</p>
+                    <b class="fontD2 mt-3" style="color: #E90061;">{{sumPrizeWin | number}}฿</b>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="card mt-2 mb-3" *ngFor="let item of list ;let i=index">
+        <div class="card-body" style="padding: 0 1.25rem 0.5rem 1.25rem;">
+            <div class="row mt-3">
+                <div class="col">
+                    <b class="fontH1">ลำดับที่ {{i+1}} </b>
+                    <span *ngIf="item.status == 'PENDING'" style="background-color: #E90061;" class="badge buttonStatus">รอผล</span>
+                    <span *ngIf="item.status == 'REFUND'" style="background-color:  #F66700;" class="badge buttonStatus">คืนโพย</span>
+                    <span *ngIf="item.status == 'WIN'" style="background-color: #00C157;" class="badge buttonStatus">ถูกรางวัล</span>
+                    <span *ngIf="item.status == 'LOSE'" style="background-color:   #020A2E;;" class="badge buttonStatus">ไม่ถูกรางวัล</span>
+
+                </div>
+            </div>
+            <hr style="background-color: #020A2E;">
+
+            <div class="row mt-2">
+                <div class="col-3" style="     border-right: 0.7px solid #020A2E;">
+                    <b class="fontH1">{{item.lottoNumber}}</b>
+                    <p id="pNone" class="colorFont" style="    font-size: min(3.6vw,5*3.6px);">{{item.kindName}}</p>
+                </div>
+                <div class="col-6" style=" border-left: 0.7px solid #020A2E;   border-right: 0.7px solid #020A2E;">
+                    <div class="row">
+                        <span class="colorFont ml-1" style="font-size: min(3.6vw,5*3.6px);">ราคาที่แทง</span><span style="position: absolute;right: 1px;" class="colorFont">ราคาที่จ่าย</span>
+                    </div>
+                    <div class="row">
+                        <b class="fontH1 ml-1">{{item.payCost}}</b><b style="position: absolute;right: 1px;" class="fontH1">{{item.prize}}฿</b>
+                    </div>
+                </div>
+                <div class="col-3" style="border-left: 0.7px solid #020A2E;">
+                    <div class="colorFont" style="    font-size: min(3.6vw,5*3.6px);">เลขที่ออก</div>
+                    <b class="fontH1">{{item.correctNumber}}</b>
+                </div>
+            </div>
+            <hr style="background-color: #020A2E;margin-top: 8px;">
+            <div class="row mt-2 mb-1">
+                <div class="col-9 text-right">
+                    <b class="fontH1">ผลได้เสีย</b>
+                </div>
+                <div class="col-3 ">
+                    <b class="fontH1">{{item.prizeResult}}฿</b>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+</div>

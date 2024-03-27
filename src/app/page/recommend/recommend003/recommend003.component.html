@@ -1,0 +1,339 @@
+<div class="row mt-3">
+    <div class="col ">
+        <div class="card" style="border-radius: 10px;">
+            <div class="fonrDetail mr-3 mb-3 ml-3 mt-3 text-left">
+                <b style="font-size: min(5vw,5*4px);">สร้างรายได้จากทุกยอดแทงของลูกค้าที่คุณแนะนำเข้ามาตลอดชีพ</b>
+                <hr>
+                <div class="mb-2">
+                    <b style="font-size: min(5vw,5*4px);">เพียงแชร์ลิ้งนี้</b>
+                </div>
+                <textarea style="border: none;" class="form-control" readonly [(ngModel)]="myPath" rows="2"></textarea>
+                <div class="row mt-2 mb-2">
+                    <div class="col-1"></div>
+                    <div class="col-10 text-center">
+                        <button type="button" class="btn " [ngClass]="!isCopy?'isCopyCss':'isNotCopyCss'"
+                            (click)="copyText()">
+                            <span *ngIf="!isCopy"><b>คัดลอกลิงค์</b></span>
+                            <span *ngIf="isCopy"><b>คัดลอกแล้ว</b></span>
+                        </button>
+                    </div>
+                    <div class="col-1"></div>
+                </div>
+                <div class="row text-center mt-4">
+                    <div class="col">
+                        <img src="assets/image/af/AF1.png" style="width:min( 15vw,5*15px);">
+                    </div>
+                </div>
+                <div class="row text-left mt-4">
+                    <div class="col">
+                        <p style="font-size: min( 3.7vw,5*3.7px);">หาเงินได้ง่ายๆ
+                            มีรายได้ทุกวันแค่แชร์ลิ้งด้านบนผ่านโซเชียล, ไลน์,
+                            เว็บไซต์ส่วนตัวหรือช่องทางอื่นๆในโลกออนไลน์ แชร์ปุ๊ป คนเห็นปั๊ป
+                            มีลูกค้าสมัครผ่านลิ้งของคุณเมื่อไหร่ ก็เริ่มสร้าง รายได้กันไปเลยฟรีๆ
+                        </p>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <b style="font-size: min(5vw,5*4px);">ลูกค้าสมัครผ่านลิงก์</b>
+                </div>
+                <div class="row text-center mt-4">
+                    <div class="col">
+                        <img src="assets/image/af/AF2.png" style="width:min( 18vw,5*18px);">
+                    </div>
+                </div>
+                <div class="row text-left mt-4">
+                    <div class="col">
+                        <p style="font-size: min( 3.7vw,5*3.7px);">
+                            ทุกๆคนที่กดสมัครผ่านลิ้งของคุณจะกลายเป็นลูกข่ายที่จะช่วย สร้างรายได้ให้กับคุณ
+                        </p>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <b style="font-size: min(5vw,5*4px);">สร้างรายได้จากยอดแทงทันที</b>
+                </div>
+                <div class="row text-center mt-4">
+                    <div class="col">
+                        <img src="assets/image/af/AF3.png" style="width:min( 15vw,5*15px);">
+                    </div>
+                </div>
+                <div class="row text-left mt-4">
+                    <div class="col">
+                        <p style="font-size: min( 3.7vw,5*3.7px);">ทุกครั้งที่ลูกข่ายของคุณมีการเดิมพัน
+                            คุณจะได้รับส่วนแบ่ง เปอร์เซ็นจากเราทันทีสูงสุดถึง 8% ของทุกยอดการเล่น</p>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <b style="font-size: min(5vw,5*4px);">คำถามที่พบบ่อย</b>
+                    <hr>
+                </div>
+                <div class="accordion" id="accordionExample">
+                    <div class="mt-3 mb-3">
+                        <div class="row mr-2 ml-2" data-toggle="collapse" data-target="#collapseOne"
+                            aria-expanded="false" aria-controls="collapseOne">
+                            <div class="col-10">
+                                <div class="row">
+                                    <img src="assets/image/af/QT1.png" style="height:min( 10vw,5*10px);">
+                                </div>
+                                <div class="row mt-2">
+                                    <p style="font-size: min(5vw,5*4px);"><b>ได้ส่วนแบ่งกี่ % และคำนวณอย่างไร</b></p>
+                                </div>
+                            </div>
+                            <div class="col-2" style="text-align: center;align-self: center;cursor: pointer;">
+                                <i class="fa fa-angle-down"></i>
+                            </div>
+                        </div>
+                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+                            data-parent="#accordionExample">
+                            <div class="mt-1 mr-2 ml-2 backlabel">
+                                <div style="padding: 8px;">
+                                    <P style="font-size: min( 3.7vw,5*3.7px);"> รายได้ของคุณจะถูกคำนวณจาก “ยอดแทง”
+                                        ของลูกข่ายคุณด้วยสัดส่วนเปอร์เซ็นต์ดังต่อไปนี้
+                                    </P>
+                                    <div class="row"
+                                        style=" background-color: #C5D0D6;align-items: center;margin: 0px;text-align:center">
+                                        <div class="paddingDiv text-center" style="width: 20%;padding-top: 7px;">
+                                            <div class="iconstype" style="height: min(  6vw,5* 6px);" class="mid">
+                                                <img src="assets/image/af/IN1.png" style="width:min(  6vw,5* 6px) ;">
+                                            </div>
+                                            <div style="font-size:min( 2.5vw,5* 2.5px);"><b>หวย 8%</b></div>
+                                        </div>
+                                        <div class=" paddingDiv text-center" style="width: 20%;padding-top: 7px;">
+                                            <div class="iconstype" style="height: min(  6vw,5* 6px);" class="mid">
+                                                <img src="assets/image/af/IN2.png" style="width:min(  6vw,5* 6px) ;">
+                                            </div>
+                                            <div style="font-size:min( 2.5vw,5* 2.5px);"><b>คาสิโน 0.5%</b></div>
+                                        </div>
+                                        <div class=" paddingDiv  text-center" style="width: 20%;padding-top: 7px;">
+                                            <div style="font-size: min(  6vw,5* 6px);height: min(  6vw,5* 6px);"
+                                                class="mid"> <img src="assets/image/af/IN3.png"
+                                                    style="width:min(  6vw,5* 6px) ;">
+                                            </div>
+                                            <div style="font-size:min( 2.5vw,5* 2.5px);" class="fontButton"><b>สล็อต
+                                                    0.3%</b></div>
+                                        </div>
+                                        <div class=" paddingDiv text-center" style="width: 20%;padding-top: 7px;">
+                                            <div class="iconstype" style="height: min(  6vw,5* 6px);" class="mid">
+                                                <img src="assets/image/af/IN4.png" style="width:min(  6vw,5* 6px) ;">
+                                            </div>
+                                            <div style="font-size:min( 2.5vw,5* 2.5px);"><b>เกมส์ 0.1%</b></div>
+                                        </div>
+                                        <div class=" paddingDiv text-center" style="width: 20%;padding-top: 7px;">
+                                            <div class="iconstype" style="height: min(  6vw,5* 6px);" class="mid">
+                                                <img src="assets/image/af/IN5.png" style="width:min(  6vw,5* 6px) ;">
+                                            </div>
+                                            <div style="font-size:min( 2.5vw,5* 2.5px);"><b>กีฬา 1%</b></div>
+                                        </div>
+                                    </div>
+                                    <P style="font-size: min( 3.7vw,5*3.7px);" class="mt-3">
+                                        ฉะนั้นคุณไม่ต้องกังวลเลยว่าลูกข่ายจะเล่นได้หรือเสีย
+                                        มีแต่ยิ่งแทงมากยิ่งได้มากเท่านั้น
+                                    </P>
+                                    <div class="row mt-3">
+                                        <div class="col-4" style="text-align: center;align-self: center;">
+                                            <hr>
+                                        </div>
+                                        <div class="col-4" style="text-align: center;align-self: center;">
+                                            <label style="font-size:min(  4.5vw,5* 4.5px);margin-top: 7px;">
+                                                <b>ตัวอย่าง</b>
+                                            </label>
+                                        </div>
+                                        <div class="col-4" style="text-align: center;align-self: center;">
+                                            <hr>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-3" style="font-size:min(  4vw,5* 4px);">
+                                        <div class="col-4" style="text-align: center;align-self: center;">
+                                            <b style="font-size:min(4vw,5*4px);">ลูกข่าย 1</b>
+                                        </div>
+                                        <div class="col-8" style="text-align: left;align-self: center;">
+                                            <P style="font-size:min(4vw,5*3px);">คนแทงหวยจำนวน 1,000บาท</P>
+                                            <b style="font-size:min(4vw,5*3px);">คุณจะได้รับทันที 80บาท</b>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row mt-3" style="font-size:min(  4vw,5* 4px);">
+                                        <div class="col-4" style="text-align: center;align-self: center;">
+                                            <b style="font-size:min(4vw,5*4px);">ลูกข่าย 10</b>
+                                        </div>
+                                        <div class="col-8" style="text-align: left;align-self: center;">
+                                            <P style="font-size:min(4vw,5*3px);">คนแทงหวยจำนวน 1,000บาท (รวมเป็น
+                                                10,000บาท)</P>
+                                            <b style="font-size:min(4vw,5*3px);">คุณจะได้รับทันที 800บาท</b>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row mt-3" style="font-size:min(  4vw,5* 4px);">
+                                        <div class="col-4" style="text-align: center;align-self: center;">
+                                            <b style="font-size:min(4vw,5*4px);">ลูกข่าย 100</b>
+                                        </div>
+                                        <div class="col-8" style="text-align: left;align-self: center;">
+                                            <P style="font-size:min(4vw,5*3px);">คนแทงหวยจำนวน 1,000บาท (รวมเป็น
+                                                100,000บาท)</P>
+                                            <b style="font-size:min(4vw,5*3px);">คุณจะได้รับทันที 8000บาท</b>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="mt-3 mb-3">
+                        <div class="row mr-2 ml-2" data-toggle="collapse" data-target="#collapsefive"
+                            aria-expanded="false" aria-controls="collapsefive">
+                            <div class="col-10">
+                                <div class="row">
+                                    <img src="assets/image/af/AFS6.png" style="height:min( 10.5vw,6*10.5px);">
+                                </div>
+                                <div class="row mt-2">
+                                    <p style="font-size: min(5vw,5*4px);"><b>รายได้ 2 ชั้นคำนวณอย่างไร</b></p>
+                                </div>
+                            </div>
+                            <div class="col-2" style="text-align: center;align-self: center;cursor: pointer;">
+                                <i class="fa fa-angle-down"></i>
+                            </div>
+                        </div>
+                        <div id="collapsefive" class="collapse" aria-labelledby="collapsefive"
+                            data-parent="#accordionExample">
+                            <div class="mt-1 mr-2 ml-2 backlabel">
+                                <div style="padding: 8px;">
+                                    <P style="font-size: min( 3.7vw,5*3.7px);">
+                                        นอกจากรายได้จากสมาชิกขั้นที่ 1
+                                        ของคุณแล้ว คุณยังสามารถที่
+                                        จะสร้างรายได้จากยอดแทงของสมาชิกขั้นที่ 2 ของคุณอีกด้วย
+                                    </P>
+                                    <img src="assets/image/af/AFS7.png" style="width: 100%;">
+                                    <P style="font-size: min( 3.7vw,5*3.7px);margin-top: 10px;">1.
+                                        สมาชิกที่เขาแนะนำเขามาโดยตรงก็สามารถที่จะไปแนะนำสมาชิก
+                                        เข้ามาต่อ โดยเราจะเรียกสมาชิกที่เข้ามาต่อนั้นว่า “สมาชิกขั้นที่ 2”
+                                    </P>
+                                    <P style="font-size: min( 3.7vw,5*3.7px);">
+                                        2. จำนวนส่วนแบ่งที่เขาจะได้จากสมาชิกขั้นที่2 มีวิธีคิด 2 แบบคือ
+                                    </P>
+                                    <P style="font-size: min( 3.7vw,5*3.7px);"><b>คิดเป็น 10%
+                                            จากรายได้ค่าแนะนำที่สมาชิกขั้นที่ 1</b>
+                                    </P>
+                                    <P style="font-size: min( 3.7vw,5*3.7px);"><b>เช่น
+                                            :</b>ถ้าสมาชิกขั้น1ของเขามีรายได้ค่าแนะนำรวมแล้วอยู่ที่
+                                        10,000 ตัวเขาเองจะมีรายได้เพิ่มขึ้นอีก 1,000 (10%) </P>
+                                    <P style="font-size: min( 3.7vw,5*3.7px);">
+                                        <b>คิดตามจำนวนเปอร์เซ็นค่าแนะนำจากยอดแทงของสมาชิกขั้นที่ 2
+                                            ช่น :</b> ค่าแนะนำสำหรับสมาชิกขั้นที่1จะอยู่ที่8%ของยอดแทง,
+                                        ส่วนสมาชิกขั้น2จะอยู่ที่0.8%ของยอดแทง
+                                    </P>
+                                    <P style="font-size: min( 3.7vw,5*3.7px);text-align: center;">
+                                        ***ซึ่งวิธีคำนวณทั้ง2แบบจะให้ผลประโยชน์เท่ากัน***
+                                    </P>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="mt-3 mb-3">
+                        <div class="row mr-2 ml-2" data-toggle="collapse" data-target="#collapseTwo"
+                            aria-expanded="false" aria-controls="collapseTwo">
+                            <div class="col-10">
+                                <div class="row">
+                                    <img src="assets/image/af/QT2.png" style="height:min( 10vw,5*10px);">
+                                </div>
+                                <div class="row mt-2">
+                                    <p style="font-size: min(5vw,5*4px);"><b>ทำยังไงให้มีลูกข่ายเยอะๆ</b></p>
+                                </div>
+                            </div>
+                            <div class="col-2" style="text-align: center;align-self: center;cursor: pointer;">
+                                <i class="fa fa-angle-down"></i>
+                            </div>
+                        </div>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="collapseTwo"
+                            data-parent="#accordionExample">
+                            <div class="mt-1 mr-2 ml-2 backlabel">
+                                <div style="padding: 8px;">
+                                    <P style="font-size: min( 3.7vw,5*3.7px);">
+                                        การชวนคนให้มาสมัครนั้นมีอยู่หลายวิธีด้วยกัน ไม่ว่าจะเป็นการ
+                                        ชวนกลุ่มเพื่อนของคุณโดยตรงหรือใช้ช่องทางออนไลน์อื่นๆ
+                                        ทั้งหมดนี้ขึ้นอยู่กับความถนัดและความขยันของแต่ละคนด้วย
+                                    </P>
+                                    <P style="font-size: min( 3.7vw,5*3.7px);"> โดยที่ทาง <b>finnbet</b>
+                                        เรามีทีมงานที่พร้อมจะช่วยเหลือคุณให้ ประสบความสำเร็จในทุกขั้นตอน
+                                        ไม่ว่าจะเป็นการออกแบบรูปภาพ หรือเว็บไซต์โฆษณาให้แบบฟรีๆ
+                                        หรือการให้คำปรึกษาด้านการตลาด อื่นๆเป็นต้น
+                                    </P>
+                                    <P style="font-size: min( 3.7vw,5*3.7px);"> หากสงสัย อย่ารอช้า
+                                        เพียงแค่ติดต่อเราเข้ามาเท่านั้นแล้วเราจะช่วย
+                                        ให้คุณได้สร้างรายได้ให้กับตนเองอย่างยั่งยืนแน่นอน 100%
+                                    </P>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr>
+                    <div class="mt-3 mb-3">
+                        <div class="row mr-2 ml-2" data-toggle="collapse" data-target="#collapseThree"
+                            aria-expanded="false" aria-controls="collapseThree">
+                            <div class="col-10">
+                                <div class="row">
+                                    <img src="assets/image/af/QT3.png" style="height:min( 10vw,5*10px);">
+                                </div>
+                                <div class="row mt-2">
+                                    <p style="font-size: min(5vw,5*4px);"><b>ตรวจสอบรายได้ของคุณยังไง </b></p>
+                                </div>
+                            </div>
+                            <div class="col-2" style="text-align: center;align-self: center;cursor: pointer;">
+                                <i class="fa fa-angle-down"></i>
+                            </div>
+                        </div>
+                        <div id="collapseThree" class="collapse" aria-labelledby="collapseThree"
+                            data-parent="#accordionExample">
+                            <div class="mt-1 mr-2 ml-2 backlabel">
+                                <div style="padding: 8px;">
+                                    <P style="font-size: min( 3.7vw,5*3.7px);">
+                                        คุณสามารถตรวจสอบยอดรายได้ของคุณได้ตลอดเวลาที่หน้า
+                                        <b>“ภาพรวม” ในเมนูแนะนำ/สร้างรายได้ </b>โดยในหน้านี้จะมีข้อมูล
+                                        อัพเดตให้คุณตลอดเวลาว่ามีลูกข่ายสมัครเข้ามาทั้งหมดกี่คนและ
+                                        มียอดแทงเท่าไหร่แล้วเป็นต้น
+                                    </P>
+                                    <P style="font-size: min( 3.7vw,5*3.7px);">
+                                        โดยคุณยังสามารถเช็คได้โดยละเอียดอีกด้วยในหน้า
+                                        <b>“สมาชิก”
+                                        </b> ว่าลูกข่ายคนไหนมียอดแทงประเภทไหนบ้างและจำนวนเท่าไหร
+                                    </P>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="mt-3 mb-3">
+                        <div class="row mr-2 ml-2" data-toggle="collapse" data-target="#collapsefoo"
+                            aria-expanded="false" aria-controls="collapsefoo">
+                            <div class="col-10">
+                                <div class="row">
+                                    <img src="assets/image/af/QT4.png" style="height:min( 10vw,5*10px);">
+                                </div>
+                                <div class="row mt-2">
+                                    <p style="font-size: min(5vw,5*4px);"><b>ถอนรายได้ยังไง </b></p>
+                                </div>
+                            </div>
+                            <div class="col-2" style="text-align: center;align-self: center;cursor: pointer;">
+                                <i class="fa fa-angle-down"></i>
+                            </div>
+                        </div>
+                        <div id="collapsefoo" class="collapse" aria-labelledby="collapsefoo"
+                            data-parent="#accordionExample">
+                            <div class="mt-1 mr-2 ml-2 backlabel">
+                                <div style="padding: 8px;">
+                                    <P style="font-size: min( 3.7vw,5*3.7px);">หากต้องการถอนรายได้
+                                        คุณก็ทำได้ง่ายๆเพียงแค่เข้าไปที่หน้า
+                                        <b>“แจ้งถอนรายได้”</b> ซึ่งรายได้นี้คุณสามารถแจ้งถอนออกเป็นเงินสด
+                                        หรือเครดิตก็ได้ขึ้นอยู่กับคุณทุกวันทั้งวัน 24/7 โดยมีเงื่อนไขการ
+                                        ถอนขั้นต่ำแค่เพียง 300บาทเท่านั้น
+                                    </P>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

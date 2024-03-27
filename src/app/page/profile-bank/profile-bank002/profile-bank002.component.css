@@ -1,0 +1,26 @@
+.screen {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.fontbankAccount {
+    font-size: min(9vw, 5*9px);
+    color: #fff;
+    letter-spacing: 4px;
+    font-family: "uni", sans-serif !important;
+}
+
+.fontbanName {
+    font-size: min(7vw, 5*7px);
+    color: #fff;
+}
+
+.fontBank {
+    font-size: min(5vw, 5*5px);
+    color: #fff;
+}
+
+input,
+textarea {
+    border-radius: 5px;
+}

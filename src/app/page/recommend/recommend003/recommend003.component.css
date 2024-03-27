@@ -1,0 +1,30 @@
+.buttonma {
+    margin-top: 3px;
+}
+
+.isCopyCss {
+    color: #020A2E;
+    background-color: #00E38D;
+}
+
+.isNotCopyCss {
+    color: #00E38D;
+    background-color: #020A2E;
+}
+
+.backlabel {
+    background-color: #E7EBEF;
+    border-radius: 10px;
+}
+
+@media (max-width: 320px) {
+    .fonrDetail {
+        font-size: min( 5.5vw, 5*5.5vw);
+    }
+}
+
+@media (min-width: 321px) and (max-width: 770px) {
+    .fonrDetail {
+        font-size: min( 5.5vw, 5*5.5vw);
+    }
+}

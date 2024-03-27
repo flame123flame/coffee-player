@@ -1,0 +1,19 @@
+<div class="screen">
+    <div class="row mt-2" style="    margin-right: 0px;
+    margin-left: -4px;">
+        <div class="col" style=" padding-right: 1px;padding-left: 2px;">
+            <button [ngClass]="{'activess1': tabIdx1 == 1, 'buttonPoy01': tabIdx1 ==  0}" (click)="gotoResults01()" type="button" class="btn  btn-block  shadow">
+                <i class="fa fa-calendar fa-lg mr-2" ></i>
+                <b class="fontTab">ผลหวยเรียงตามวันที่</b></button>
+        </div>
+        <div class="col" style=" padding-right: 0px;padding-left: 0px;">
+            <button [ngClass]="{'activess2': tabIdx2 == 2, 'buttonPoy02': tabIdx2 == 0}" (click)="gotoResults02()" type="button" class="btn   btn-block shadow">
+                <i class="fa fa-list-ul fa-lg mr-2"></i>
+                <b class="fontTab">ผลหวยเรียงตามประเภท</b></button>
+        </div>
+
+    </div>
+
+    <router-outlet></router-outlet>
+
+</div>

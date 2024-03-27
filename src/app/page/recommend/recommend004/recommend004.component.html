@@ -1,0 +1,68 @@
+<div class="row rowPad  mt-3 ml-1 mr-1" style="justify-content: space-evenly;">
+    <card-recommend *ngFor="let item of listMenu" [header]="item.name" [detail]="item.income"></card-recommend>
+</div>
+<div class="card mt-1 mb-3">
+    <form>
+        <div class="card-body" style="padding: 0 1.25rem 0.5rem 1.25rem;">
+            <div class="row mt-3">
+                <div class="col">
+                    <div class="fontH">จำนวนที่ต้องการถอน (ขั้นต่ำ300บาท)
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input type="number" class="form-control" [(ngModel)]="income" name="income" placeholder="กรอกจำนวนที่ต้องการถอน">
+                </div>
+            </div>
+            <div *ngIf="!isIncome" class="text-center">
+                <span style="color: red;">*จำนวนที่ต้องการถอนมากกว่ายอดรายได้ทั้งหมดที่มี {{this.dataAff.totalIncome}}
+                    บาท</span>
+            </div>
+            <div class="row mt-2">
+                <div class="col">
+                    <button type="submit" class="btn  btn-block " (click)="withdrawFn()" style="border-radius: 10px;color: white;" [style.background]="income>=300?'transparent linear-gradient(101deg, #1791D8 0%, #5BC3FF 100%) 0% 0% no-repeat padding-box':'grey'"><i class="fa fa-check" aria-hidden="true"></i> แจ้งถอนรายได้</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="scrollX mt-3" style="background-color: #fff;border-radius: 10px;">
+    <table class="table ">
+        <thead>
+            <tr style="color: white;background-color: #020A2E;">
+                <th>รายละเอียด </th>
+                <th>จำนวนเงิน </th>
+                <th>รายได้คงเหลือ </th>
+                <th>วันที่ทำรายการ</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th colspan="4" class="text-center">ไม่มีข้อมูล</th>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<ng-template #showAlertContirmText>
+    <div class="mid">
+        <div body class="mb-3 mt-2 mr-2">
+            <div class="screen mt-4 ">
+                <div class="row text-right" (click)="closeModal()"> <i class="material-icons" style="position: absolute; right: min(2vw,5*2px); top: min(1vw,5*1px);color: rgb(221, 75, 75);font-weight: bold;">cancel</i>
+                </div>
+                <div class="row " style="margin: min(5vw,5*5px) 0vw min(8vw,5*8px) 0;justify-content: center;">
+                    <img *ngIf="alertData.status" src="assets/image/asset/Correct2.svg" style="width: min(20vw,5*20px);">
+                    <img *ngIf="!alertData.status" src="assets/image/asset/warnning2.svg" style="width:  min(20vw,5*20px);"></div>
+                <div class="mid" style="font-size: min(5vw,5*5px);">
+                    <span style="font-size: min(5vw,5*5px);"><b>ทำรายการเสร็จสิ้น</b></span>
+                </div>
+                <div class="row mt-4 " style="height: 1px;border-top: 1px solid #d1d1d1; "></div>
+                <div class="mt-4 row" style="justify-content: center;">
+                    <div class="card noShadow mid noShadow NoBorder ml-1" (click)="closeModal()" style="padding:  min(2vw,5*2px);width:  min(22vw,5*22px);border-radius: 7px !important;font-size: min(5vw,5*5px);" [style.background-color]="alertData.status?'#00C157':'#E90061'">
+                        <b style="color: white;">รับทราบ</b>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>

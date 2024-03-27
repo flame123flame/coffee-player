@@ -1,0 +1,41 @@
+<div class="screen">
+    <div *ngIf="isShow == 'show'" class="card mt-3" style="border-radius: 10px;">
+        <div class="row" style=" padding-top: 10px;padding-left: 5px;padding-right: 5px;align-items: center;">
+            <div class="  text-center" style="width: 5%;"></div>
+            <div class="col paddingDiv text-center" style="cursor: pointer; padding-right: 0px !important; 
+            padding-left: 0px !important;" (click)="clickTap(3)">
+                <div class="iconstype" style="color: #40AA6E;height: min( 10vw,5*7px);" class="mid"> <img
+                        src="assets/image/asset/money.png" style="width:min( 10vw,5*10px) ;">
+                </div>
+                <div class="fontButton" style="padding-bottom: 18px;margin-top: 10px;"
+                    [ngClass]="{'activesstive3':check == '/recommend/recommend-user-tab3'} ">สร้างรายได้</div>
+            </div>
+            <div class="col  paddingDiv text-center" style="cursor: pointer; padding-right: 0px !important; 
+            padding-left: 0px !important;" (click)="clickTap(2)">
+                <div class="iconstype" style="color: #5E107A;height: min( 10vw,5*7px);" class="mid"> <img
+                        src="assets/image/asset/hand.png" style="width:min( 10vw,5*10px) ;"></div>
+                <div class="fontButton" style="padding-bottom: 18px;margin-top: 10px;"
+                    [ngClass]="{'activesstive2': check == '/recommend/recommend-user-tab2'} ">สมาชิก</div>
+            </div>
+            <div class="col  paddingDiv  text-center" style="cursor: pointer; padding-right: 0px !important; 
+            padding-left: 0px !important;" (click)="clickTap(1)">
+                <div style="color: #1455AA;font-size: 6vw;height: min( 10vw,5*7px);" class="mid"> <img
+                        src="assets/image/asset/eye.png" style="width:min( 10vw,5*10px) ;">
+                </div>
+                <div style="padding-bottom: 18px;margin-top: 10px;" class="fontButton"
+                    [ngClass]="{'activesstive1': check == '/recommend/recommend-user-tab1'} ">ภาพรวม</div>
+            </div>
+            <div class="col paddingDiv text-center" style="cursor: pointer; padding-right: 0px !important; 
+            padding-left: 0px !important;" (click)="clickTap(4)">
+                <div class="iconstype" style="color: #E57D07;height: min( 10vw,5*7px);" class="mid"> <img
+                        src="assets/image/asset/clock.png" style="width:min( 10vw,5*10px) ;"></div>
+                <div class="fontButton" style="padding-bottom: 18px;margin-top: 8px;"
+                    [ngClass]="{'activesstive4': check == '/recommend/recommend-user-tab4'} ">แจ้งถอนรายได้</div>
+            </div>
+            <div class="  text-center" style="width: 5%;"></div>
+        </div>
+    </div>
+    <div>
+        <router-outlet></router-outlet>
+    </div>
+</div>

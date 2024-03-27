@@ -1,0 +1,25 @@
+<div class="row hTop m-0" style="     align-items: center;
+position: fixed;
+background-color: #020a2e;
+width: 100vw;
+z-index: 100;
+top: 0;">
+    <img (click)="refresh()" style="cursor: pointer;" class="ml-4" src="assets/image/logofin.png" height="65%" alt="">
+    <div>
+        <div class="textLogin ">
+            <b (click)="CliclLogin()" class="mr-3 colorLogin">เข้าสู่ระบบ</b>
+        </div>
+        <div id="verticle-line"></div>
+        <button (click)="click()" type="button" class="btn btn-sm btt mb-3 mr-2 ml-4"><b>{{text}}</b></button>
+
+    </div>
+
+    <div class="mr-2" style="z-index: 99;">
+
+        <img (click)="clickMenu()" src="assets/image/menubar.png" class="cardSM">
+
+    </div>
+
+    <img src='./assets/image/curve-L.png' style=" transform: scale(-1);   top: 0; position: absolute;
+right: 0;z-index: 9;" class="img img-curve">
+</div>

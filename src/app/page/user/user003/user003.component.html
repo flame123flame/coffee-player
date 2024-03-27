@@ -1,0 +1,76 @@
+<div class="screen mt-4">
+    <div class="mid">
+        <span style="font-size: min(6vw,5*6px);"><b>ข้อความ ({{listNotification.length}})</b></span>
+    </div>
+    <div class="row mt-2" style="padding: min(4vw,5*4px);    justify-content: space-between;">
+        <div class="row" style="padding-left: min(5vw,5*5px);">
+            <div class="card cardMini" style="background-color: #020A2E;color: white;">
+                <!-- (click)="findRead(true)"> -->
+                <span>กล่องข้อความ</span>
+            </div>
+            <!-- <div *ngIf="readStatusIs" class="card cardMini" style="background-color: #020A2E;color: white;"
+                (click)="findRead(true)">
+                <span>ข้อความขยะ</span>
+            </div> -->
+            <div class="card cardMini ml-2" style="background-color: #F2F2F2;color: #020A2E;border:1px solid #020A2E;" (click)="deleteAll()">
+                <span>ล้างข้อมูล</span>
+            </div>
+        </div>
+        <div (click)="findView()">
+            <div *ngIf="viewStatus == 'all'" class="card cardMini" style="background-color: #F2F2F2;color: #020A2E;border:1px solid #020A2E;">
+                <span>ดูทั้งหมด</span>
+            </div>
+            <div *ngIf="viewStatus == 'NORMAL'" class="card cardMini" style="background-color: #F2F2F2;color: #020A2E;border:1px solid #020A2E;">
+                <span>เฉพาะข้อความ</span>
+            </div>
+            <div *ngIf="viewStatus == 'POMOTION'" class="card cardMini" style="background-color: #F2F2F2;color: #020A2E;border:1px solid #020A2E;">
+                <span>เฉพาะโปรโมชั่น</span>
+            </div>
+        </div>
+    </div>
+    <hr style="margin-top: 0px;">
+    <div class=" mt-1">
+        <div *ngIf="listNotification.length == 0" class="mt-2">
+            <div class="card cardNoti2">
+                <div class="card-body text-center" style="padding: 0.75rem;align-items:center !important;">
+                    <div>
+                        <h2 style="margin: 0px;">ไม่มีข้อความเข้า</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngFor="let item of listNotification" class="mt-2">
+            <div *ngIf="item.messageType=='NORMAL'">
+                <div class="card ">
+                    <div class="card-body cardCon">
+                        <div class="row" style="align-items:center !important;">
+                            <span *ngIf="item.status == 'UNREAD'"><img src="assets/image/asset/alert3.png"
+                                    class="sizeIcon1"></span>
+                            <span *ngIf="item.status == 'READ'" class="sizeIcon2"></span>
+                            <span (click)="goToMessage(item)" class="col-7 overflow" style="font-size: min(5vw,5*5px);"><b>{{item.subject}}</b></span>
+                            <span class="col-3" style="font-size: min(5vw,5*5px);padding-right: 5px;color: #a8a8a8;">{{item.createdDate |  date:'hh:mm'}}</span>
+                            <div class="vl "></div>
+                            <span (click)="deleteMessage(item.messageCode)"><img src="assets/image/asset/trash2.png"
+                                    class="sizeIcon"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="item.messageType=='POMOTION'" class="mt-2" routerLinkActive="router-link-active">
+                <div class="card ">
+                    <div class="card-header"><img [src]="item.promotion?.promoBanner" loading="lazy" class="imgNoti">
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <span class="col" style="padding:0px;padding-left: min(3vw,5*3px);font-size: min(4vw,5*4px);">{{item.promotion?.promoTitle}}</span>
+                            <span class="col-0" style="padding:0px">{{item.createdDate}}</span>
+                        </div>
+                        <div class="card card-blue mt-4" style="align-self: center;" (click)="routSandCode(item.promotion)">
+                            <div class="card-body text-center">
+                                <span style="font-size: min(5vw,5*5px);">ลงทะเบียนรับสิทธิ์</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>

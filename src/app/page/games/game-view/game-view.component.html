@@ -1,0 +1,35 @@
+<div class="screen">
+
+    <div class="card mt-2 ">
+        <div class="card-body">
+            <div class="row">
+                <i (click)="back()" class="fa fa-arrow-circle-left ml-1" style="color:#020A2E;font-size: min(7vw,5*7px);cursor: pointer;"></i>
+                <div class="col " style="align-self: flex-end;">
+                    <b style="color:#020A2E;;font-size: min(5vw,5*5px);">{{gameName}}</b>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card mt-3" *ngFor="let item of listGameMont">
+        <div class="row">
+            <div class="col img_wrp">
+                <ng-container *ngIf="item.image2 && item.image2.startsWith('//'); else elseTem">
+                    <img loading="lazy" [src]='item.image1  || "./assets/image/dead-image.png"' id="imgUNcover">
+                </ng-container>
+                <ng-template #elseTem>
+                    <img loading="lazy" [src]='item.image1?imgApi + item.image1 : "./assets/image/dead-image.png"' id="imgUNcover">
+                </ng-template>
+
+            </div>
+            <div class="col text-center" style="align-self: center;padding-right: 20px;">
+                <b style="font-size: min(5vw,5*5px); margin-right: 10px;">{{item.gameName}}</b><br>
+                <button type="button " (click)="goGame(item)" class="btn btn-sm " style="background-color: #FFDE0C;     padding-top: 4px;
+                padding-bottom: 4px;
+                padding-left: 24px;
+                padding-right: 24px;"><b style="color: #020A2E; ">เล่นเกมส์</b></button>
+            </div>
+        </div>
+
+
+    </div>
+</div>

@@ -1,0 +1,231 @@
+<div class="screen">
+    <div class="row ">
+        <div class="col">
+            <div class="input-group mt-1 ">
+                <div class="input-group-prepend ">
+                    <div class="input-group-text iConinputCalendar shadow-sm rounded" style="border:none;background-color: #F2F2F2;"><i class="fa fa-calendar"></i></div>
+                </div>
+                <input (change)="getList();getListYeekee();getListStock()" [(ngModel)]="dateNow" type="date" id="myDate" class="form-control shadow-sm inputCalendar bg-white rounded" style="border:none" placeholder="กรุณาเลือกวันที่" required value="{{dateNow}}" />
+            </div>
+        </div>
+    </div>
+    <div class="row ">
+        <div class="col">
+            <div class="mt-2 shadow-sm bg-white rounded" *ngFor="let item of list">
+                <div *ngIf="item.lottoClassCode == 'THAI'">
+                    <div class="row p-2">
+                        <div class="col">
+                            <img [src]="item.lottoClassImg" class="mr-2" loading="lazy" height="40px" width="40px"> <b class="colorText" style="font-size: min(4vw,5*4px); ">{{item.lottoClassName}}</b>
+                        </div>
+                        <div class="col text-right">
+                            <button disabled type="button" class="btn opacity1 btn-sm mr-2" style="padding-bottom: 2px;padding-top: 2px;background-color: #E90061;"><span
+                                    style="color: #fff;font-size: min(3.3vw,5*3.3px); ">{{item.convertDate}}</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-left: 1rem;margin-right: 1rem;">
+                        <div class="col text-center">
+                            <span style="color: #020A2E;font-size: min(4.2vw,5*4.2px); ">สามตัวบน</span><br>
+                            <b style="color: #020A2E;font-size: min(4.2vw,5*4.2px); ">{{item.digit3Top  || 'รอผล'}}</b>
+                        </div>
+                    </div>
+                    <hr style="background-color: #8C99A9;margin-top: 0rem;margin-bottom: 0rem;margin-left: 1rem;margin-right: 1rem;">
+                    <div class="row pb-3 pt-1" style="margin-left: 1rem;margin-right: 1rem;">
+
+                        <div class="col text-center borderR">
+                            <span style="color: #020A2E;font-size: min(4.2vw,5*4.2px); ">สามตัวหน้า</span><br>
+                            <b style="color: #020A2E;font-size: min(4.2vw,5*4.2px); ">{{item.digit3Front  || 'รอผล'}}</b>
+                        </div>
+                        <div class="col text-center borderR">
+                            <span style="color: #020A2E;font-size: min(4.2vw,5*4.2px); ">สามตัวหลัง</span><br>
+                            <b style="color: #020A2E;font-size: min(4.2vw,5*4.2px); ">{{item.digit3Bot  || 'รอผล'}}</b>
+                        </div>
+                        <div class="col text-center ">
+                            <span style="color: #020A2E;font-size: min(4.2vw,5*4.2px); ">สองตัวล่าง</span><br>
+                            <b style="color: #020A2E;font-size: min(4.2vw,5*4.2px); ">{{item.digit2Bot  || 'รอผล'}}</b>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="item.lottoClassCode != 'THAI'">
+                    <div class="row p-2">
+                        <div class="col">
+                            <img [src]="item.lottoClassImg" class="mr-2" loading="lazy" height="40px" width="40px"> <b class="colorText" style="font-size: min(4.2vw,5*4.2px); ">{{item.lottoClassName}}</b>
+                        </div>
+                        <div class="col text-right">
+                            <button disabled type="button" class="btn opacity1 btn-sm mr-2" style=" padding-bottom: 2px;
+padding-top: 2px;
+background-color: #E90061;"><span style="color: #fff;font-size: min(3.3vw,5*3.3px); ">{{item.convertDate}}</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col text-center">
+                            <span style="color: #020A2E;font-size: min(4.2vw,5*4.2px); ">สามตัวบน</span>
+                        </div>
+                        <div class="col text-center">
+                            <span style="color: #020A2E;font-size: min(4.2vw,5*4.2px); ">สามตัวล่าง</span>
+                        </div>
+
+                    </div>
+                    <hr style="background-color: #8C99A9;margin-top: 0rem;margin-bottom: 0rem;margin-left: 1rem;margin-right: 1rem;">
+                    <div class="row pb-3 pt-1">
+                        <div class="col text-center">
+                            <b style="color: #020A2E;font-size: min(4.2vw,5*4.2px); ">{{item.digit2Bot || 'รอผล'}}</b>
+                        </div>
+                        <div class="col text-center">
+                            <b style="color: #020A2E;font-size: min(4.2vw,5*4.2px); ">{{item.digit3Top|| 'รอผล'}}</b>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="mt-2 shadow-sm bg-white rounded" *ngFor="let itemStock of listStock">
+                        <div class="row p-2">
+                            <div class="col">
+                                <b class="colorText" style="font-size: min(4.2vw,5*4.2px); ">{{itemStock.lottoCategoryName}}</b>
+                            </div>
+                            <div class="col text-right">
+                                <button disabled type="button" class="btn opacity1 btn-sm mr-2" style=" padding-bottom: 2px;padding-top: 2px;background-color: #E90061;">
+                                    <span style="color: #fff;font-size: min(3.3vw,5*3.3px); ">{{itemStock.convertDate}}</span>
+                                    </button>
+                            </div>
+                        </div>
+                        <div *ngFor="let stockListSub of itemStock.stockList">
+                            <div class="row mb-2 " style="margin-left: 1rem;margin-right: 1rem; border-radius: 0px;background-color: #D8D8D8; ">
+                                <img [src]="stockListSub.lottoClassImg" class="mr-2" loading="lazy" height="30px" width="30px" style="    margin-bottom: 4px;
+                                margin-left: 8px;
+                                margin-top: 4px;">
+                                <div class="col text-center" style="    align-self: center;">
+                                    <span style="font-size: min(4vw,4*4px); ;margin-left: -37px;">{{stockListSub.lottoClassName}}</span>
+                                </div>
+
+                                <!-- <div type="button" class="col text-center pt-1 pb-1 " style="border-radius: 0px;background-color: #D8D8D8; "> {{stockListSub.lottoClassName}} </div> -->
+                            </div>
+                            <div class="row pb-2">
+                                <div class="col text-center borderR ">
+                                    <span style="color: #020A2E;font-size: min(4.2vw,5*4.2px); ">สามตัวบน</span><br>
+                                    <b style="color: #020A2E;font-size: min(4.2vw,5*4.2px); ">{{stockListSub.digit3Top || 'รอผล'}}</b>
+
+                                </div>
+                                <div class="col text-center ">
+                                    <span style="color: #020A2E;font-size: min(4.2vw,5*4.2px); ">สองตัวล่าง</span><br>
+                                    <b style="color: #020A2E;font-size: min(4.2vw,5*4.2px); ">{{stockListSub.digit2Bot  || 'รอผล'}}</b>
+                                </div>
+
+                            </div>
+                            <hr style="background-color: #8C99A9;margin-top: 0rem;margin-bottom: 0rem;margin-left: 1rem;margin-right: 1rem; "><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row ">
+                <div class="col">
+                    <div class="mt-2 shadow-sm bg-white rounded" *ngFor="let item of listYeekee">
+                        <div *ngIf="item.lottoClassCode == 'YEEKEE'">
+                            <div class="row p-2">
+                                <div class="col">
+                                    <img [src]="item.lottoClassImg" class="mr-2" loading="lazy" height="40px" width="40px"> <b class="colorText" style="font-size: min(4.2vw,5*4.2px); ">{{item.lottoClassName}}</b>
+                                </div>
+                                <div class="col text-right">
+                                    <button disabled type="button" class="btn opacity1 btn-sm mr-2" style="padding-bottom: 2px;padding-top: 2px;background-color: #E90061;"><span
+                                            style="color: #fff;font-size: min(3.3vw,5*3.3px); ">{{item.convertDate}}</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="row mb-2" style="margin-left: 1rem;margin-right: 1rem">
+                                <div *ngFor="let itemYee of listYeekee;let index = index" class="col p-0" (click)="goToForGame(index,itemYee.lottoClassCode);">
+                                    <div *ngIf="itemYee.active" [ngClass]="{'activess1': itemYee.active}" class=" borderDiv text-center pt-1 pb-1 " style="border-radius: 0px; ">
+                                        {{itemYee.lottoClassName}}
+                                    </div>
+                                    <div *ngIf="!itemYee.active " [ngClass]="{'activess1': itemYee.active}" class="borderDiv text-center pt-1 pb-1 " style="border-radius: 0px; ">
+                                        {{itemYee.lottoClassName}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row " style=" margin-left: 0rem;margin-right: 1rem ">
+                                <div class="col text-left ">
+                                    <span style="color: #020A2E;font-size: minfitemYee(4.2vw,5*4.2px); ">ออกผลล่าสุด</span>
+                                </div>
+                            </div>
+                            <div class="row mb-2 " style="margin-left: 1rem;margin-right: 1rem ">
+                                <div type="button " class="col text-center pt-1 pb-1 " style="border-radius: 0px;background-color: #D8D8D8; ">จับยี่กีรอบที่ {{roundYeekee}} </div>
+                            </div>
+                            <div class="row pb-2 pt-1 ">
+                                <div class="col text-center borderR ">
+                                    <span style="color: #020A2E;font-size: min(4.2vw,5*4.2px); ">สามตัวบน</span><br>
+                                    <b style="color: #020A2E;font-size: min(4.2vw,5*4.2px); ">{{digit3TopLottoNumber || 'รอผล'}}</b>
+
+                                </div>
+                                <div class="col text-center ">
+                                    <span style="color: #020A2E;font-size: min(4.2vw,5*4.2px); ">สองตัวล่าง</span><br>
+                                    <b style="color: #020A2E;font-size: min(4.2vw,5*4.2px); ">{{digit2BotLottoNumber  || 'รอผล'}}</b>
+                                </div>
+                            </div>
+                            <hr style="background-color: #8C99A9;margin-top: 0rem;margin-bottom: 0rem;margin-left: 1rem;margin-right: 1rem; ">
+                            <div class="row mb-2 mt-2 " style="margin-left: 1rem;margin-right: 1rem ">
+                                <div (click)="clickTab01()" [ngClass]="{ 'activess1': tabIdx1 == 1 , 'buttonPoy01': tabIdx1 == 0 } " class="col text-center pt-1 pb-1 " style="border-radius: 0px; ">มุมมองยาว</div>
+                                <div (click)="clickTab02()" [ngClass]="{ 'activess2': tabIdx2 == 2 , 'buttonPoy02': tabIdx2 == 0 } " class="col text-center pt-1 pb-1 " style="border-radius: 0px; ">มุมมองตาราง</div>
+                            </div>
+                            <div *ngIf="expression">
+                                <div class="row mb-2 " style="margin-left: 1rem;margin-right: 1rem ">
+                                    <div type="button " class="col text-center pt-1 pb-1 " style="border-radius: 0px;background-color: #D8D8D8; ">จับยี่กีรอบที่ {{roundYekeeTable}}
+                                    </div>
+                                </div>
+                                <div class="row pb-2 pt-1 ">
+                                    <div class="col text-center borderR ">
+                                        <span style="color: #020A2E;font-size: min(4.2vw,5*4.2px); ">สามตัวบน</span><br>
+                                        <b style="color: #020A2E;font-size: min(4.2vw,5*4.2px); ">{{digit3TopLottoNumberTable || 'รอผล'}}</b>
+                                    </div>
+                                    <div class="col text-center ">
+                                        <span style="color: #020A2E;font-size: min(4.2vw,5*4.2px); ">สองตัวล่าง</span><br>
+                                        <b style="color: #020A2E;font-size: min(4.2vw,5*4.2px); ">{{digit2BotLottoNumberTable || 'รอผล'}}</b>
+                                    </div>
+                                </div>
+                                <hr style="background-color: #8C99A9;margin-top: 0rem;margin-bottom: 0rem;margin-left: 1rem;margin-right: 1rem; ">
+                                <div class="row mr-0 ml-0 mt-3">
+                                    <div *ngFor="let item of list100;let index = index" (click)="clickActiveTable(index)" style="padding-right: 5px;padding-left: 5px;" class="col-2 mid text-center">
+                                        <div *ngIf="item.active" class="card card-mini-6 mb-2 mid">
+                                            <b>{{item.number}}</b>
+                                        </div>
+                                        <div *ngIf="!item.active" class="card card-mini-5 mb-2 mid">
+                                            <b>{{item.number}}</b>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div *ngIf="!expression">
+                                <div *ngFor="let itemRun of listShow ">
+                                    <div class="row mb-2 mt-2 " style="margin-left: 1rem;margin-right: 1rem ">
+                                        <div type="button " class="col text-center pt-1 pb-1 " style="border-radius: 0px;background-color: #D8D8D8; ">จับยี่กีรอบที่ {{itemRun.roundYeekee}} </div>
+                                    </div>
+                                    <div class="row pb-2 pt-1 ">
+                                        <div class="col text-center borderR ">
+                                            <span style="color: #020A2E;font-size: min(4.2vw,5*4.2px); ">สามตัวบน</span><br>
+                                            <b class="mt-1 " style="color: #020A2E;font-size: min(4.2vw,5*4.2px); margin-top: 3px; ">{{itemRun.digit3TopLottoNumber || 'รอผล'}}</b>
+                                        </div>
+                                        <div class="col text-center ">
+                                            <span style="color: #020A2E;font-size: min(4.2vw,5*4.2px); ">สองตัวล่าง</span><br>
+                                            <b class="mt-1 " style="color: #020A2E;font-size: min(4.2vw,5*4.2px); margin-top: 3px; ">{{itemRun.digit2BotLottoNumber || 'รอผล'}}</b>
+                                        </div>
+                                    </div>
+                                    <hr style="background-color: #8C99A9;margin-top: 0rem;margin-bottom: 0rem;margin-left: 1rem;margin-right: 1rem; ">
+                                    <div class="mt-2 ">
+                                        &nbsp;
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+
+
+
+</div>

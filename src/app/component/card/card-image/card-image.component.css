@@ -1,0 +1,21 @@
+.card {
+    background: transparent linear-gradient(106deg, #828b9e 0%, #32364e 100%) 0% 0% no-repeat padding-box;
+    border-radius: 10px;
+    position: relative;
+    padding-top: 20px;
+    height: 110px;
+}
+
+.iconSize {
+    z-index: 0;
+}
+
+.notify-badge {
+    position: absolute;
+    right: -20px;
+    top: -30px;
+    text-align: center;
+    color: white;
+    padding: 5px 10px;
+    font-size: 20px;
+}

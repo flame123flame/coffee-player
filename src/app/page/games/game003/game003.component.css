@@ -1,0 +1,104 @@
+.screen {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.card {
+    background: #ffffff 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 13px;
+}
+
+.card-game {
+    height: min(47vw, 5*47px);
+    width: min(42.4vw, 5*42.4px);
+}
+
+.card.pd {
+    margin-bottom: min(4vw, 5*4px);
+}
+
+.row {
+    margin-right: -0px;
+    margin-left: -0px;
+    justify-content: space-between;
+}
+
+.card-footer {
+    font-weight: bolder;
+    border-top: 0;
+    padding: min(1vw, 5*1px) 0 min(1vw, 5*1px) 0;
+    background-color: #ffde0b;
+}
+
+.img {
+    width: min(38.1vw, 5*38.1px);
+    height: min(33.87vw, 5*33.87px);
+    z-index: 1;
+}
+
+.mid {
+    padding-left: 1px;
+    padding-right: 1px;
+    padding-bottom: min(2vw, 5*2pc);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.heart {
+    position: absolute;
+    z-index: 99;
+    color: palevioletred;
+    top: 0vw;
+    right: 0vw;
+    text-shadow: 0px 0px 6px palevioletred;
+}
+
+.icon {
+    height: 100%;
+    opacity: 0.05;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 0;
+}
+
+*:focus {
+    outline: 0 !important;
+}
+
+.textGame {
+    font-size: min(5vw, 5*5px);
+    color: #020A2E;
+}
+
+.bottonInimage {
+    width: 24%;
+    position: absolute;
+    top: 43%;
+    left: 81%;
+    background-color: #FFDE0C;
+    transform: translate(-50%, -50%);
+}
+
+.textGameButoom {
+    font-size: min(6vw, 5*6px);
+    color: #020A2E;
+}
+
+.img_wrp {
+    display: inline-block;
+    position: relative;
+}
+
+.imgdetail {
+    margin-left: 3px;
+}
+
+#imgUNcover {
+    margin-top: -10px;
+    width: 100%;
+    /* padding-top: -10px; */
+    object-fit: contain;
+}

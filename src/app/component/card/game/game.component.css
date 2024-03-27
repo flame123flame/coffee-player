@@ -1,0 +1,22 @@
+.fontH {
+    font-size: 8vw;
+}
+
+.fontD {
+    font-size: 5vw;
+}
+
+.btt {
+    padding-left: 40px;
+    padding-right: 40px;
+    border-radius: 34px;
+}
+
+.bac01 {
+    /* background: url(./../../../../assets/image/svg/Asset6.svg); */
+    background: url(./../../../../assets/image/backa.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 93vh;
+    width: 100% !important;
+}

@@ -1,0 +1,57 @@
+.screen {
+    margin-top: 0.5rem;
+    padding-left: 0rem;
+    padding-right: 0rem;
+}
+
+.iConinputCalendar {
+    border-top-left-radius: 6px !important;
+    border-bottom-left-radius: 6px !important;
+    border-top-right-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+}
+
+.inputCalendar {
+    border-top-left-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+    border-top-right-radius: 6px !important;
+    border-bottom-right-radius: 6px !important;
+}
+
+.colorText {
+    color: #020A2E;
+}
+
+.borderR {
+    border-right-width: 1px;
+    border-right-style: solid;
+    border-right-color: #8C99A9;
+}
+
+.borderDiv {
+    border-right-width: 1px;
+    border-style: solid;
+    border-color: #020A2E;
+}
+
+.activess1 {
+    background-color: #020A2E;
+    color: white;
+}
+
+.activess2 {
+    background-color: #020A2E;
+    color: white;
+}
+
+.buttonPoy01 {
+    border-right-width: 1px;
+    border-style: solid;
+    border-color: #020A2E;
+}
+
+.buttonPoy02 {
+    border-right-width: 1px;
+    border-style: solid;
+    border-color: #020A2E;
+}

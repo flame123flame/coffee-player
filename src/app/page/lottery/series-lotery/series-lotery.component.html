@@ -1,0 +1,78 @@
+<div class="screen">
+    <!-- <div class="row mt-4" style="    margin-right: 0px;
+    margin-left: -4px;">
+        <div class="col-1"></div>
+        <div class="col-5" style=" padding-right: 1px;padding-left: 3px;">
+            <button [ngClass]="{'buttonPoy01': tabIdx1 ==  0}" type="button" class="btn  btn-block  shadow">
+                <i class="fa fa-list-ol fa-lg mr-2"></i>
+                <b class="fontTab">เลขชุด</b></button>
+        </div>
+        <div class="col-5" style=" padding-right: 1px;padding-left: 3px;">
+            <button (click)="gotoTotalLoto()" [ngClass]="{ 'buttonPoy02': tabIdx2 == 0}" type="button" class="btn   btn-block shadow">
+                <i class="fa fa-bars fa-lg mr-2"></i>
+                <b class="fontTab">ดูโพย</b></button>
+        </div>
+        <div class="col-1"></div>
+
+    </div> -->
+    <div class="row mt-3">
+        <div class="col-1"></div>
+        <div class="col-10">
+            <button (click)="gotoAdd()" type="button" class="btn  btn-lg btn-block border-dark buttonCreatePoy">
+                <b>สร้างเลขชุด</b>
+            </button>
+        </div>
+        <div class="col-1"></div>
+    </div>
+    <div class="card mt-3 mb-3" *ngFor="let item of listGroup">
+        <div class="card-body" style="padding: 0 1.25rem 0.5rem 1.25rem;">
+            <div class="row mt-3">
+                <div class="col">
+                    <p class="fontH1">วันที่สร้าง {{item.createdDate | date:'dd/MM/yyyy hh:mm:ss'}} </p>
+                </div>
+            </div>
+            <hr style="background-color: #020A2E;">
+
+            <div class="row mt-2">
+                <div class="col-6">
+                    <p style="" class="fontD">ชื่อเลขชุด</p>
+                    <b class="fontD2">{{item.name}}</b>
+                </div>
+                <div class="col-6 text-right" style="display: flex;align-items: center;">
+                    <div class="row text-right" style="position: absolute;right: 31px;">
+
+                        <button (click)="gotoDetail(item.id)" type="button" class="btn  btn-sm  mr-2" style="    padding-bottom: 2px;
+                    padding-top: 2px;
+                    background-color: #020A2E;"><b style="color: #fff;">ดูรายละเอียด</b>
+                    </button>
+                        <button (click)="openAlertContirmTextModal(false,item.id)" *ngIf="item.usernameOwner != 'admin'" type="button" class="btn  btn-sm" style="    padding-bottom: 2px;
+                    padding-top: 2px;
+                    background-color: #E90061;"><b style="color: #fff;"><i class="fa fa-trash-o"></i></b>
+                    </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="mid">
+    <ng-template #showAlertContirmText>
+        <div body class="mb-3 mt-2 mr-2">
+            <div class="screen mt-4 ">
+                <div class="row text-right" (click)="closeModal()"> <i class="material-icons" style="position: absolute; right: min(2vw,5*2px); top: min(1vw,5*1px);color: rgb(221, 75, 75);font-weight: bold;">cancel</i>
+                </div>
+
+                <div class="mt-4 text-center mb-4"> <span style=" font-size: min(5vw,5*5px);"> <b>คุณต้องการลบชุดหวยใช่หรือไม่?</b></span><br>
+                </div>
+                <div class="mt-4 row" style="justify-content: center;">
+                    <div class="card noShadow mid noShadow NoBorder mr-1" (click)="closeModal()" style="padding: min(2vw,5*2px);width: min(22vw,5*22px);border-radius: 7px !important;font-size: min(4vw,5*4px);background-color: #E90061;">
+                        <b style="color: white;">ยกเลิก</b>
+                    </div>
+                    <div (click)="delete()" class="card noShadow mid noShadow NoBorder ml-1" style="padding: min(2vw,5*2px);width: min(22vw,5*22px);border-radius: 7px !important;font-size: min(4vw,5*4px);background-color: #020A2E;">
+                        <b style="color: white;">ตกลง</b>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</div>

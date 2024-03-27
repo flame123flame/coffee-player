@@ -1,0 +1,30 @@
+.fontD {
+    font-size: min(5vw, 5*5px);
+    color: #020A2E;
+}
+
+.fontD2 {
+    font-size: min(5vw, 5*5px);
+    color: #020A2E;
+}
+
+.fontH {
+    font-size: min(5vw, 5*5px);
+    color: #020A2E;
+}
+
+.decoration {
+    height: 52px;
+    /* ความสูงของเส้น */
+    width: 1px;
+    /* ความหนาของเส้น */
+    background-color: black;
+    /* สีของเส้น */
+    display: block;
+}
+
+hr {
+    background-color: #020A2E;
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+}

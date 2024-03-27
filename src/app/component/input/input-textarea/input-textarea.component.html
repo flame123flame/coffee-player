@@ -1,0 +1,5 @@
+<div class="form-group">
+    <label style="margin-bottom: 0px;color: #626566;font-size: 14px;" for="exampleFormControlInput1">{{wording}} <span *ngIf="varidate" class="text-danger">&nbsp;*</span> </label>
+    <textarea class="form-control inputText" (input)="onChange($event.target.value)" [value]="value" cols="5" rows="3"></textarea>
+
+</div>

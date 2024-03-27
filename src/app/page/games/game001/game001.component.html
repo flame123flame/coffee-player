@@ -1,0 +1,103 @@
+<div class="screen">
+    <div *ngFor="let itemGame of game">
+        <div class="card mt-4 mb-3   " style="border: none;" *ngIf="itemGame.userView == '8VIEW'">
+            <div class="row mt-3 mb-2">
+                <div class="col text-left">
+                    <b class="textGame">{{itemGame.nameTh}}</b>
+                </div>
+                <div class="col text-right" (click)="goListGame(itemGame.gameGroupCode,itemGame.nameTh)">
+                    <span><b class="textTotalGame mr-1">เกมส์ทั้งหมด</b> <b
+                            style="font-size: min(3.5vw,5*3.5px);color:  #e90061;cursor: pointer;">{{itemGame.totalGame}} ></b> </span>
+                </div>
+            </div>
+            <div style="padding-left: 10px;padding-right: 10px;">
+                <hr style=" margin-top: 0rem;margin-bottom: 0rem;">
+            </div>
+            <div class="card-body " style="padding: 0;">
+                <ul class="row" style=" padding-left: 13px;padding-top: 10px;padding-right: 10px;justify-content: flex-start;">
+                    <div class="col-3 pd0 text-center" *ngFor="let item of itemGame.gameList; let in = index" (click)="goGame(item)">
+                        <!-- style="margin-right: 5px;width: min(19vw,5*19px);" -->
+                        <ng-container *ngIf="item.image2 && item.image2.startsWith('//'); else elseTem">
+                            <img loading="lazy" class="list-box" [src]='item.image2 || "./assets/image/logo.png" '>
+                        </ng-container>
+                        <ng-template #elseTem>
+                            <img loading="lazy" class="list-box" [src]='item.image2?imgApi + item.image2:"./assets/image/logo.png" '>
+                        </ng-template>
+                        <div class="text-center" style="padding: min(1vw,5*1px) min(2vw,5*2px);">
+                            <b style="font-size: min(3.5vw,5*3.5px);color: #020A2E;">{{item.gameName}}</b>
+                        </div>
+                    </div>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card   mt-3 mb-3  text-center " style="border: none;" *ngIf="itemGame.userView == '2VIEW'">
+            <div class="row mt-3 mb-2">
+                <div class="col-7 text-left" (click)="goListGame()">
+                    <b class="textGame">{{itemGame.nameTh}}</b>
+                </div>
+                <div class="col text-right" (click)="goListGame(itemGame.gameGroupCode,itemGame.nameTh)">
+                    <span style="cursor: pointer;"><b class="textTotalGame mr-1">เกมส์ทั้งหมด</b> <b
+                            style="font-size: min(3.5vw,5*3.5px);color:  #e90061;cursor: pointer;">{{itemGame.totalGame}} ></b> </span>
+                </div>
+            </div>
+            <div style="padding-left: 10px;padding-right: 10px;">
+                <hr style=" margin-top: 0rem;margin-bottom: 0rem;">
+            </div>
+
+            <div class="card-body " style="padding: 0;">
+
+                <div class="row mt-3 ml-1 mr-1">
+                    <div *ngFor="let itemDetail of itemGame.gameList;let index = index">
+                        <div class="card card-game pd  text-center">
+                            <div class="img_wrp">
+                                <img loading="lazy" *ngIf="itemDetail.image1 && itemDetail.image1.startsWith('//')" [src]='itemDetail.image1||"./assets/image/dead-image.png" ' id="imgUNcover">
+                                <img loading="lazy" *ngIf="null == itemDetail.image1 ||  !itemDetail.image1.startsWith('//')" [src]='itemDetail.image1?imgApi+itemDetail.image1:"./assets/image/dead-image.png" ' id="imgUNcover">
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col-3" style="align-self: center !important;">
+                                    <img loading="lazy" *ngIf="itemDetail.image2 && itemDetail.image1.startsWith('//')" [src]='itemDetail.image1||"./assets/image/logo.png" ' class="imgdetail" style="    border-radius: 35%;">
+                                    <img loading="lazy" *ngIf="null == itemDetail.image2 ||  !itemDetail.image1.startsWith('//')" [src]='itemDetail.image1?imgApi+itemDetail.image1:"./assets/image/logo.png" ' class="imgdetail" style="    border-radius: 35%;">
+                                </div>
+                                <div class="col-9 text-center mt-1">
+                                    <div style="margin-left: 8px;height: 17px;font-size: min(3.5vw,5*3.5px);" class="text-truncate"> {{itemDetail.gameName}}</div>
+                                    <app-star star=" 3 "> </app-star><br>
+                                    <button type="button " (click)="goGame(itemDetail)" class="btn btn-warning btn-sm " style=" padding-top: 0px; padding-bottom: 0px;    margin-left: 5px; ">
+                                        <b style="color: #020A2E;     font-size: min(4vw,5*4px);">เล่นเกมส์</b>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+    <div *ngFor="let item of listGames">
+        <div class="row mt-4">
+            <div class="col-8 ml-2 text-left" style="padding-right: 0px;padding-left: 0px;">
+                <b class="textGameButoom"> {{item.displayName}}</b>
+            </div>
+            <div class="col text-right" (click)="goToGammeList(item.providerCode,item.displayName)" style="padding-right: 0px;padding-left: 0px;cursor: pointer">
+                <span><b class="textTotalGame mr-1">เกมส์ทั้งหมด</b> <b
+                        style="font-size: min(3.1vw,5*3.5px);color:  #e90061;cursor: pointer;">{{item.totalGame}} ></b> </span>
+            </div>
+        </div>
+        <div class="row mt-2 mb-2">
+            <div class="col img_wrp" (click)="goTo(item.providerCode,item.openType,item.iconUrl,item.displayName)" style="padding-right: 0px;padding-left: 0px;">
+                <img loading="lazy" [src]='item.portraitImgUrl?imgApi + item.portraitImgUrl : "./assets/image/dead-image.png"' id="imgUNcover">
+                <button type="button" class="btn bottonInimage "><b>เข้าเล่น</b></button>
+            </div>
+
+        </div>
+        <hr style="margin-top: 0rem;margin-bottom: 0rem;">
+    </div>
+</div>

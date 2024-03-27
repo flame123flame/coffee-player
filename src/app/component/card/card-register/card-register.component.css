@@ -1,0 +1,12 @@
+.card {
+    /* position: relative; */
+    background: transparent linear-gradient(106deg, #828B9E 0%, #32364E 100%) 0% 0% no-repeat padding-box;
+    border-radius: 10px;
+    opacity: 1;
+    /* align-items: center; */
+    /* width: 100%; */
+    /* position: relative; */
+    /* justify-content: center; */
+    /* display: inline-block; */
+    /* height: 100hv; */
+}

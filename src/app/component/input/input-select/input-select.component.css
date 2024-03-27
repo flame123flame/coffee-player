@@ -1,0 +1,40 @@
+select:focus~.floating-label,
+select:not(:focus):valid~.floating-label {
+    transition: all 0.5s;
+    top: 1px;
+    bottom: 23px;
+    left: 50px;
+    font-size: 15px;
+    opacity: 2;
+    transform: scale(.9) translateY(-100%) translateX(-10px);
+    background-color: #fff;
+}
+
+.option {
+    color: #606263;
+}
+
+.inputText {
+    font-size: 13px;
+    border-radius: 4px !important;
+    height: 38px;
+    box-shadow: none;
+}
+
+.floating-label {
+    font-size: 13px;
+    position: absolute;
+    z-index: 99;
+    left: 49px;
+    top: 8px;
+    color: #606263;
+    transition: 0.5s ease;
+}
+
+.searchformfld select {
+    transition: all 0.5s;
+    background-color: #fff;
+    transition-timing-function: ease;
+    transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+    opacity: 0.3;
+}

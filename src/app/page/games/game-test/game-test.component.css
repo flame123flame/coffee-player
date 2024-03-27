@@ -1,0 +1,18 @@
+.screen {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.imageCss {
+    z-index: 999;
+    height: 26vw;
+}
+
+.cardCss {
+    height: 27vw;
+}
+
+.card-horizontal {
+    display: flex;
+    flex: 1 1 auto;
+}

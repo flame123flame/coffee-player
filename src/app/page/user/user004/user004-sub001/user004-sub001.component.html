@@ -1,0 +1,47 @@
+<div *ngIf="isShow">
+    <div class="card mt-3 mb-3" *ngFor="let item of listData">
+        <div class="card-body" style="padding: 0 1.25rem 0.5rem 1.25rem;">
+            <div class="row mt-3">
+                <div class="col">
+                    <b class="fontH1">เลขที่รายการ </b><span style="color: #F66700 ;">#{{item.orderId}}</span> <span class="badge {{item.color}} buttonStatus">{{item.historyType}}</span>
+                </div>
+            </div>
+            <hr style="background-color: #020A2E;">
+
+            <div class="row mt-2">
+                <div class="col-6" style="    border-right: 0.7px solid #020A2E;">
+                    <p class="fontD">วันที่ทำรายการ</p>
+                    <p class="fontD2">{{item.transactionDate}}</p>
+                </div>
+                <div class="col-6" style="    border-left: 0.7px solid #020A2E;    padding-right: 3px;
+                padding-left: 3px;">
+                    <p class="fontD">เคดิต <span style="position: absolute;right: 15px;color:   #E90061; font-weight: bold;">{{item.credit}}</span> </p>
+                    <p class="fontD">เคดิตคงเหลือ <span style="position: absolute;right: 15px;color: #00C157; font-weight: bold;">{{item.balanceCredit}}</span> </p>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer " style="background-color: #f2f2f2;    border: none;padding: 0px;">
+            <div class="row mt-1" style="margin-right: 2px;margin-left: 2px;    height: 20px;">
+                <div class="col">
+                    <b class="fontD">หมายเหตุ</b>
+                </div>
+            </div>
+            <div class="row" style="margin-right: 2px;margin-left: 2px;">
+                <div class="col">
+                    <p class="fontD">{{item.remark}}</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div *ngIf="!isShow">
+    <div class="card mt-3 mb-3">
+        <div class="row mt-3 mb-3">
+            <div class="col text-center">
+                <b class="margin" style="font-size: 19px;font-weight: bold;color: #020A2E;">ไม่มีข้อมูล <i class="fa fa-info-circle" aria-hidden="true"></i></b>
+            </div>
+        </div>
+
+    </div>
+</div>

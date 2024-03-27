@@ -1,0 +1,35 @@
+<div class="screen">
+    <div *ngIf="isshow" class="row mt-2" style="    margin-right: 0px;
+    margin-left: -4px;">
+        <div class="col" style=" padding-right: 1px;padding-left: 3px;">
+            <button [ngClass]="{'activess1': tabIdx1 == 1, 'buttonPoy01': tabIdx1 ==  0}" (click)="gotoTotalLoto()" type="button" class="btn  btn-block  shadow">
+                <i class="fa fa-calendar-check-o fa-lg"></i><br>
+                <b class="fontTab">สรุปยอดแทง</b></button>
+        </div>
+        <div class="col" style=" padding-right: 1px;padding-left: 3px;">
+            <button [ngClass]="{'activess2': tabIdx2 == 2, 'buttonPoy02': tabIdx2 == 0}" (click)="gotoTotalLoto01()" type="button" class="btn   btn-block shadow">
+                <i class="fa fa-list-ol fa-lg"></i><br>
+                <b class="fontTab">รอออกผล</b></button>
+        </div>
+        <div class="col" style=" padding-right: 1px;padding-left: 3px;">
+            <div class="btn-group" style="width: 100%;">
+                <button type="button" [ngClass]="{'activess3': tabIdx3 == 3,'buttonPoy01': tabIdx3 == 0}" class="btn  btn-block  shadow" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-history fa-lg"></i><br>
+                    <b class="fontTab">ออกผลแล้ว</b>
+                </button>
+                <div class="dropdown-menu text-center ">
+                    <b (click)="gotoTotalLoto02()" class="dropdown-item">หวยรัฐบาล</b>
+                    <hr>
+                    <b (click)="gotoTotalLoto03()" class="dropdown-item">หวยหุ้น</b>
+                    <hr>
+                    <b (click)="gotoTotalLoto04()" class="dropdown-item">หวยยี่กี</b>
+                    <hr>
+                    <b (click)="gotoTotalLoto06()" class="dropdown-item">ทั้งหมด</b>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <router-outlet></router-outlet>
+
+</div>

@@ -1,0 +1,67 @@
+<div class="screen1">
+    <div class="mid">
+        <h1><b>ติดต่อเรา</b></h1>
+    </div>
+    <div class="mid">
+        <!-- <div class="dot card">
+            <div class="card-body"></div>
+        </div> -->
+
+        <img src="./assets/image/asset/logo.png" class="dot">
+    </div>
+    <div class="card" style="height: min(12vw,5*12px);background-color: #00B900;color: white; margin-top: 40px;">
+        <a href="{{information.groupLinkLine}}">
+            <div class="card-body">
+                <div class="row text-center" style=" height: min(12vw,5*12px);">
+                    <div class="mid"> <img src="./assets/image/icons/line.png"
+                            style="height: min(6vw,5*6px);margin-left: 10px;">
+                    </div>
+                    <div class="col mid p-0"><span
+                            style="font-size: min(4vw,5*4px);padding-right: min(10vw,5*10px);"><b>คลิ้กเพื่อติดต่อผ่านไลน์</b></span>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <div class="card mt-3 " style="height:  min(12vw,5*12px);background-color:#020A2E;color: white;"
+        (click)="openConfirm()">
+        <a>
+            <div class="card-body">
+                <div class="row " style="height:  min(12vw,5*12px);">
+                    <div class="mid"> <img src="./assets/image/icons/phone.png"
+                            style="height: min(6vw,5*6px);margin-left: 10px;">
+                    </div>
+                    <div class="col mid p-0"><span
+                            style="font-size: min(4vw,5*4px);padding-right: min(10vw,5*10px);"><b>คลิ้กเพื่อติดต่อสายด่วน</b></span>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+
+<ng-template #showAlertSend>
+    <div class="mid">
+        <div body class="mb-3 mt-2 mr-2">
+            <div class="screen mt-4 ">
+
+                <div class="mt-4 text-center mb-4"> <span style=" font-size:min(4vw,4*4px);">
+                        <b>เจ้าหน้าที่ของเราจะติดต่อคุณที่หมายเลขโทรศัพท์
+                            {{mobilePhone}} ภายใน 5 นาที</b></span><br>
+                </div>
+                <div class="mt-4 row" style="justify-content: center;">
+                    <div class="card noShadow mid noShadow NoBorder ml-1" (click)="isSendFn(true)"
+                        style="padding:min(2vw,5*2px);width: min(22vw,5*22px);border-radius: 7px !important;font-size: min(4vw,5*4px);background-color: #FFDE0C;">
+                        <b style="color: #02082F;">ยืนยัน</b>
+                    </div>&nbsp;&nbsp;&nbsp;
+                    <div class="card noShadow mid noShadow NoBorder mr-1" (click)="isSendFn(false)"
+                        style="padding:min(2vw,5*2px);width: min(22vw,5*22px);border-radius: 7px !important;font-size: min(4vw,5*4px);background-color: #ffffff;border: 1px solid #02082F">
+                        <b style="color: #02082F;">ยกเลิก</b>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>

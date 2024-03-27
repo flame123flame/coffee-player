@@ -1,0 +1,37 @@
+.card {
+    background: #ffffff 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 13px;
+}
+
+.card-pink {
+    background-color: #e90061;
+    color: rgb(255, 255, 255);
+    border-radius: 7px !important;
+}
+
+.card-header {
+    padding: 0px;
+}
+
+.screen {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.img2 {
+    border-top-left-radius: 13px;
+    border-top-right-radius: 13px;
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.card-body {
+    padding: 1rem;
+}
+
+.card-blue {
+    color: white;
+    width: min(70vw, 5*70px);
+    background: transparent linear-gradient(101deg, #1791d8 0%, #5bc3ff 100%) 0% 0% no-repeat padding-box;
+}

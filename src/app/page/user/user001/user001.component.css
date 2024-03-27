@@ -1,0 +1,43 @@
+.screen {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.inputHide {
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+    border-left: 0px;
+    background-color: white;
+}
+
+.card {
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 13px;
+}
+
+.card-header {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background: #020A2E;
+    color: white;
+}
+
+.noShadow {
+    box-shadow: none;
+}
+
+.noBorder {
+    border: 0!important;
+}
+
+.mid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-blue {
+    background: transparent linear-gradient(101deg, #1791D8 0%, #5BC3FF 100%) 0% 0% no-repeat padding-box;
+    color: white;
+}

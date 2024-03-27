@@ -1,0 +1,177 @@
+<!-- <div class="row">
+    <div class="col">
+        <button type="button" (click)="clickRegister()" class="btn btn-secondary btn-lg btn-block responsiveBlogin">สมัครสมาชิก
+    
+            </button>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <img src="assets/image/logo.png" class="iconSize">
+    </div>
+</div>
+
+<div class="row mt-2">
+
+    <div class="scrollmenu">
+        <div class="dun mr-3"></div>
+        <card-image imagePath="assets/image/image-register/casino-online2.png">
+            <h6 class="mr-1 fontCaedTop01">คาสิโนถ่ายทอดสด</h6>
+            <h6 class="mr-1 fontCaedTop02">เล่น คาสิโนออนไลน์ไปกับเรา รวยได้ </h6>
+            <h6 class="mr-1 fontCaedTop02">อย่างง่ายๆกับ การเล่นคาสิโนออนไลน์ ที่ใหญ่ ที่สุด</h6>
+        </card-image>
+        <card-image imagePath="assets/image/image-register/box-03@2x.png">
+            <h6 class="mr-1 fontCaedTop01">แทงบอลออนไลน์</h6>
+            <h6 class="mr-1 fontCaedTop02">ขาบอลห้ามลพาด! แทงบอลออนไลน์ อย่างมันส์ </h6>
+            <h6 class="mr-1 fontCaedTop02">รวยพร้อมสนุกทุกซ็อต! แทงบอลออนไลน์ไปกับเรา!</h6>
+        </card-image>
+        <card-image imagePath="assets/image/image-register/box-02.png">
+            <h6 class="mr-1 fontCaedTop01">เกมส์สล็อต</h6>
+            <h6 class="mr-1 fontCaedTop02">ลุ้นสุดมันส์กับศูนย์รวม สล๊อตออนไลน์ที่ใหญ่ที่สุด</h6>
+            <h6 class="mr-1 fontCaedTop02"> เครื่องเล่นสล๊อตออนไลน์มากที่สุดใยนประเทศ</h6>
+        </card-image>
+        <card-image imagePath="assets/image/image-register/box-06.png">
+            <h6 class="mr-1 fontCaedTop01">กีฬาสัตว์</h6>
+            <h6 class="mr-1 fontCaedTop02">แข่งม้าออนไลน์ พร้อมไก่ชนออนไลน์ </h6>
+            <h6 class="mr-1 fontCaedTop02">ลุ้นไปกับการแข่งสุดมันส์ พร้อมรางวัลที่คาดไม่ถึง</h6>
+        </card-image>
+        <card-image imagePath="assets/image/image-register/box-04@2x.png">
+            <h6 class="mr-1 fontCaedTop01">เกมส์ยิงปลา</h6>
+            <h6 class="mr-1 fontCaedTop02">เล่นเกมส์ยิงปลาออนไลน์ไปอย่างสนุกสนาน </h6>
+            <h6 class="mr-1 fontCaedTop02">ไปกับเรา พร้อมเกมยิงปลา หลากหลายที่สุด</h6>
+        </card-image>
+    </div>
+
+</div>
+<div class="row mt-3">
+    <div class="col">
+        <card-list>
+            <h5 class="fontSize">ฝากถอนอัตโนมัติ</h5>
+        </card-list>
+    </div>
+    <div class="col">
+        <card-list>
+            <h5 class="fontSize">บริการลูกค้า</h5>
+            <h5 class="fontSize">ตลอด 24 ชั่วโมง</h5>
+        </card-list>
+    </div>
+</div>
+
+<div class="row mt-3 mb-5">
+    <div class="col">
+        <card-register>
+            <h3 class="mt-3" style="color: #fff;">{{textShowHeader}}</h3>
+            <div class="row" *ngIf="inputShowHeader">
+                <div class="col text-center">
+                    <ul class="steps">
+                        <li class="step ">
+                            <div class="step-content">
+                                <span class="step-circle">1</span>
+                            </div>
+                        </li>
+                        <li class="step">
+                            <div class="step-content">
+                                <span class="step-circle">2</span>
+
+                            </div>
+                        </li>
+                        <li class="step">
+                            <div class="step-content">
+                                <span class="step-circle">3</span>
+
+                            </div>
+                        </li>
+                        <li class="step">
+                            <div class="step-content">
+                                <span class="step-circle">4</span>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-1 text-center">
+                </div>
+                <div class="col-10 text-center">
+                    <input-text *ngIf="inputUserName" wording="Username"></input-text>
+                    <input-text *ngIf="inputPhone" wording="กรุณากรอกเบอร์โทรศัพท์"></input-text>
+
+                </div>
+                <div class="col-1 text-center"></div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-1 text-center">
+                </div>
+                <div class="col-10 text-center">
+                    <input-text *ngIf="inputNewPassword" iconset="fa fa-lock" wording="ตั้งรหัสผ่าน 4 ตัวขึ้นไป"></input-text>
+                    <input-text *ngIf="inputPassword" iconset="fa fa-lock" wording="รหัสผ่าน"></input-text>
+                    <input-text *ngIf="inputOTP" iconset="fa fa-lock" wording="กรุณากรอก OTP 4 หลัก"></input-text>
+                </div>
+                <div class="col-1 text-center"></div>
+            </div>
+
+            <div class="row mt-2">
+                <div class="col-1 text-center">
+                </div>
+                <div class="col-10 text-center">
+                    <input-text *ngIf="inputConfirmPassword" iconset="fa fa-lock" wording="พิมพ์รหัสผ่านอีกครั้ง"></input-text>
+                </div>
+                <div class="col-1 text-center"></div>
+            </div>
+            <div class="row">
+                <div class="col-1 text-right"></div>
+                <div class="col-10 text-right" *ngIf="inputShowHeader">
+                    <a style="text-decoration:underline;color: #fff;">ลืมรหัสผ่าน</a>
+                </div>
+                <div class="col-10 text-center" *ngIf="!inputShowHeader">
+                    <div class="form-check">
+
+                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                        <label class="form-check-label" for="defaultCheck1" style=" color: #E9EAEA">
+                        ยอมรับเงื่อนไข Term and condition
+                    </label>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row mt-2">
+                <div class="col-1 text-center">
+                </div>
+                <div class="col-10 text-center">
+                    <button type="button" *ngIf="buttonSubmit" class="btn colorButton btn-block">เข้าสู่ระบบ</button>
+                    <button *ngIf="buttonPhone" (click)="clickConfirm('buttonPhone')" type="button" class="btn colorButton btn-block">ยืนยัน</button>
+                    <button *ngIf="buttonOPT" (click)="clickConfirm('buttonOPT')" type="button" class="btn colorButton btn-block">ยืนยัน</button>
+                    <button *ngIf="buttonBank" (click)="clickConfirm('buttonBank')" type="button" class="btn colorButton btn-block">ยืนยัน</button>
+                </div>
+                <div class="col-1 text-center"></div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-1 text-center">
+                </div>
+                <div class="col-10 text-center">
+                    <hr style="background-color: #fff;">
+
+                </div>
+                <div class="col-1 text-center"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-1 text-center">
+                </div>
+                <div class="col-10 text-center">
+                    <p><span class="mr-2" style="color:  #F97700;">พบปัญหา</span> <span style="color:#fff">ติดต่อฝ่ายลูกค้า</span></p>
+
+                </div>
+                <div class="col-1 text-center"></div>
+            </div>
+
+
+
+        </card-register>
+
+
+
+    </div>
+</div> -->

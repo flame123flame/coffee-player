@@ -1,0 +1,48 @@
+.btt {
+    background-color: #FFDF00;
+    color: #02082F;
+    border-radius: 8px;
+    position: absolute;
+    top: 0;
+    top: 12px;
+    right: 56px;
+}
+
+#verticle-line {
+    top: 6px;
+    top: 12px;
+    position: absolute;
+    right: 166px;
+    width: 1px;
+    /* min-height: 11vw; */
+    min-height: min(10vw, 40px);
+    margin-bottom: 16px;
+    background: #fff;
+}
+
+.colorLogin {
+    color: #fff;
+    top: 0;
+    top: 19px;
+    position: absolute;
+    right: 170px;
+    cursor: pointer;
+}
+
+.img-curve {
+    height: min(15vw, 60px);
+}
+
+.cardSM {
+    width: min(9vw, 5*7px);
+    position: absolute;
+    right: 0;
+    top: 8px;
+    cursor: pointer;
+}
+
+.hTop {
+    height: 60px;
+    /* width: 100%;
+    position: absolute; */
+}

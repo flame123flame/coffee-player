@@ -1,0 +1,68 @@
+<div style="height: 100%;">
+    <div class="screen">
+        <div style="background-color: #fff;border-radius: 10px;">
+            <table class="table mt-3 ">
+                <thead>
+                    <tr style="color: white;background-color: #020A2E;">
+                        <th class="text-center" colspan="4" style="border-top-left-radius: 10px;border-top-right-radius: 10px;">
+                            ประวัติการถอนเงิน
+                        </th>
+                    </tr>
+                    <tr class="text-center">
+                        <th class="tHeader">วันที่</th>
+                        <th class="tHeader">สถานะ</th>
+                        <th class="tHeader">จำนวน</th>
+                        <th class="tHeader">หมายเหตุ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor=" let item of dashBoard">
+                        <th scope="row">{{item.channelName || '-'}} ({{item.shareRate}}%)</th>
+                        <td class="text-center">{{item.bets|| '-'}}</td>
+                        <td class="text-right">{{item.income|| '-'}}</td>
+                        <td class="text-right">{{item.income|| '-'}}</td>
+                    </tr>
+                    <tr *ngIf="dashBoard.length == 0" class="text-center">
+                        <th colspan="4">ไม่มีข้อมูล
+                        </th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="position: fixed;bottom: 12%;z-index: 9;width: 92%;">
+            <div class="card  margin">
+                <div class="card-body">
+                    <div class="row text-center" style="padding-left: min(5vw,5*5px);padding-right: min(5vw,5*5px);justify-content: space-between;">
+                        <div (click)="goToPath('/profile')">
+                            <div style="height: min(12vw,5*12px);"> <img src="assets/image/asset/lock.png" style="width:min(8vw,5*8px) ;">
+                            </div>
+                            <div><span style="font-size: 17px;">ข้อมูลส่วนตัว</span></div>
+                        </div>
+                        <div (click)="goToPath('/promotion/')">
+                            <div style="height: min(12vw,5*12px);"> <img src="assets/image/asset/price tag.png" style="width:min(10vw,5*10px) ;">
+                            </div>
+                            <div><span style="font-size: 17px;">โปรโมชั่น</span></div>
+                        </div>
+                        <div (click)="goToPath('/profile/profile-bank002')">
+                            <div>
+                                <div style="height: min(12vw,5*12px);"> <img src="assets/image/asset/withdraw.png" style="width:min(10vw,5*10px) ;">
+                                </div>
+                                <div><span style="font-size: 17px;">ฝากเงิน</span></div>
+                            </div>
+                        </div>
+                        <div (click)="goToPath('/deposit')">
+                            <div style="height: min(12vw,5*12px);"> <img src="assets/image/asset/depart.png" style="width:min(10vw,5*10px) ;">
+                            </div>
+                            <div><span style="font-size: 17px;">ถอนเงิน</span></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <img src='./assets/image/curve-L2-green.png' style="margin-top: -0px;bottom: 0;   position: absolute;  align-self: flex-end;" class="img img-curve">
+    <img src='./assets/image/curve-L.png' style=" transform: scale(-1);  z-index: -1; top: 30px; position: absolute;
+right: 0;" class="img img-curve">
+</div>

@@ -1,0 +1,85 @@
+.rowPad {
+    margin-right: -0px;
+    margin-left: -0px;
+    justify-content: space-between;
+}
+
+th {
+    border-top: 0
+}
+
+.isCopyCss {
+    color: #020A2E;
+    background-color: #00E38D;
+}
+
+.isNotCopyCss {
+    color: #00E38D;
+    background-color: #020A2E;
+}
+
+.fontrecommend {
+    font-size: min( 5vw, 5*5px);
+}
+
+@media (max-width: 320px) {
+    .card-blue {
+        border-radius: 10px;
+        color: white;
+        background: transparent linear-gradient(101deg, #1791D8 0%, #5BC3FF 100%) 0% 0% no-repeat padding-box;
+    }
+    .fontrecommend {
+        font-size: min( 5vw, 5*5px);
+    }
+    .screen {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    .iconstype {
+        margin-top: 10px;
+        /* color: #fff; */
+        color: #1455AA;
+        font-size: min( 6vw, 5*6px);
+    }
+    .fontButton {
+        font-size: min( 5vw, 5*5px);
+        /* color: #fff; */
+    }
+    .cardpad {
+        border: none;
+        box-shadow: 10px;
+        /* background: #f4f4f4 */
+    }
+}
+
+@media (min-width: 321px) and (max-width: 770px) {
+    .card-blue {
+        color: white;
+        border-radius: 10px;
+        /* width: 40vw; */
+        /* height: 8vw; */
+        background: transparent linear-gradient(101deg, #1791D8 0%, #5BC3FF 100%) 0% 0% no-repeat padding-box;
+    }
+    .fontrecommend {
+        font-size: min( 5vw, 5*5px);
+    }
+    .screen {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    .iconstype {
+        margin-top: 10px;
+        font-size: min( 6vw, 5*6px);
+        color: #000;
+    }
+    .fontButton {
+        margin-top: 10px;
+        font-size: min( 5vw, 5*5px);
+        color: #000;
+    }
+    .cardpad {
+        /* background: #f4f4f4; */
+        box-shadow: 10px;
+        border: none;
+    }
+}

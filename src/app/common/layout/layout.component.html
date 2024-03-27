@@ -1,0 +1,330 @@
+<div class=" fix-top row mid hTop" style="text-align: end;        margin-right: 1.5rem;">
+    <div class="dropdown">
+        <div class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenuLink" style=" background:   transparent linear-gradient(101deg, #1791D8 0%, #5BC3FF 100%) 0% 0% no-repeat padding-box;color:white;
+        box-shadow: 0px -3px 6px #00000029;
+        border-radius: 10px;">
+            <div class="card-body">
+                <span style="font-size: min(5vw,5*5px);" [routerLink]="['/user/user003']">การแจ้งเตือน</span>
+                <div *ngIf="postList.length == 0" class="mt-2">
+                    <hr>
+                    <div class="row">
+                        <span class="col-6" style="padding:0px">ไม่มีการแจ้งเตือน</span>
+                    </div>
+                </div>
+                <div *ngFor="let item of postList " class="mt-2" style="border-top: 1.5px solid rgb(255, 255, 255);" (click)="goToMessage(item)">
+                    <div *ngIf="item.messageType=='NORMAL'" class="mt-2">
+                        <div class="row">
+                            <span class="col-6 text" style="padding:0px"><b>{{item.subject}}</b></span>
+                            <span class="col-6" style="padding:0px">{{item.createdDate}}</span>
+                        </div>
+                        <div [innerHTML]="item.webMessage">
+                        </div>
+                    </div>
+                    <div *ngIf="item.messageType=='POMOTION'" class="mt-2" routerLinkActive="router-link-active">
+                        <div class="card">
+                            <div class="card-header"><img [src]="item.promotion?.promoBanner" loading="lazy" class="imgNoti"></div>
+                            <div class="card-body"><span style="color: black;">{{item.promotion?.promoTitle}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<mat-sidenav-container (click)="checkSav()" [ngClass]="sidenav.opened ? 'body' : 'bodytest'" class="ex-container" style="display: grid;position: relative;height: 120vh;" [draggable]="true">
+    <mat-sidenav #sidenav [mode]="mode.value " position="end" style=" width: min(83.5vw, 5*87px);overflow-y: auto; background-color: transparent; position: fixed; ">
+        <!-- _________________________________    Side nav      _______________________________________ -->
+
+        <!-- <div style="overflow: scroll !important;"> -->
+        <div class="nav-card ">
+            <div class="row mt-2">
+                <div class="col text-left" style="margin-top: 10px;margin-bottom: 5px;">
+                    <i (click)="sidenav.toggle();checkSav() " style="font-size: min(7vw,5*6px);cursor: pointer;margin-left: -11px;" class="fa fa-times"></i>
+                </div>
+            </div>
+            <div class="card mt-2 text-center " style="color: #020A2E; background-color:white; padding-top: 6px; padding-bottom: 6px;cursor: pointer; " (click)="goMain();sidenav.toggle() ">
+                <div class="card-body pd mid " style="padding-right: min(8vw,5*8px); ">
+                    <img src="assets/image/asset/home.PNG " class="imgUser ">
+                    <span class="span3 " style=" padding-left: min(5vw,5*5px); "><b>หน้าหลัก</b></span>
+                </div>
+            </div>
+            <!-- goToPath('/recommend'); -->
+            <div class="card mt-2 text-center " style="color: #020A2E; background-color: white; padding-top: 6px; padding-bottom: 6px; cursor: pointer;" (click)="sidenav.toggle() " routerLink="/recommend/recommend-user-tab3">
+                <div class="card-body pd mid " style="padding-right: min(8vw,5*8px); ">
+                    <img src="assets/image/asset/recom-man.png " class="imgUser " style=" padding-right: min(5vw,5*5px); ">
+                    <span class="span3 "><b>แนะนำ/สร้างรายได้</b></span>
+                </div>
+            </div>
+            <div class="card mt-2 text-center " style="color: #020A2E; background-color: white; padding-top: 6px; padding-bottom: 6px; cursor: pointer;margin-bottom: 16px;" (click)="sidenav.toggle() " routerLink="/profile/">
+                <div class="card-body pd mid " [style.padding-right]="postList.length==0? 'min(8vw,5*8px)': 'unset' ">
+                    <img src="assets/image/asset/user.png " class="imgUser " style=" padding-right: min(5vw,5*5px); ">
+                    <span class="span3 "><b>ข้อมูลส่วนตัว</b></span>
+                    <img *ngIf="postList.length>0" src="assets/image/asset/messageRed.png" class="imgUser" style=" padding-left: min(5vw,5*5px);">
+                </div>
+            </div>
+            <!-- เกมที่ต้องแก้ -->
+            <div class="row mt-2" style="justify-content: space-evenly">
+                <div class=" cardRM text-center " *ngFor="let item of listGames;let index=index" (click)="goToList(item);sidenav.toggle()">
+
+                    <img src='{{item.iconUrl}}' class="imgGame">
+                    <button type="button" class="btn   btn-block mt-2" style="    background-color: #FFDE0C;padding: 0;"><b> {{item.nameTh}} </b>
+                    </button>
+                </div>
+            </div>
+            <div class="card mt-2">
+                <div class="card-body pd">
+                    <div *ngFor="let item of listSideNav;let index = index" style="cursor: pointer;">
+                        <div style="margin-top:min(2vw,5*3px);" class="row" (click)="goToPath(item.link);sidenav.toggle()">
+                            <div style="width: min(8vw,5*8px);"> <img [src]="item.active?item.icon2:item.icon" class="imgIcon" style="border-radius: unset;">
+                            </div>
+                            <div class="col"><span class="span2" style="padding-left: 16px;font-size: min(4vw,5*4px);" [ngStyle]="{'color':item.active?'#F66700':'black'}">{{item.text}}</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card mt-2 mb-5" style="padding-bottom: 10px;padding-top: 10px;cursor: pointer;" (click)="logout();sidenav.toggle()">
+                <div class="card-body text-center pd">
+                    <span class="span2" style="padding-left: 10px;">ออกจากระบบ</span>
+                    <i class="fa fa-sign-out" style="padding-left: 10px;" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+        <!-- </div> -->
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div *ngIf="isHeader">
+            <div *ngIf="isMoney" class="row hTop " style="    align-items: center;
+            position: fixed;
+            background-color: #020a2e;
+            width: 100vw;
+            z-index: 100;top: 0;">
+                <img class="ml-3" style="cursor: pointer;" src="assets/image/logofin.png" (click)="goToPath('/main')" height="65%" alt="">
+                <div class="mr-2" style="z-index: 99;">
+                    <img src="assets/image/menubar.png" class="cardSM" (click)="sidenav.toggle();checkSav()">
+                </div>
+                <img src='./assets/image/curve-L.png' style=" transform: scale(-1);   top: 0; position: absolute;
+            right: 0;z-index: 9;" class="img img-curve">
+            </div>
+            <div *ngIf="!isMoney" class="row hTop " style="    align-items: center;
+            position: fixed;
+            background-color: #020a2e;
+            width: 100vw;
+            z-index: 100;top: 0;">
+                <img class="ml-3" src="assets/image/logofin.png" (click)="goToPath('/main')" style="max-height: 100%;
+                max-width: 100%;" height="65%">
+                <div class="mid  col" style="justify-content: unset;padding: 0;">
+                    <img src="assets/image/asset/userMoney.svg" style="height:min( 6.5vw,5*6.5px);border-left: 1px solid white;padding-left: 4vw;" class="ml-4 mr-2">
+                    <span style="font-size: min(5vw,5*5px);color: white;"><b>฿ {{money}}</b></span>
+                    <img (click)="getMoney();" src="assets/image/asset/re.svg" style="height: min(4vw,5*4px); padding-left: 0.25rem;" class="ml-1">
+                </div>
+                <div class="mr-2" style="z-index: 99;">
+                    <img src="assets/image/menubar.png" class="cardSM" (click)="switchSideNav()">
+                </div>
+                <img src='./assets/image/curve-L.png' style=" transform: scale(-1);   top: 0; position: absolute;    height: 60px;
+                right: 0;z-index: 9;" class="img img-curve">
+            </div>
+            <div class="row" style="padding-top: 60px;border-top: 1px solid white;">
+                <div class="col"></div>
+                <!-- <div *ngIf="!isMoney" style="height: 1vw;max-width: 630px;"></div> -->
+                <div *ngIf="isMoney" class="money" style="max-width: 630px;">
+                    <div class="row " style="height: min(38vw,5*38px); background-color: #020a2e;color: white;">
+                        <img *ngIf="isCurveL" src='./assets/image/curve-L.png' style="margin-top: -0px;   position: absolute;  align-self: flex-end;" class="img img-curve">
+
+                        <div class="col-5" style="align-self: center;padding-right: 0px">
+                            <div class="mr-4" style="text-align: -webkit-right;margin-left: 26px;">
+                                <img class="" src='{{rankImg}}' style="margin-top: -0px;" class="imgRank" (click)="goToPath('profile/profile-bank003')">
+                                <!-- <div class="centered "> <b style=" font-size: min(4vw,5*4px);">{{rankLavel}}</b></div> -->
+                            </div>
+                        </div>
+                        <div class="col-7 mt-2 " style="align-self: center;   border-left: 1px solid  white;padding-left: 0px;">
+                            <div class="ml-4" style="margin-bottom: min(1.5vw,5*1.5px);font-size: min(5vw,5*5px);font-weight: bold;">
+                                <b>{{username}}</b>
+                            </div>
+                            <div class="mt-2 ml-4">
+                                <span style="font-size: min(5vw,5*5px);">ยอดเครดิตของคุณ</span>
+                            </div>
+                            <div class="mt-2 ml-4" style="justify-content: flex-start;display: flex;" (click)="getMoney();">
+                                <b style="font-size: min(6vw,5*6px);">{{money}}</b>
+                                <img src="assets/image/asset/re.svg" style="height: min(4vw,5*4px); padding-left: 0.25rem;" class="ml-1">
+                            </div>
+                        </div>
+                        <div class="row" style="width: 100%;text-align: center;">
+                            <!-- <div *ngIf="isProfile" class="col-5">
+                            <button mat-raised-button class="btn" matBadge="{{postList.length}}"
+                                *ngIf="isProfile && postList.length > 0" routerLink="/profile/"
+                                style="background-color: #00e28c;padding-top: 0vw;padding-bottom: 0vw;margin-top: 3px;">
+                                ดูข้อมูลส่วนตัว
+                            </button>
+                            <button mat-raised-button class="btn" *ngIf="isProfile && postList.length==0"
+                                routerLink="/profile/"
+                                style="background-color: #00e28c;padding-top: 0vw;padding-bottom: 0vw;margin-top: 3px;">
+                                ดูข้อมูลส่วนตัว
+                            </button>
+                        </div> -->
+                            <div class="col">
+                                <button class="btn " [routerLink]="['/deposit']" routerLinkActive="router-link-active" style="justify-content: center;font-size: clamp(1rem, 2.3vw, 16px);background-color: #ea0061;margin-top: 3px; 
+                                    color: white;padding-top: min(1vw,7px);padding-bottom: min(1vw,7px);margin-bottom: 3px;" [style.padding-right]="!isProfile?' min(14vw,5*14px)':' min(14vw,5*14px)'" [style.padding-left]="!isProfile?' min(14vw,5*14px)':' min(14vw,5*14px)'">
+                                    <img src="assets/image/iconB.png" style="width: min(5vw,5*5px);" class="mr-2">
+                                    <b>เติมเครดิต</b>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col"></div>
+            </div>
+        </div>
+        <div [ngClass]="sidenav.opened ? 'S100vh' : 'h-100'">
+            <div class="row" style="justify-self: center;">
+                <div class="col"></div>
+                <div style="max-width: 630px;width: 100vw;">
+                    <router-outlet></router-outlet>
+                </div>
+                <div class="col"></div>
+            </div>
+        </div>
+        <div class="mb-4"></div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+
+<!-- _________________________________    Bottom nav      _______________________________________ -->
+<div class="row" style="
+position: fixed !important;
+right: 0;
+bottom: -10px;
+left: 0;
+min-height: 50px;
+z-index: 999;
+padding: 10px 0px;
+text-align: center;
+display: -ms-flexbox;
+display: flex;
+-ms-flex-wrap: wrap;
+flex-wrap: wrap;
+-ms-flex-align: center;
+align-items: center;
+-ms-flex-pack: justify;
+justify-content: space-between;
+margin-bottom: 0px;">
+    <div class="col"></div>
+    <div *ngIf="!isGame" class="card foot " [ngClass]="[ sidenav.opened == true?'displayNone':'']">
+        <!-- fix-footer -->
+        <div class="card-body bt">
+            <div class="row bt">
+                <div class="bt-nav" *ngFor="let item of listLink;let index = index" (click)="goTo(index);goToGame(item.link,item.productCode);sidenav.close();">
+                    <div *ngIf="item.active" style="display: flex;">
+                        <a class="text-center">
+                            <img src='assets/image/buttom_icon/{{item.icon2}}' width="24px" height="24px">
+                            <div style="color: #E57D07;font-size: min(2.5vw,2.5*8px);padding-top: min(1vw,5*1px);">
+                                {{item.text}}</div>
+                        </a>
+                    </div>
+                    <div *ngIf="!item.active" style="display: flex;">
+                        <a class="text-center">
+                            <img src='assets/image/buttom_icon/{{item.icon}}' width="24px" height="24px">
+                            <div style="color: #40455C;fill: #E57D07;font-size: min(2.5vw,2.5*8px);padding-top: min(1vw,5*1px);">
+                                {{item.text}}</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>{{Promotion}}</div>
+    <div *ngIf="isGame" class="card foot " [ngClass]="[ sidenav.opened == true?'displayNone':'']">
+        <div class="card-body bt">
+            <div class="row bt">
+                <div class="bt-nav" *ngFor="let item of listLinkForGame;let index = index" (click)="goToForGame(index);">
+                    <div *ngIf="item.active" style="display: flex;cursor: pointer;">
+                        <a routerLink="{{item.link}}" class="text-center" style="cursor: pointer;">
+                            <img style="cursor: pointer;" src='assets/image/buttom_icon/{{item.icon2}}' width="24px" height="24px">
+                            <div style="cursor: pointer;color: #E57D07;font-size: min(2.5vw,2.5*8px);padding-top: min(1vw,5*1px);">
+                                {{item.text}}</div>
+                        </a>
+                    </div>
+                    <div *ngIf="!item.active" style="display: flex;cursor: pointer;">
+                        <a routerLink="{{item.link}}" class="text-center" style="cursor: pointer;">
+                            <img style="cursor: pointer;" src='assets/image/buttom_icon/{{item.icon}}' width="24px" height="24px">
+                            <div style="cursor: pointer;color: #40455C;fill: #E57D07;font-size: min(2.5vw,2.5*8px);padding-top: min(1vw,5*1px);">
+                                {{item.text}}</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col"></div>
+</div>
+<ng-template #showModal>
+    <div class="mid">
+        <div body class="mb-4 mr-2">
+            <div class="screen">
+                <div class="row text-right" (click)="closeModal()"> <i class="material-icons" style="position: absolute; right: min(2vw,5*2px); top: min(1vw,5*1px);color: rgb(221, 75, 75);font-weight: bold;">cancel</i>
+                </div>
+                <div class="mt-4"> <span style=" font-size: min(5vw,5*5px);">โปรโมชั่นแนะนำสำหรับคุณ {{username}}</span>
+                </div>
+                <div *ngIf="!isSelect">
+                    <div class="card mt-3" *ngFor="let item of listPromotion">
+                        <div class="card-header" style=" padding: 0px;"><img [src]="item.promoBanner" alt="{{item.url}}" style="  border-top-left-radius: 10px;
+                    border-top-right-radius: 10px;
+                    max-height: 100%;
+                    max-width: 100%;" loading="lazy"></div>
+                        <div class="card-body" style=" font-size: clamp(1rem, 5vw, 35px);">{{item.promoTitle}}</div>
+                        <div class="card card-pink mb-2" style="align-self: center;" (click)="routSandCode(item)">
+                            <div class="card-body text-center pbody" style="padding-top: 10px;padding-bottom: 10px;">
+                                <span><b>ลงทะเบียนรับสิทธ์</b></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="isSelect" class="card mt-3">
+                    <div class="card-header">
+                        <img [src]='selectData.promoBanner'>
+                    </div>
+                    <div class="card-body">
+                        <div [innerHTML]="selectData.promoDetail">
+                        </div>
+                        <div class="row text-center" style="justify-content: center;">
+                            <div class="card card-blue mb-2 mt-2" (click)="sandPromotion();">
+                                <div class="card-body text-center">
+                                    <span><b>ยืนยันรับสิทธ์</b></span>
+                                </div>
+                            </div>
+                            <div class="card card-pink mb-2 mt-2" (click)="routSandCode2();">
+                                <div class="card-body text-center">
+                                    <span><b>กลับ</b></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<!-- ____________________________________  Modal Alert ฝากเงินและถอนเงิน  _________________________________ -->
+<ng-template #showAlertContirmText>
+    <div class="mid">
+        <div body class="mb-3 mt-2 mr-2">
+            <div class="screen mt-4 ">
+                <div class="row text-right" (click)="closeModal()"> <i class="material-icons" style="position: absolute; right: min(2vw,5*2px); top: min(1vw,5*1px);color: rgb(221, 75, 75);font-weight: bold;">cancel</i>
+                </div>
+                <div class="row " style="margin: min(5vw,5*5px) 0vw min(8vw,5*8px) 0;justify-content: center;">
+                    <img *ngIf="alertData?.status" src="assets/image/asset/Correct2.svg" style="width: min(20vw,5*20px);">
+                    <img *ngIf="!alertData?.status" src="assets/image/asset/warnning2.svg" style="width:  min(20vw,5*20px);">
+                </div>
+                <div class="mid" style="font-size: min(5vw,5*5px);" [innerHTML]="alertData?.message| safeHtml">
+                </div>
+                <div class="row mt-4 " style="height: 1px;border-top: 1px solid #d1d1d1; "></div>
+                <div class="mt-4 row" style="justify-content: center;">
+                    <div class="card noShadow mid noShadow NoBorder ml-1" (click)="closeModal()" style="padding:  min(2vw,5*2px);width:  min(22vw,5*22px);border-radius: 7px !important;font-size: min(4vw,5*4px);" [style.background-color]="alertData?.status?'#00C157':'#E90061'">
+                        <b style="color: white;">รับทราบ</b>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>

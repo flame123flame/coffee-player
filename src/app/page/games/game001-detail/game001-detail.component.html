@@ -1,0 +1,63 @@
+<div class="screen">
+
+    <div class="card mt-2 ">
+        <div class="card-body">
+
+
+            <div class="row">
+                <i (click)="back()" class="fa fa-arrow-circle-left ml-1" style="color:#020A2E;font-size: min(7vw,5*7px);cursor: pointer;"></i>
+                <div class="col " style="align-self: flex-end;">
+                    <b style="color:#020A2E;;font-size: min(5vw,5*5px);">{{displayName}}</b>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card mt-3 mb-3  text-center " style="border: none;">
+        <div class="card-header" style="background-color: #ffde0b;">
+            <span style="font-size: min(4vw,5*4px);font-weight: bolder;padding-top: 0.5rem;padding-bottom: 0.5rem;">เกมส์ที่คุณเล่นบ่อย</span>
+        </div>
+        <div class="card-body " style="    padding: 0;">
+            <ul class="list-unstyled d-flex flex-wrap " style=" padding-left: 13px;padding-top: 10px;padding-right: 10px;">
+
+                <li *ngFor="let item of listImgNone; let in = index" style="margin-right: 5px;">
+                    <img loading="lazy" *ngIf="item.image2 && item.image2.startsWith('//')" style="border-radius: 35%;" class="list-box " [src]='item.image2' (click)="goGameFavorite(item)">
+                    <img loading="lazy" *ngIf="null == item.image2 || !item.image2.startsWith('//')" style="border-radius: 35%;" class="list-box " [src]='(item.image2)?(item.image2!=imgDefaultNone?imgApi+item.image2:item.image2):imgLogo' (click)="goGameFavorite(item)">
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- style="justify-content: space-evenly;" เอาไว้ใส่  row บันทัดที่ 17  -->
+    <div class="row mt-3 ml-1 mr-1">
+        <div *ngFor="let item of listGames;let index = index">
+            <div class="card card-game pd  text-center">
+                <div class="img_wrp">
+                    <h4 class="close02"> <span class="badge" style="background-color: #E90061;    border-radius: 0;    font-size: min(3.5vw,4*4px);
+                        ">{{item?.gameTag?.split(",").join(" / ")}}</span></h4>
+                    <img loading="lazy" *ngIf="item.image1 && item.image1.startsWith('//')" [src]='item.image1||"./assets/image/dead-image.png" ' id="imgUNcover">
+                    <img loading="lazy" *ngIf="null == item.image1 ||  !item.image1.startsWith('//')" [src]='item.image1?imgApi+item.image1:"./assets/image/dead-image.png" ' id="imgUNcover">
+                    <div>
+                        <button *ngIf="item.favorite" class="heart" mat-icon-button style="color: palevioletred;" (click)="favorite(index,item.image2,item)" aria-label="Example icon-button with a heart close01 ">
+                            <mat-icon>favorite</mat-icon>
+                        </button>
+                        <button *ngIf="!item.favorite" class="heart" mat-icon-button style="color: palevioletred;" (click)="favorite(index,item.image2,item)" aria-label="Example icon-button with a heart close01">
+                            <mat-icon>favorite_border</mat-icon>
+                        </button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3" style="align-self: center !important;">
+                        <img loading="lazy" *ngIf="item.image2 && item.image2.startsWith('//')" [src]='item.image2||imgLogo' class="imgdetail" style="border-radius: 35%;">
+                        <img loading="lazy" *ngIf="null == item.image2 || !item.image2.startsWith('//')" [src]='item.image2?(imgApi+item.image2):imgLogo' class="imgdetail" style="border-radius: 35%;">
+                    </div>
+                    <div class="col-9 text-center mt-1">
+                        <div style="margin-left: 8px;height: 17px;font-size: min(3.5vw,5*3.5px);" class="text-truncate"> {{item.gameName}}</div>
+                        <app-star star="5"> </app-star><br>
+                        <button type="button " (click)="goGame(item)" class="btn btn-warning btn-sm " style=" padding-top: 0px; padding-bottom: 0px;    margin-left: 5px; ">
+                            <b style="color: #020A2E;     font-size: min(4vw,5*4px);">เล่นเกมส์</b>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

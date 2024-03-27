@@ -1,0 +1,183 @@
+.mSize {
+    margin-right: 1rem;
+    margin-left: 1rem;
+    max-height: 100vh;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.cardNO {
+    background: #ffffff 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 13px;
+    border: 0px;
+}
+
+.card {
+    background: #ffffff 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 13px;
+}
+
+#bankOnwner {
+    border-radius: 13px;
+    box-shadow: none !important;
+    text-align: start;
+}
+
+.banner {
+    width: min(15vw, 5*15px);
+}
+
+.card-header {
+    padding-bottom: 5px;
+    padding-top: 5px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: #020A2E;
+    color: #fff;
+}
+
+.modal-backdrop,
+.fade,
+.show {
+    display: none !important;
+}
+
+.cardBlack {
+    color: white;
+    background: rgb(58, 57, 65);
+    background: transparent linear-gradient(126deg, #828b9e 0%, #32364e 100%) 0% 0% no-repeat padding-box;
+}
+
+.card-pink {
+    background-color: #e90061;
+    color: white;
+}
+
+.card-body.padding {
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.card-body.padding2,
+.card-header.padding2 {
+    padding-bottom: 0px;
+    padding-top: 10px;
+}
+
+.isCopyCss {
+    color: black;
+    background-color: #FFDE0C;
+}
+
+.isNotCopyCss {
+    color: #FFDE0C;
+    background-color: #020A2E;
+}
+
+.padding0 {
+    padding-bottom: 0;
+    padding-top: 0;
+}
+
+.colorButton {
+    padding-left: 29px;
+    padding-right: 29px;
+    height: 44px;
+    color: #fff;
+    background-color: #020A2E;
+}
+
+.colorButtonValidate {
+    padding-left: 29px;
+    padding-right: 29px;
+    height: 44px;
+    color: #fff;
+    background-color: rgba(255, 255, 255, .5);
+}
+
+.colorButtonRule {
+    padding-left: 29px;
+    padding-right: 29px;
+    height: 44px;
+    color: #020A2E;
+    background-color: rgb(255, 255, 255);
+    ;
+}
+
+.marginH0 {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.crop {
+    width: 120px;
+    height: 120px;
+    overflow: hidden;
+}
+
+.mid {
+    padding-left: 1px;
+    padding-right: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.crop img {
+    width: 400px;
+    height: 300px;
+    margin: -0px 0 0 -0px;
+}
+
+.fontbankAccount {
+    text-align: start;
+    font-size: min(5vw, 5*5px);
+    color: #fff;
+    letter-spacing: 4px;
+    font-family: "uni", sans-serif !important;
+}
+
+.fontbanName {
+    font-size: min(5vw, 5*5px);
+    color: #fff;
+}
+
+svg {
+    margin-top: min(0.5vw, 5*0.5px);
+}
+
+@media (max-width: 350px) {
+    svg {
+        margin-top: min(3vw, 5*3px);
+    }
+}
+
+@media (max-width: 400px) {
+    span {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 500px) {
+    span {
+        font-size: 26px;
+    }
+}
+
+.responsiveBlogin {
+    right: 0px;
+    z-index: 999;
+    padding-left: 35px;
+    padding-right: 35px;
+    /* bottom: 0; */
+    color: #fff;
+    /* background-color: #FFDF00; */
+    background-color: #020A2E;
+}

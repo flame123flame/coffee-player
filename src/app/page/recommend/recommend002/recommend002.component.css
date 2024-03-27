@@ -1,0 +1,44 @@
+.fontD {
+    font-size: min( 4vw, 5*4px);
+    color: #020A2E;
+}
+
+.fontD2 {
+    font-size: min( 4vw, 5*4px);
+    color: #020A2E;
+}
+
+.fontH {
+    font-size: min( 6vw, 5*6px);
+    color: #020A2E;
+}
+
+hr {
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.decoration {
+    height: 52px;
+    /* ความสูงของเส้น */
+    width: 1px;
+    /* ความหนาของเส้น */
+    background-color: black;
+    /* สีของเส้น */
+    display: block;
+}
+
+@media (max-width: 320px) {
+    .fontH {
+        font-size: min( 6vw, 5*6px);
+        color: #020A2E;
+    }
+    .fontD {
+        font-size: min( 4vw, 5*4px);
+        color: #020A2E;
+    }
+    .fontD2 {
+        font-size: min( 5vw, 5*5px);
+        color: #020A2E;
+    }
+}

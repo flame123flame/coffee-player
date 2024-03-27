@@ -1,0 +1,27 @@
+<div class="screen mt-4">
+    <div *ngIf="!isSelect">
+        <div class="card mt-3" *ngFor="let item of listGamesFromAPI">
+            <div class="card-header" style="display: grid;justify-content: center;"><img class="img2" [src]="item.promoBanner" alt="{{item.url}}" loading="lazy" style="max-width:100%;"></div>
+            <!-- <div class="card-body">{{item.promoTitle}}</div> -->
+            <div class="card-footer text-muted text-center" style=" background-color: rgb(234, 0, 97);" (click)="routSandCode(item)">
+                <span style="color: white; font-size: min( 5vw, 5*6px);"><b>ดูรายละเอียด</b></span>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="isSelect" class="card mt-3">
+        <div class="card-header" style="display: grid;justify-content: center;">
+            <img class="img2" [src]='selectData?.promoBanner'>
+        </div>
+        <div class="card-body">
+            <div [innerHTML]="selectData?.promoDetail| safeHtml">
+            </div>
+            <div class="row text-center" *ngIf="selectData?.promoType != Posting" style="justify-content: center;">
+                <div class="card card-blue mb-3 mt-3" (click)="sandPromotion();">
+                    <div class="card-body text-center">
+                        <span><b>ยืนยันรับสิทธ์</b></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

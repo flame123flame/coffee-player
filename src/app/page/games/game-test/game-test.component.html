@@ -1,0 +1,19 @@
+<div class="screen">
+
+
+    <div class="card mt-3" *ngFor="let item of listGameMont">
+        <div class="card-horizontal">
+            <div class="img-square-wrapper">
+                <img class="imageCss" src="{{item.image1}}">
+            </div>
+            <div class="card-body text-center" style="    align-self: center;padding: 0;">
+                <b style="font-size: 5vw;">{{item.gameName}}</b><br>
+                <button type="button " class="btn btn-sm " style="background-color: #FFDE0C;     padding-top: 4px;
+                padding-bottom: 4px;
+                padding-left: 24px;
+                padding-right: 24px;"><b style="color: #020A2E; ">เล่นเกมส์</b></button>
+            </div>
+        </div>
+
+    </div>
+</div>

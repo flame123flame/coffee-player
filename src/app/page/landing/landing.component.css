@@ -1,0 +1,479 @@
+@media (max-width: 320px) {
+    .hidgtSpace {
+        height: 3rem;
+    }
+    .coloetextIcon {
+        color: #E9EAEA;
+        align-self: center;
+        margin-left: -34px;
+    }
+    .posittion {
+        justify-content: center;
+        align-items: flex-end;
+    }
+    .sizeIconcasio {
+        width: 160px;
+    }
+    .fontsubQuiz02 {
+        color: #E9EAEA;
+        font-size: 4vw;
+    }
+    .fontsubQuiz01 {
+        margin-top: -12px;
+        color: #F4B87C;
+        font-size: 3vw;
+    }
+    .fontsubQuiz {
+        margin-top: -19px;
+        color: #F4B87C;
+        font-size: 4vw;
+    }
+    .fontQuiz {
+        font-size: 16px;
+        margin-top: -26px;
+        color: #E9EAEA;
+    }
+    .magrin {
+        margin-top: 16px;
+    }
+    .sizeIconLotto {
+        margin-top: -45px;
+        width: 100px;
+        height: 100px;
+    }
+    .fontText {
+        font-size: 4vw;
+        color: #E9EAEA;
+        /* border-bottom: dotted;
+        border-width: 2px;
+        border-color: #F4B87C; */
+    }
+    .sizeIcon {
+        width: 50px;
+        height: 50px;
+    }
+    .responsiveBlogin {
+        position: fixed;
+        right: 0px;
+        bottom: 0;
+    }
+    .positionLogo {
+        text-align: center;
+    }
+    .cardshow {
+        background: transparent linear-gradient(139deg, #626368 0%, #373739 100%) 0% 0% no-repeat padding-box;
+        box-shadow: 0px 3px 6px #00000029;
+        border-radius: 10px;
+        opacity: 1;
+    }
+    .cardshow2 {
+        background: transparent linear-gradient(139deg, #626368 0%, #373739 100%) 0% 0% no-repeat padding-box;
+        box-shadow: 0px 3px 6px #00000029;
+        border-radius: 10px;
+        opacity: 1;
+    }
+}
+
+@media (min-width: 321px) and (max-width: 500px) {
+    .hidgtSpace {
+        height: 4rem;
+    }
+    .coloetextIcon {
+        color: #E9EAEA;
+        align-self: center;
+        margin-left: -34px;
+    }
+    .posittion {
+        justify-content: center;
+        align-items: flex-end;
+    }
+    .sizeIconcasio {
+        width: 160px;
+    }
+    .fontsubQuiz02 {
+        color: #E9EAEA;
+        font-size: 4vw;
+    }
+    .fontsubQuiz01 {
+        margin-top: -12px;
+        color: #F4B87C;
+        font-size: 3vw;
+    }
+    .fontsubQuiz {
+        margin-top: -19px;
+        color: #F4B87C;
+        font-size: 4vw;
+    }
+    .fontQuiz {
+        font-size: 16px;
+        margin-top: -26px;
+        color: #E9EAEA;
+    }
+    .magrin {
+        margin-top: 16px;
+    }
+    .sizeIconLotto {
+        margin-top: -45px;
+        width: 100px;
+        height: 100px;
+    }
+    .fontText {
+        font-size: 4vw;
+        color: #E9EAEA;
+        /* border-bottom: dotted;
+        border-width: 2px;
+        border-color: #F4B87C; */
+    }
+    .sizeIcon {
+        width: 50px;
+        height: 50px;
+    }
+    .responsiveBlogin {
+        position: fixed;
+        right: 0px;
+        bottom: 0;
+    }
+    .positionLogo {
+        text-align: center;
+    }
+    .cardshow {
+        background: transparent linear-gradient(139deg, #626368 0%, #373739 100%) 0% 0% no-repeat padding-box;
+        box-shadow: 0px 3px 6px #00000029;
+        border-radius: 10px;
+        opacity: 1;
+    }
+    .cardshow2 {
+        background: transparent linear-gradient(139deg, #626368 0%, #373739 100%) 0% 0% no-repeat padding-box;
+        box-shadow: 0px 3px 6px #00000029;
+        border-radius: 10px;
+        opacity: 1;
+    }
+}
+
+@media (min-width: 501px) and (max-width: 770px) {
+    .hidgtSpace {
+        height: 5rem;
+    }
+    .coloetextIcon {
+        color: #E9EAEA;
+        align-self: center;
+        margin-left: -34px;
+    }
+    .posittion {
+        justify-content: center;
+        align-items: flex-end;
+    }
+    .sizeIconcasio {
+        width: 160px;
+    }
+    .fontsubQuiz02 {
+        color: #E9EAEA;
+        font-size: 4vw;
+    }
+    .fontsubQuiz01 {
+        margin-top: -12px;
+        color: #F4B87C;
+        font-size: 3vw;
+    }
+    .fontsubQuiz {
+        margin-top: -19px;
+        color: #F4B87C;
+        font-size: 4vw;
+    }
+    .fontQuiz {
+        font-size: 16px;
+        margin-top: -26px;
+        color: #E9EAEA;
+    }
+    .magrin {
+        margin-top: 16px;
+    }
+    .sizeIconLotto {
+        margin-top: -45px;
+        width: 100px;
+        height: 100px;
+    }
+    .fontText {
+        font-size: 4vw;
+        color: #E9EAEA;
+        /* border-bottom: dotted;
+        border-width: 2px;
+        border-color: #F4B87C; */
+    }
+    .sizeIcon {
+        width: 50px;
+        height: 50px;
+    }
+    .responsiveBlogin {
+        position: fixed;
+        right: 0px;
+        bottom: 0;
+    }
+    .positionLogo {
+        text-align: center;
+    }
+    .cardshow {
+        background: transparent linear-gradient(139deg, #626368 0%, #373739 100%) 0% 0% no-repeat padding-box;
+        box-shadow: 0px 3px 6px #00000029;
+        border-radius: 10px;
+        opacity: 1;
+    }
+    .cardshow2 {
+        background: transparent linear-gradient(139deg, #626368 0%, #373739 100%) 0% 0% no-repeat padding-box;
+        box-shadow: 0px 3px 6px #00000029;
+        border-radius: 10px;
+        opacity: 1;
+    }
+}
+
+@media (min-width: 770px) and (max-width: 1024px) {
+    .hidgtSpace {
+        height: 14rem;
+    }
+    .coloetextIcon {
+        color: #E9EAEA;
+        align-self: center;
+        margin-left: -34px;
+    }
+    .posittion {
+        justify-content: center;
+        align-items: flex-end;
+    }
+    .sizeIconcasio {
+        width: 160px;
+    }
+    .fontsubQuiz02 {
+        color: #E9EAEA;
+        font-size: 4vw;
+    }
+    .fontsubQuiz01 {
+        margin-top: -12px;
+        color: #F4B87C;
+        font-size: 3vw;
+    }
+    .fontsubQuiz {
+        margin-top: -19px;
+        color: #F4B87C;
+        font-size: 4vw;
+    }
+    .fontQuiz {
+        font-size: 16px;
+        margin-top: -26px;
+        color: #E9EAEA;
+    }
+    .magrin {
+        margin-top: 16px;
+    }
+    .sizeIconLotto {
+        margin-top: -45px;
+        width: 100px;
+        height: 100px;
+    }
+    .fontText {
+        font-size: 4vw;
+        color: #E9EAEA;
+        /* border-bottom: dotted;
+        border-width: 2px;
+        border-color: #F4B87C; */
+    }
+    .sizeIcon {
+        width: 50px;
+        height: 50px;
+    }
+    .responsiveBlogin {
+        position: fixed;
+        right: 0px;
+        bottom: 0;
+    }
+    .positionLogo {
+        text-align: center;
+    }
+    .cardshow {
+        background: transparent linear-gradient(139deg, #626368 0%, #373739 100%) 0% 0% no-repeat padding-box;
+        box-shadow: 0px 3px 6px #00000029;
+        border-radius: 10px;
+        opacity: 1;
+    }
+    .cardshow2 {
+        background: transparent linear-gradient(139deg, #626368 0%, #373739 100%) 0% 0% no-repeat padding-box;
+        box-shadow: 0px 3px 6px #00000029;
+        border-radius: 10px;
+        opacity: 1;
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 1680px) {
+    .hidgtSpace {
+        height: 18rem;
+    }
+    .coloetext {
+        color: #F4B87C;
+    }
+    .coloetextIcon {
+        color: #E9EAEA;
+        align-self: center;
+        margin-left: -34px;
+    }
+    .posittion {
+        justify-content: center;
+        align-items: flex-end;
+    }
+    .sizeIconcasio {
+        width: 180px;
+    }
+    .fontsubQuiz02 {
+        color: #E9EAEA;
+        font-size: 22px;
+    }
+    .fontsubQuiz01 {
+        margin-top: -8px;
+        color: #F4B87C;
+        font-size: 14px;
+    }
+    .fontsubQuiz {
+        margin-top: -19px;
+        color: #F4B87C;
+        font-size: 18px;
+    }
+    .fontQuiz {
+        font-size: 20px;
+        margin-top: -46px;
+        color: #E9EAEA;
+    }
+    .magrin {
+        margin-top: 40px;
+    }
+    .sizeIconLotto {
+        width: 180px;
+        height: 180px;
+        margin-top: -85px;
+        ;
+    }
+    .fontText {
+        font-size: 22px;
+        color: #E9EAEA;
+        /* border-bottom: dotted;
+        border-width: 2px;
+        border-color: #F4B87C; */
+    }
+    .sizeIcon {
+        width: 100px;
+        height: 100px;
+    }
+    .cardshow {
+        /* margin-top: 190px; */
+        height: 200px;
+        /* background-image: linear-gradient(to right, red , yellow); */
+        background: transparent linear-gradient(139deg, #626368 0%, #373739 100%) 0% 0% no-repeat padding-box;
+        box-shadow: 0px 3px 6px #00000029;
+        border-radius: 10px;
+        opacity: 1;
+    }
+    .cardshow2 {
+        height: 200px;
+        /* background-image: linear-gradient(to right, red , yellow); */
+        background: transparent linear-gradient(139deg, #626368 0%, #373739 100%) 0% 0% no-repeat padding-box;
+        box-shadow: 0px 3px 6px #00000029;
+        border-radius: 10px;
+        opacity: 1;
+    }
+    .cardregis {
+        background: transparent linear-gradient(139deg, #626368 0%, #373739 100%) 0% 0% no-repeat padding-box;
+        box-shadow: 0px 3px 6px #00000029;
+        border-radius: 10px;
+        opacity: 1;
+    }
+    .fontRegister {
+        font-size: 26px;
+        color: #F4B87C;
+    }
+    .spcePC {
+        height: 1rem;
+    }
+}
+
+@media (min-width: 1681px) and (max-width: 2000px) {
+    .hidgtSpace {
+        height: 18rem;
+    }
+    .coloetext {
+        color: #F4B87C;
+    }
+    .coloetextIcon {
+        color: #E9EAEA;
+        align-self: center;
+        margin-left: -34px;
+    }
+    .sizeIconcasio {
+        width: 180px;
+    }
+    .fontsubQuiz02 {
+        color: #E9EAEA;
+        font-size: 22px;
+    }
+    .fontsubQuiz01 {
+        margin-top: -8px;
+        color: #F4B87C;
+        font-size: 14px;
+    }
+    .fontsubQuiz {
+        margin-top: -19px;
+        color: #F4B87C;
+        font-size: 18px;
+    }
+    .fontQuiz {
+        font-size: 20px;
+        margin-top: -46px;
+        color: #E9EAEA;
+    }
+    .magrin {
+        margin-top: 40px;
+    }
+    .sizeIconLotto {
+        width: 180px;
+        height: 180px;
+        margin-top: -85px;
+        ;
+    }
+    .fontText {
+        font-size: 22px;
+        color: #E9EAEA;
+        /* border-bottom: dotted;
+        border-width: 2px;
+        border-color: #F4B87C; */
+    }
+    .sizeIcon {
+        width: 100px;
+        height: 100px;
+    }
+    .cardshow {
+        /* margin-top: 190px; */
+        height: 200px;
+        /* background-image: linear-gradient(to right, red , yellow); */
+        background: transparent linear-gradient(139deg, #626368 0%, #373739 100%) 0% 0% no-repeat padding-box;
+        box-shadow: 0px 3px 6px #00000029;
+        border-radius: 10px;
+        opacity: 1;
+    }
+    .cardshow2 {
+        height: 200px;
+        /* background-image: linear-gradient(to right, red , yellow); */
+        background: transparent linear-gradient(139deg, #626368 0%, #373739 100%) 0% 0% no-repeat padding-box;
+        box-shadow: 0px 3px 6px #00000029;
+        border-radius: 10px;
+        opacity: 1;
+    }
+    .cardregis {
+        background: transparent linear-gradient(139deg, #626368 0%, #373739 100%) 0% 0% no-repeat padding-box;
+        box-shadow: 0px 3px 6px #00000029;
+        border-radius: 10px;
+        opacity: 1;
+    }
+    .fontRegister {
+        font-size: 26px;
+        color: #F4B87C;
+    }
+    .spcePC {
+        height: 1rem;
+    }
+}

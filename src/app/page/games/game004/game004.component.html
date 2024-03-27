@@ -1,0 +1,18 @@
+<div class="screen">
+
+    <div *ngFor="let item of listGames" (click)="goGame(item)">
+        <div class="row mt-4">
+            <div class="col-12 ml-2 text-left" style="padding-right: 0px;padding-left: 0px;">
+                <b class="textGameButoom"> {{item.displayName}}</b>
+            </div>
+
+        </div>
+        <div class="row mt-2 mb-2">
+            <div class="col img_wrp" style="padding-right: 0px;padding-left: 0px;">
+                <img loading="lazy" [src]='imgApi + item.portraitImgUrl' class=" " id="imgUNcover">
+                <button type="button" class="btn bottonInimage "><b>เข้าเล่น</b></button>
+            </div>
+        </div>
+        <hr style="margin-top: 0rem;margin-bottom: 0rem;">
+    </div>
+</div>

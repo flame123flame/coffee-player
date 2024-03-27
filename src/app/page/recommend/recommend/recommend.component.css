@@ -1,0 +1,114 @@
+.rowPad {
+    margin-right: -0px;
+    margin-left: -0px;
+    justify-content: space-between;
+}
+
+.activess {
+    font-size: min( 5vw, 5*3px);
+    padding-top: 1vw;
+}
+
+.paddingDiv:focus {
+    outline: 0;
+    /* background-color: black; */
+}
+
+.activesstive1 {
+    font-size: min( 5vw, 5*4px);
+    color: #020A2E !important;
+    padding-top: 1vw;
+    border-bottom: 5px solid #020A2E;
+    padding-bottom: 18px;
+}
+
+.activesstive2 {
+    font-size: min( 5vw, 5*4px);
+    padding-top: 1vw;
+    color: #020A2E !important;
+    border-bottom: 5px solid#020A2E;
+    padding-bottom: 18px;
+}
+
+.activesstive3 {
+    font-size: min(5vw, 5*4px);
+    color: #020A2E !important;
+    padding-top: 1vw;
+    border-bottom: 5px solid #020A2E;
+    padding-bottom: 18px;
+}
+
+.activesstive4 {
+    font-size: min(5vw, 5*4px);
+    color: #020A2E !important;
+    padding-top: 1vw;
+    border-bottom: 5px solid #020A2E;
+    padding-bottom: 18px;
+}
+
+.fontButton {
+    margin-top: 10px;
+    font-size: min( 4vw, 5*4px);
+    color: #000;
+}
+
+@media (max-width: 320px) {
+    .card-blue {
+        border-radius: 10px;
+        color: white;
+        background: transparent linear-gradient(101deg, #1791D8 0%, #5BC3FF 100%) 0% 0% no-repeat padding-box;
+    }
+    .fontrecommend {
+        font-size: min( 6vw, 5*6px);
+    }
+    .screen {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    .iconstype {
+        margin-top: 10px;
+        color: #1455AA;
+        font-size: min( 6vw, 5*6px);
+    }
+    .fontButton {
+        font-size: min( 4vw, 5*4px);
+        /* color: #fff; */
+    }
+    .cardpad {
+        border: none;
+        box-shadow: 10px;
+        /* background: #f4f4f4 */
+    }
+}
+
+@media (min-width: 321px) and (max-width: 770px) {
+    .card-blue {
+        color: white;
+        border-radius: 10px;
+        /* width: 40vw; */
+        /* height: 8vw; */
+        background: transparent linear-gradient(101deg, #1791D8 0%, #5BC3FF 100%) 0% 0% no-repeat padding-box;
+    }
+    .fontrecommend {
+        font-size: min( 6vw, 5*6px);
+    }
+    .screen {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    .iconstype {
+        margin-top: 10px;
+        font-size: min( 6vw, 5*6px);
+        color: #000;
+    }
+    .fontButton {
+        margin-top: 10px;
+        font-size: min( 4vw, 5*4px);
+        color: #000;
+    }
+    .cardpad {
+        /* background: #f4f4f4; */
+        box-shadow: 10px;
+        border: none;
+    }
+}

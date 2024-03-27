@@ -1,0 +1,37 @@
+.screen {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.imageCss {
+    z-index: 999;
+    height: min(28vw, 5*28px);
+}
+
+.cardCss {
+    height: min(27vw, 5*27px);
+}
+
+.card-horizontal {
+    display: flex;
+    flex: 1 1 auto;
+}
+
+.img_wrp {
+    display: inline-block;
+    position: relative;
+}
+
+#imgUNcover {
+    height: min(38vw, 5*38px);
+    margin-top: -10px;
+    width: 100%;
+    /* padding-top: -10px; */
+    object-fit: contain;
+}
+
+.close02 {
+    position: absolute;
+    top: 4px;
+    left: 22px;
+}

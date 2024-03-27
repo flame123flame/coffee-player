@@ -1,0 +1,43 @@
+<div *ngIf="isShow">
+    <div class="card mt-3 mb-3" *ngFor="let item of listAff">
+        <div class="card-body" style="padding: 0 1.25rem 0.5rem 1.25rem;">
+            <div class="row mt-4">
+                <div class="col text-center">
+                    <b class="fontH">วันที่สมัคร {{ item?.registerDate  |  date:'dd/MM/yyyy'}}</b>
+                </div>
+            </div>
+            <hr style="background-color: #020A2E;">
+            <div class="row">
+                <div class="col-6" style="    border-right: 0.7px solid #020A2E;">
+                    <p class="fontD">ยูสเซอร์เนม</p>
+                    <b class="fontD2">{{item.username}} </b>
+                </div>
+                <div class="col-6" style="    border-left: 0.7px solid #020A2E;">
+                    <p class="fontD">จำนวนแทงทั้งหมด</p>
+                    <b class="fontD2">{{item?.totalBet || '0.00'}} </b>
+                </div>
+            </div>
+
+            <div class="row mt-3 mb-2">
+                <div class="col text-center">
+                    <button type="button" (click)="goToe(item.channelDetailList)" class="btn  btn-sm" style="background-color: #FFDE0C;"><b style="color: #020A2E;">ดูรายละเอียด</b></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="scrollX mt-1" style="background-color: #fff;border-radius: 10px;">
+
+    </div>
+</div>
+
+<div *ngIf="!isShow">
+    <div class="card mt-3 mb-3">
+        <div class="row mt-3 mb-3">
+            <div class="col text-center">
+                <b class="margin" style="font-size: 19px;font-weight: bold;color: #020A2E;">ไม่มีสมาชิก <i
+                        class="fa fa-info-circle" aria-hidden="true"></i></b>
+            </div>
+        </div>
+
+    </div>
+</div>

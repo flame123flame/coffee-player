@@ -1,0 +1,70 @@
+.screen {
+    /* margin-left: 0.5rem;
+    margin-right: 0.5rem; */
+    margin-top: 1rem;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+.fontTab {
+    font-size: min(3.6vw,5*3.6px);
+}
+
+.activess1 {
+    border-top-left-radius: 10px !important;
+    border-bottom-left-radius: 10px !important;
+    border-top-right-radius: 10px !important;
+    border-bottom-right-radius: 10px !important;
+    background-color: white;
+    color: #ea0061;
+}
+
+.activess2 {
+    background-color: white;
+    color: #ea0061;
+    border-top-left-radius: 10px !important;
+    border-bottom-left-radius: 10px !important;
+    border-top-right-radius: 10px !important;
+    border-bottom-right-radius: 10px !important;
+}
+
+.buttonPoy01 {
+    /* padding-left: 26px;
+    padding-right: 26px;
+    padding-top: 10px;
+    padding-bottom: 10px; */
+    border-top-left-radius: 10px !important;
+    border-bottom-left-radius: 10px !important;
+    border-top-right-radius: 10px !important;
+    border-bottom-right-radius: 10px !important;
+    background-color: #fff;
+    color: #020A2E;
+}
+
+.buttonPoy02 {
+    background-color: #fff;
+    color: #020A2E;
+    /* padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 10px;
+    padding-bottom: 10px; */
+    border-top-left-radius: 10px !important;
+    border-bottom-left-radius: 10px !important;
+    border-top-right-radius: 10px !important;
+    border-bottom-right-radius: 10px !important;
+}
+
+.activeButton {
+    background-color: #E90061;
+}
+
+.dropdown-menu {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+hr {
+    background-color: #020A2E;
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+}

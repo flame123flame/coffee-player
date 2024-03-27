@@ -1,0 +1,78 @@
+.screen {
+    /* margin-left: 0.5rem;
+    margin-right: 0.5rem; */
+    margin-top: 1rem;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+.fontTab {
+    font-size: min(3vw, 5*3px);
+}
+
+.activess1 {
+    border-top-left-radius: 6px !important;
+    border-bottom-left-radius: 6px !important;
+    border-top-right-radius: 6px !important;
+    border-bottom-right-radius: 6px !important;
+    background-color: #ea0061;
+    color: white;
+}
+
+.activess2 {
+    background-color: #ea0061;
+    color: white;
+    border-top-left-radius: 6px !important;
+    border-bottom-left-radius: 6px !important;
+    border-top-right-radius: 6px !important;
+    border-bottom-right-radius: 6px !important;
+}
+
+.buttonPoy01 {
+    border-top-left-radius: 6px !important;
+    border-bottom-left-radius: 6px !important;
+    border-top-right-radius: 6px !important;
+    border-bottom-right-radius: 6px !important;
+    background-color: #fff;
+    color: #020A2E;
+}
+
+.buttonPoy02 {
+    background-color: #fff;
+    color: #020A2E;
+    border-top-left-radius: 6px !important;
+    border-bottom-left-radius: 6px !important;
+    border-top-right-radius: 6px !important;
+    border-bottom-right-radius: 6px !important;
+}
+
+.activeButton {
+    background-color: #E90061;
+}
+
+.dropdown-menu {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+hr {
+    background-color: #020A2E;
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+}
+
+.paddingButton {
+    color: #020A2E;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.paddingButton01 {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.paddingButton02 {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}

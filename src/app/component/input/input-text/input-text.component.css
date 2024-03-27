@@ -1,0 +1,43 @@
+.main {
+    /* width: 50%;
+    margin: 50px auto; */
+}
+
+.form-group .form-control {
+    padding-left: 1.375rem;
+    /* padding-left: 8.375rem; */
+    /* background: transparent radial-gradient(closest-side at 50% 50%, #3A3941 0%, #242329 100%) 0% 0% no-repeat padding-box; */
+    border-radius: 5px;
+    border: none;
+    color: #14171C;
+}
+
+.form-group .form-control-icon {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 47px;
+    /* line-height: 2.375rem; */
+    text-align: center;
+    pointer-events: none;
+    color: #F4B87C;
+}
+
+
+/* 
+::-webkit-input-placeholder {
+    font-size: 13px;
+} */
+
+::-webkit-input-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    line-height: 1.5em;
+}
+
+.stinout {
+    padding: 10px;
+    border: 0;
+    box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.10);
+}

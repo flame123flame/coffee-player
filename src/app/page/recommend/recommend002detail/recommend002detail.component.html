@@ -1,0 +1,49 @@
+<!-- ___________________ รายการเกมส์ ___________________ -->
+<div class="margin">
+    <div class="card mt-2" style="margin-left: 4px; margin-right: 4px;">
+        <div class="card-body">
+
+            <div class="row">
+                <i (click)="back()" class="fa fa-arrow-circle-left ml-1" style="color:#020A2E;font-size: min(7vw,5*7px);cursor: pointer;"></i>
+                <div class="col " style="align-self: flex-end;">
+                    <b style="color:#020A2E;;font-size: min(5vw,5*5px);">รายละเอียดสมาชิก</b>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="arrayOfValues.length !=0" class="row mt-2 margin" style="justify-content: space-between">
+        <div class="col" style="padding-right: 4px;padding-left: 4px;">
+            <div class="card mt-2" *ngFor="let item of arrayOfValues;let index=index">
+                <div class="card-body" style="    padding: 0.25rem;">
+                    <div class="row mt-1 mb-1">
+                        <div class="col-2">
+                            <img src="assets/image/asset/casino.png" class="imgUser mr-3" style="padding-left: min(1vw,5*1px);width: min(12vw,5*12px);">
+                        </div>
+                        <div class="col-10">
+                            <div style="border-bottom: 1px solid #A2A5A8; margin-right: 18px;  ">
+                                <b style="font-size:min(  5vw,5*5px);color: #020A2E;">{{item.channelName}}</b>
+                            </div>
+                            <div style="    margin-top: 4px;">
+                                <b style="color: #020A2E;">ยอดแทง {{item.totalBetOne}} รายได้ {{item.totalIncome}}</b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <div *ngIf="arrayOfValues.length ==0">
+        <div class="card mt-3 mb-3" style="margin-left: 4px; margin-right: 4px;">
+            <div class="row mt-3 mb-3">
+                <div class="col text-center">
+                    <b class="margin" style="font-size: 19px;font-weight: bold;color: #020A2E;">ไม่มีสมาชิก <i
+                            class="fa fa-info-circle" aria-hidden="true"></i></b>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <br>
+</div>

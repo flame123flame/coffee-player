@@ -1,0 +1,92 @@
+.screen {
+    margin-top: 0.5rem;
+    padding-left: 0rem;
+    padding-right: 0rem;
+}
+
+.iConinputCalendar {
+    border-top-left-radius: 6px !important;
+    border-bottom-left-radius: 6px !important;
+    border-top-right-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+}
+
+.inputCalendar {
+    border-top-left-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+    border-top-right-radius: 6px !important;
+    border-bottom-right-radius: 6px !important;
+}
+
+.colorText {
+    color: #020A2E;
+}
+
+.borderR {
+    border-right-width: 1px;
+    border-right-style: solid;
+    border-right-color: #8C99A9;
+}
+
+.borderDiv {
+    border-right-width: 1px;
+    border-style: solid;
+    border-color: #020A2E;
+}
+
+.activess1 {
+    cursor: pointer;
+    background-color: #020A2E;
+    color: white;
+}
+
+.activess2 {
+    cursor: pointer;
+    background-color: #020A2E;
+    color: white;
+}
+
+.buttonPoy01 {
+    cursor: pointer;
+    border-right-width: 1px;
+    border-style: solid;
+    border-color: #020A2E;
+}
+
+.buttonPoy02 {
+    cursor: pointer;
+    border-right-width: 1px;
+    border-style: solid;
+    border-color: #020A2E;
+}
+
+.card {
+    border: 0;
+}
+
+.card-mini-5 {
+    cursor: pointer;
+    width: min( 14.2vw, 5*14px);
+    height: min( 8.8vw, 5* 8.8px);
+    border: 1px solid #D0D0D0;
+    box-shadow: none;
+    margin-top: min( 1vw, 5* 1px);
+    border-radius: 7px !important;
+    font-size: min( 4vw, 5*4px);
+    background-color: transparent;
+}
+
+.card-mini-6 {
+    cursor: pointer;
+    width: min( 14.2vw, 5*14px);
+    height: min( 8.8vw, 5* 8.8px);
+    border: 1px solid #D0D0D0;
+    box-shadow: none;
+    margin-top: min( 1vw, 5* 1px);
+    border-radius: 7px !important;
+    font-size: min( 4vw, 5*4px);
+    background-color: transparent;
+    color: #fff;
+    background-color: #020A2E;
+    ;
+}

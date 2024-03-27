@@ -1,0 +1,29 @@
+@font-face {
+    font-family: "supermarket";
+    src: url("font/supermarket-1-1/supermarket.ttf");
+}
+
+@font-face {
+    font-family: "cloud";
+    src: url("font/Cloud-Bold/Cloud-Light.otf");
+}
+
+@font-face {
+    font-family: "cloud-b";
+    src: url("font/Cloud-Bold/Cloud-Bold.otf");
+}
+
+@font-face {
+    font-family: "uni";
+    src: url("font/UnicaOne-Regular.ttf");
+}
+
+@font-face {
+    font-family: "sarabun";
+    src: url("font/Sarabun/Sarabun-Regular.ttf"), url("font/Sarabun/Sarabun-Medium.ttf"),
+        url("font/Sarabun/Sarabun-SemiBold.ttf");
+}
+
+body {
+    font-family: "cloud", sans-serif;
+}

@@ -1,0 +1,27 @@
+@media (max-width: 320px) {
+    .fontH {
+        font-size: min(4vw, 5*4px);
+        ;
+    }
+    .fonrDetail {
+        font-size: min(4vw, 5*4px);
+        ;
+    }
+}
+
+@media (min-width: 321px) and (max-width: 770px) {
+    .fontH {
+        font-size: min(4vw, 5*4px);
+        ;
+    }
+    .fonrDetail {
+        font-size: min(4vw, 5*4px);
+        ;
+    }
+}
+
+.rowPad {
+    margin-right: -0px;
+    margin-left: -0px;
+    justify-content: space-between;
+}

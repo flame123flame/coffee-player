@@ -1,0 +1,85 @@
+<div class="card mt-3 mb-3" *ngFor="let item of list">
+    <div class="card-body" style="padding: 0 1.25rem 0.5rem 1.25rem;">
+        <div class="row mt-3">
+            <div class="col">
+                <b class="fontH">{{item.day}}</b>
+            </div>
+        </div>
+        <hr style="background-color: #020A2E;">
+        <div class="row mt-3">
+            <!-- <div class="col text-center">
+                <p class="fontH">{{item.day}} </p>
+            </div> -->
+        </div>
+        <div class="row">
+            <div class="col-6 text-center" style="    border-right: 0.7px solid #020A2E;">
+                <p class="fontD">ออกผลแล้ว</p>
+                <b class="fontH">{{item.sumShowLotto}}</b>
+            </div>
+            <div class="col-6 text-center" style="    border-left: 0.7px solid #020A2E;">
+                <p class="fontD">ผลยังไม่ออก</p>
+                <b class="fontH">{{item.sumNotShowLotto}}</b>
+            </div>
+        </div>
+        <hr style="background-color: #020A2E;">
+        <div class="row mt-1">
+            <div class="col text-center">
+                <p class="fontD">รวม </p>
+            </div>
+        </div>
+        <div class="row mb-2">
+            <div class="col text-center">
+                <b class="fontH">{{item.sumAllGroupBet | number}}฿</b>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="list.length == 0">
+    <div class="card mt-3 mb-3">
+        <div class="row mt-3 mb-3">
+            <div class="col text-center">
+                <b class="margin" style="font-size: 19px;font-weight: bold;color: #020A2E;">ไม่มีข้อมูล <i class="fa fa-info-circle" aria-hidden="true"></i></b>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- <div class="card mt-3 mb-3">
+    <div class="card-body" style="padding: 0 1.25rem 0.5rem 1.25rem;">
+        <div class="row mt-3">
+            <div class="col">
+                <b class="fontH">สรุปยอดแทงย้อนหลัง</b>
+            </div>
+        </div>
+        <hr style="background-color: #020A2E;">
+        <div class="row mt-3">
+            <div class="col text-center">
+                <p class="fontH">01/10/2563 12:28 น. </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6 text-center" style="    border-right: 0.7px solid #020A2E;">
+                <p class="fontD">ออกผลแล้ว</p>
+                <b class="fontH">15</b>
+            </div>
+            <div class="col-6 text-center" style="    border-left: 0.7px solid #020A2E;">
+                <p class="fontD">ผลยังไม่ออก</p>
+                <b class="fontH">0</b>
+            </div>
+        </div>
+        <hr style="background-color: #020A2E;">
+        <div class="row mt-1">
+            <div class="col text-center">
+                <p class="fontD">รวม </p>
+            </div>
+        </div>
+        <div class="row mb-2">
+            <div class="col text-center">
+                <b class="fontH">240฿</b>
+            </div>
+        </div>
+    </div>
+</div> -->

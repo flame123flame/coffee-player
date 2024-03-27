@@ -1,0 +1,75 @@
+<div *ngIf="isShowPoy">
+
+    <div class="card mt-3 mb-3" *ngFor="let item of list;let i = index">
+        <div class="card-body" style="padding: 0 1.25rem 0.5rem 1.25rem;">
+
+
+            <div class="row mt-3" *ngIf="item.status == 'SEQWIN'">
+                <div class="col">
+                    <b class="fontH1">เลขที่รายการ </b><span style="color: #F66700 ;font-size: min(3vw,5*3px);">#{{item.lottoTransactionGroupCodeSend}}</span> <span class="badge buttonStatusCencal">ชนะลำดับ</span>
+                </div>
+            </div>
+            <div class="row mt-3" *ngIf="item.status == 'SHOW'">
+                <div class="col">
+                    <b class="fontH1">เลขที่รายการ </b><span style="color: #F66700 ;font-size: min(3vw,5*3px);">#{{item.lottoTransactionGroupCodeSend}}</span> <span class="badge buttonStatus">ออกแล้ว</span>
+                </div>
+            </div>
+            <div class="row mt-3" *ngIf="item.status == 'CANCEL'">
+                <div class="col">
+                    <b class="fontH1">เลขที่รายการ </b><span style="color: #F66700 ;font-size: min(3vw,5*3px);">#{{item.lottoTransactionGroupCodeSend}}</span> <span class="badge buttonStatusCencal">ยกเลิกโพย</span>
+                </div>
+            </div>
+            <div class="row mt-3" *ngIf="item.status == 'REFUND'">
+                <div class="col">
+                    <b class="fontH1">เลขที่รายการ </b><span style="color: #F66700 ;font-size: min(3vw,5*3px);">#{{item.lottoTransactionGroupCodeSend}}</span> <span class="badge buttonStatusRefun">คืนโพย</span>
+                </div>
+            </div>
+
+            <hr style="background-color: #020A2E;">
+
+            <div class="row mt-2">
+                <div class="col-6" style="    border-right: 0.7px solid #020A2E;">
+                    <p class="fontD">{{item.lottoClassName}}</p>
+                    <p class="fontD2">{{ item.createAt}}</p>
+                </div>
+                <div class="col-6" style="    border-left: 0.7px solid #020A2E;padding-left: 3px;">
+                    <p class="fontD">เงินเดิมพัน <span style="position: absolute;right: 15px;color: #00C157; font-weight: bold;    font-size: min(4vw,5*4px); ">{{item.sumBet  | number}}฿</span>
+                    </p>
+                    <p class="fontD">ผลชนะ <span style="position: absolute;right: 15px;color: #E90061; font-weight: bold;    font-size: min(4vw,5*4px); ">{{item.sumPrizeWin  | number}}฿</span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="row mt-3 mb-1" *ngIf="item.status != 'SHOW' && item.status != 'REFUND'">
+                <div class="col ">
+                    <div style="height: 63px;background-color: #D6DBDF;border-radius: 3px;">
+                        <div class="p-1 " style="font-size: min(4vw,4*4px);">{{item.remark}}</div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-3 mb-1">
+                <div class="col text-center">
+                    <button type="button" (click)="onClickEdit(item.lottoTransactionGroupCodeSend,item.lottoCategoryCode,item.lottoClassName)" class="btn  btn-sm mr-2" style="background-color: #FFDE0C;"><b
+                            style="color: #020A2E;">ดูรายละเอียด</b></button>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div *ngIf="!isShowPoy">
+    <div class="card mt-3 mb-3">
+        <div class="row mt-3 mb-3">
+            <div class="col text-center">
+                <b class="margin" style="font-size: 19px;font-weight: bold;color: #020A2E;">ไม่มีข้อมูลโพย <i
+                        class="fa fa-info-circle" aria-hidden="true"></i></b>
+            </div>
+        </div>
+
+    </div>
+
+</div>

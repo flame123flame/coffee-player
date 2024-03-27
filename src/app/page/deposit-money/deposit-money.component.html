@@ -1,0 +1,470 @@
+<div class="mSize mb-4 ">
+    <form [formGroup]="formSave" (ngSubmit)="postDeposit()">
+        <div *ngIf="isshowCardMoney" class="card mt-3 text-center" [style.background-color]="this.bankData.color">
+
+            <div class="card-header" style="z-index: 2;padding: min(2vw,5*2px);"><span><b
+                        style="font-size:min(5vw,5*5px);">กรุณาโอนมาที่</b></span></div>
+            <div class=" padding" style="    padding-bottom: 10px; padding-top: 10px;">
+                <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 55 64' style="
+              position: absolute; left: 0; bottom: 0;border-radius: 10px;" fill='currentcolor'>
+                    <path style="fill: transparent;" d='M64 64 L0 64 L0 0 L64 0 Z' />
+                    <path [style.fill]="this.bankData.color2" d='M0 64 L64 64 L64 36 C50 46 40 52 0 52 Z' />
+                </svg>
+                <div class="row mt-2 mb-2 marginH0" style="    border-bottom: 1px solid #fff;padding-bottom: .5rem!important">
+                    <div class="col text-center">
+                        <b style="font-size: min(6.5vw,5*6.5px);color:white;">{{bankData.bank}}</b>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col text-center  mid">
+
+                        <img [src]='imgBank' class="banner">
+                    </div>
+                </div>
+
+                <div class="row mid mt-2">
+                    <b style="font-size: min(6.5vw,5*6.5px);color: white;">ชื่อ {{bankData.accountName}}</b>
+                </div>
+                <div class="row mid mt-2">
+                    <div class="col-6" style="padding-right: 0px;">
+                        <b style="font-size:min(  5.5vw,5* 5.5px);color: white;">{{bankData.bankAccount}}</b>
+                    </div>
+                </div>
+                <div class="row mt-2 mb-2">
+                    <div class="col-1"></div>
+                    <div class="col-10 text-center">
+                        <button type="button" class="btn " style="padding: 0 5px;" [ngClass]="!isCopy?'isCopyCss':'isNotCopyCss'" (click)="copyText()">
+                            <img (click)="copyText()" src="./assets/image/asset/copy.png"
+                                [style.filter]="!isCopy?'brightness(0) invert(0)':'brightness(0) invert(1)'"
+                                style="margin-right: min(2vw,5*2px);height:min( 4vw,5*4px);">
+                            <span *ngIf="!isCopy" style="font-size: 16px;">คัดลอก</span>
+                            <span *ngIf="isCopy" style="font-size: 16px;">คัดลอกแล้ว</span>
+                        </button>
+                    </div>
+                    <div class="col-1"></div>
+                </div>
+                <div class="row mid mt-2">
+                    <span style="font-size: min(4.5vw,5*4.5px);color: white;">เมื่อโอนเงินแล้ว
+                        กรุณายืนยันด้านล่าง</span>
+                </div>
+                <!-- <div class="row mid ">
+                    <b style="font-size:min( 4vw,5*4px);color: #e90061;">***ฝาก {{bankData.minDeposit}} ขึ้นไป รับฟรี 100***</b>
+                </div> -->
+                <ng-container *ngIf="!isAutoTap">
+                    <div class="row mt-2">
+                        <div class="col-2 text-right"> </div>
+                        <div class="col-8">
+                            <input formControlName="number" type="number" [(ngModel)]="number" class="form-control form-control-sm" placeholder="กรุณากรอกจำนวนเงิน" required oninvalid="this.setCustomValidity('กรุณากรอกจำนวนเงิน')" oninput="setCustomValidity('')">
+                        </div>
+                    </div>
+                    <div *ngIf="isCheckNum" class="">
+                        <span style="color: red;font-size: min(3vw,5*3px);">*ฝากเงินอย่างน้้อย
+                            {{bankData.minDeposit}} ถึง
+                            {{bankData.maxDepositDaily}} บาท</span>
+                    </div>
+                    <div class="row mt-1">
+                        <div class="col-2 text-right"> </div>
+                        <div class="col-8">
+                            <input class="form-control form-control-sm" type="datetime-local" id="myDate" placeholder="กรุณาเลือกวันที่" required value="{{dateNow}}" />
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+            <div class="row mt-2 mb-2" style="margin: 0;">
+                <div class="col text-center" (click)="openmodal2()">
+                    <img src="./assets/image/iconProfile/Asset2.png" height="24px" width="24px" style="margin-right: 8px;filter: brightness(0) invert(1);">
+                    <label style="font-size: min(3.5vw,5*3.5px);color: white; text-decoration: underline">ต้องการรับโปรโมชั่น</label>
+                </div>
+            </div>
+
+            <div class="row mt-2" *ngIf="number || isAutoTap" style="margin: 0;">
+                <div class="col text-center">
+                    <button (click)="postDeposit()" type="button" class="btn colorButton btn-lg" style="width: min(75vw,5*75px);">แจ้งฝากเงิน</button>
+                </div>
+            </div>
+            <div class="row mt-2" *ngIf="!number && !isAutoTap" style="margin: 0;">
+                <div class="col text-center">
+                    <button type="button" class="btn colorButtonValidate btn-lg" style="width:  min(75vw,5*75px);">แจ้งฝากเงิน</button>
+                </div>
+            </div>
+            <div class="row mt-2 mb-4" style="margin: 0;">
+                <div class="col text-center">
+                    <button type="button" class="btn colorButtonRule btn-lg" style="width:  min(75vw,5*75px);" (click)='openmodal3()'>ดูวิธีการฝากเงิน</button>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="!isshowCardMoney" class="card mt-3 text-center">
+            <div class="row " style="margin: min(12vw,5*12px) 0 0 0;justify-content: center;">
+                <!-- <img *ngIf="isSuccess" src="assets/image/asset/Correct.svg" style="width: min(20vw,5*20px);"> -->
+                <img src="assets/image/asset/warnning2.svg" style="width: min(20vw,5*20px);">
+            </div>
+            <div class="row " style="justify-content: center;margin-top: 30px;">
+                <div class="col">
+                    <b style="color:  #e90061;font-size: min(6vw,5*6px);">{{isshowButtonMoney}}</b>
+                </div>
+            </div>
+
+            <div class="row " style="margin-top: 40px;justify-content: center;margin-bottom: min(8vw,5*10px);">
+                <div class="col text-center">
+                    <button [routerLink]="['/']" type="button" style="font-size: min(6vw,5*4px);" class="btn btn-sm responsiveBlogin "><b>กลับสู่หน้าหลัก</b></button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <!-- <div class="mt-2" (click)="isAutoTapFn()">Switch</div> -->
+</div>
+
+
+<!-- ____________________________________  Modal alertText  _________________________________ -->
+<div class="mid">
+    <ng-template #showModal>
+        <div body class="mb-3 mt-2 mr-2">
+            <div class="screen">
+                <div class="row text-right" (click)="closeModal()"> <i class="material-icons" style="position: absolute; right: min(2vw,5*2px); top: min(1vw,5*1px);color: rgb(221, 75, 75);font-weight: bold;">cancel</i>
+                </div>
+                <div class="row " style="margin: min(12vw,5*12px) 0 0 0;justify-content: center;">
+                    <img *ngIf="isSuccess" src="assets/image/asset/Correct.svg" style="width: min(20vw,5*20px);">
+                    <img *ngIf="!isSuccess" src="assets/image/asset/warnning2.svg" style="width: min(20vw,5*20px);">
+                </div>
+                <div class="mt-4 text-center"> <span style=" font-size: min(7vw,5*7px);">
+                        <b>{{alertText}}</b></span><br>
+                </div>
+                <div class="row mt-4 mb-4" style="height: 1px;border-top: 1px solid #d1d1d1;    margin-left:min(5vw,5*5px);
+                margin-right:min(5vw,5*5px);"></div>
+                <div class=" row" style="justify-content: center;">
+                    <div class="card noShadow mid noShadow NoBorder ml-1" (click)="closeModal()" style="padding: min(2vw,5*2px);width: min(22vw,5*22px);border-radius: 7px !important;font-size:min( 4vw,5*4px);" [style.background-color]="isSuccess?'#02BC70':'#E90061'">
+                        <b style="color: white;">ตกลง</b>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </ng-template>
+</div>
+<div class="mid">
+    <ng-template #showModal2>
+        <div body class="mb-4 mr-2">
+            <div class="screen">
+                <div class="row text-right" (click)="closeModal()"> <i class="material-icons" style="position: absolute; right: min(2vw,5*2px); top: min(1vw,5*1px);color: rgb(221, 75, 75);font-weight: bold;">cancel</i>
+                </div>
+                <div class="mt-4"> <span style=" font-size:min(5vw,5*5px);">โปรโมชั่น</span></div>
+                <div *ngIf="!isSelect">
+                    <div class="card mt-3" *ngFor="let item of listPromotion">
+                        <div class="card-header" style=" padding: 0px;"><img [src]="item.promoBanner" alt="{{item.url}}" style="  border-top-left-radius: 10px;
+                    border-top-right-radius: 10px;
+                    max-height: 100%;
+                    max-width: 100%;" loading="lazy"></div>
+                        <div class="card-body" style=" font-size:min(5vw,5*5px);">{{item.promoTitle}}</div>
+                        <div class="card card-pink mb-2" style="align-self: center;" (click)="routSandCode(item)">
+                            <div class="card-body text-center pbody" style="padding-top: 10px;padding-bottom: 10px;">
+                                <span style="font-size: 2vh;"><b>ลงทะเบียนรับสิทธ์</b></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="isSelect" class="card mt-3">
+                    <div class="card-header">
+
+                        <img [src]="selectData.promoBanner" style="  border-top-left-radius: 10px;
+                    border-top-right-radius: 10px;
+                    max-height: 100%;
+                    max-width: 100%;" loading="lazy">
+                    </div>
+
+                    <div class="card-body">
+                        <div [innerHTML]="selectData.promoDetail|safeHtml">
+                        </div>
+                        <div class="row text-center" style="justify-content: center;">
+                            <div class="btn col-5 card-blue mb-2 mt-2" (click)="sandPromotion();">
+                                <div class=" text-center">
+                                    <span style="font-size: min(4vw,5*4px);color: white;"><b>ยืนยันรับสิทธ์</b></span>
+                                </div>
+                            </div>
+                            <div class="btn col-5 card-pink mb-2 mt-2" style="border-radius: 12px !important;" (click)="routSandCode2();">
+                                <div class=" text-center">
+                                    <span style="font-size: min(4vw,5*4px);"><b>กลับ</b></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</div>
+
+
+<div class="mid">
+    <ng-template #showModal3>
+
+        <div body class="mb-3 mt-2 mr-2">
+            <div class="screen mt-4 ">
+                <div class="row text-right" (click)="closeModal()"> <i class="material-icons" style="position: absolute; right: min(2vw,5*2px); top: min(1vw,5*1px);color: rgb(221, 75, 75);font-weight: bold;">cancel</i>
+                </div>
+                <div class="row " style="margin: min(3vw,5*3px) 0 0 0;justify-content: center;">
+                    <img src="assets/image/asset/Correct.svg" style="width: min(20vw,5*20px);">
+
+                </div>
+                <div class="mt-4 text-center mb-4">
+                    <span style=" font-size:min(5vw,5*5px);"> <b>ขอรับโปรสำเร็จ </b></span><br>
+                </div>
+                <div class="mt-4 row" style="justify-content: center;">
+
+                    <div (click)="closeModal()" class="card noShadow mid noShadow NoBorder ml-1" style="padding: min(2vw,5*2px);width: min(22vw,5*22px);border-radius: 7px !important;font-size:min( 4vw,5*4px);background-color: #020A2E;">
+                        <b style="color: white;">ตกลง</b>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</div>
+
+
+
+<div class="mid">
+    <ng-template #showModalError>
+
+        <div body class="mb-3 mt-2 mr-2">
+            <div class="screen mt-4 ">
+                <div class="row text-right" (click)="closeModal()"> <i class="material-icons" style="position: absolute; right: min(2vw,5*2px); top: min(1vw,5*1px);color: rgb(221, 75, 75);font-weight: bold;">cancel</i>
+                </div>
+                <div class="row " style="margin: min(3vw,5*3px) 0 0 0;justify-content: center;">
+                    <img *ngIf="!isSuccess" src="assets/image/asset/warnning2.svg" style="width: min(20vw,5*20px);">
+
+                </div>
+                <div class="mt-4 text-center mb-4">
+                    <span style=" font-size:min(5vw,5*5px);"> <b>ระบบปิดปรับป </b></span><br>
+                </div>
+                <div class="mt-4 row" style="justify-content: center;">
+
+                    <div (click)="closeModal()" class="card noShadow mid noShadow NoBorder ml-1" style="padding: min(2vw,5*2px);width: min(22vw,5*22px);border-radius: 7px !important;font-size:min( 4vw,5*4px);background-color: #020A2E;">
+                        <b style="color: white;">ตกลง</b>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</div>
+<!-- (click)="sandPromotion();" -->
+
+
+<!-- ____________________________________  Modal กติกา  _________________________________ -->
+<div class="mid">
+    <ng-template #roleModal>
+        <div header class="topModal">
+            <div class="row" style="justify-content: space-between;
+            align-items: baseline;margin: 0;">
+                <div>
+                    <span style="font-size:min(5vw,5*5px);color: white;"><b>กติกาการเล่น</b></span></div>
+                <div (click)="closeModal()" class="mr-2"> <span class="material-icons" style="color: rgb(255, 255, 255);font-weight: bold;">x</span>
+                </div>
+            </div>
+        </div>
+        <!-- <div body class=" " style="background-color: #F2F2F2;border-radius: .3rem;">
+            <div class="screen mb-3 mt-4 mr-1 ml-1">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <div> <span style="font-size: 6vw;"><b>{{this.lottoData?.className||'-'}}</b></span></div>
+                        <div> <span>เปิดรับแทง <b>ล่วงหน้า 5 วันก่อนหวยออก</b></span></div>
+                        <div> <span style="text-decoration: underline;"><b>ตัวอย่าง</b></span></div>
+                        <div> <span>หวยรัฐวันที่ <b>16{{dateNow | date:'/MM/yyyy'}}</b></span></div>
+                        <div> <span>จะเริ่มแทงได้วันที่ <b>11{{dateNow | date:'/MM/yyyy'}}</b></span></div>
+                        <img src="assets/image/asset/calendar.svg" style="width: 30vw;margin-top: 2vw;">
+                    </div>
+                </div>
+                <div class="card mt-3">
+                    <div class="card-body text-center">
+                        <div> <span>ระบบ <b>ปิดรับแทงเวลา {{this.dateClose||'-'}}
+                                    น.</b> หากมี</span></div>
+                        <div> <span>การเปลี่ยนแปลงทางบริษัทฯจะแจ้งให้ทราบ</span></div>
+                        <div> <span>ล่วงหน้า 1 วัน</span></div>
+                        <img src="assets/image/asset/Sign.svg" style="width: 20vw;margin-top: 2vw;">
+                    </div>
+                </div>
+                <div class="card mt-3">
+                    <div class="card-body text-center">
+                        <div> <span>ระบบ FINBET ให้ราคา <b>การจ่ายที่สูงกว่าใคร</b></span></div>
+                        <div> <span>ทุกการเดิมพันจึงไม่มีส่วนลดเปอร์เซ็น</span></div>
+                        <img src="assets/image/asset/graph.svg" style="width: 20vw;margin-top: 2vw;">
+                    </div>
+                </div>
+                <div *ngIf="lottoData.ruleDes" class="card mt-3">
+                    <div class="card-body">
+                        <div [innerHTML]="lottoData?.ruleDes||'-'"></div>
+                    </div>
+                </div>
+                <div class="card mt-3">
+                    <div class="card-body text-center">
+                        <div class="card noShadow"
+                            style="background-color: #020A2E;    margin-left: 8vw;margin-right: 8vw;">
+                            <div class="card-body" style="padding: 1rem;">
+                                <div> <span style="color: white;font-size:min(5vw,5*5px);"><b>ตารางราคาการจ่าย</b></span></div>
+                                <div> <span style="color: white;font-size:min(5vw,5*5px);"><b>ที่ให้คุณมากกว่าใคร</b></span></div>
+                            </div>
+                        </div>
+                        <div *ngFor="let item of listData;let index = index" class="mt-4">
+                            <div *ngIf="!item.isSwitch">
+                                <div><span style="font-size: 6vw;"><b>{{item.lottoName}}</b></span></div>
+                                <div class="mt-1 mb-2"><span
+                                        style="font-size: 6vw;color: #E90061;"><b>ราคาจ่าย</b></span>
+                                </div>
+                                <div><span style="font-size: 8vw;color: #E90061"><b>{{item.multi}}฿</b></span></div>
+                                <div class="row mt-2" style="height: 1px;border-top: 1px solid #474765; margin-left: 10vw;
+                            margin-right: 10vw;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+    </ng-template>
+</div>
+
+
+<ng-template #showAlertContirmText1>
+    <div class="mid">
+
+        <div body class="mb-3 mt-2 mr-2">
+            <div class="screen mt-4 ">
+                <!-- <div class="row text-right" (click)="closeModal()"> <i class="material-icons"
+                        style="position: absolute; right: 2vw; top: 1vw;color: rgb(221, 75, 75);font-weight: bold;">cancel</i>
+                </div> -->
+                <div class="row " style="margin:min(5vw,5*5px) 0vwmin(5vw,5*5px) 0;justify-content: center;">
+                    <img src="assets/image/icon-main/alet.png" style="width: min(20vw,5*20px);height: min(20vw,5*20px);">
+                    <!-- <img *ngIf="!alertData.status" src="assets/image/asset/warnning2.svg" style="width: 20vw;"> -->
+                </div>
+                <div class="text-center" style="font-size:min(5vw,5*5px);">
+                    <p>หมายเหตุ </p>
+                    <p>เลขบัญชีปลายทางมีการเปลี่ยนแปลง</p>
+                    <p>ตลอดเวลากรุณาตรวจสอบเลขบัญชี</p>
+                    <p>ก่อนทำการฝากทุกครั้งค่ะ</p>
+                </div>
+
+            </div>
+
+            <div class="row mt-4 " style="height: 1px;border-top: 1px solid #d1d1d1; "></div>
+            <div class="text-center mt-4" style="font-size:min(5vw,5*5px);">
+                <p>***กรุณาใช้บัญชีที่สมัครโอนเข้ามาเท่านั้น***</p>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="check" (click)='hiddenShow("check")'>
+                    <label class="form-check-label mt-1" for="exampleRadios1">
+                        ไม่แสดงข้อความนี้อีก
+                    </label>
+                </div>
+
+            </div>
+            <div class="mt-4 row" style="justify-content: center;">
+                <div class="card noShadow mid noShadow NoBorder ml-1" (click)="closeModal()" style="padding: min(2vw,5*2px);width: min(40vw,5*40px);border-radius: 7px !important;font-size:min( 4vw,5*4px); background-color : #E90061">
+                    <b style="color: white;">ไปที่หน้าฝากเงิน</b>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</ng-template>
+
+
+<!-- ____________________________________  Modal Alert ฝากเงินและถอนเงิน  _________________________________ -->
+<ng-template #showAlertContirmText2>
+    <div header style="background-color: #020A2E;padding: 10px;">
+        <div class="row">
+            <div class="col">
+                <b style="font-size:min(5vw,5*5px); color: #fff;">วิธีการฝากเงิน </b>
+            </div>
+            <div class="col text-right">
+                <b style="font-size:min(5vw,5*5px); color: #fff;" (click)="closeModal()">x</b>
+            </div>
+        </div>
+    </div>
+    <div body>
+        <div class="mid">
+            <div class="screen mt-4 mb-4">
+                <div class="card mb-2 cardNO">
+                    <div class="card-body">
+                        <div class="row text-center ">
+                            <div class="col">
+                                <img src="assets/image/af/DPS1.png" style="width:min(24vw,5*24px);">
+                            </div>
+                        </div>
+                        <div class="row mt-4 text-left">
+                            <div class="col" style="padding: 0px;">
+                                <p style="font-size:min( 4vw,5*4px);">1. เมื่อเข้ามาที่ หน้า <b>“ฝากเงิน”</b> ให้ลูกค้าตรวจสอบบัญชีธนาคาร ปลายทางก่อนทุกครั้ง
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mb-2 cardNO">
+                    <div class="card-body">
+                        <div class="row text-center ">
+                            <div class="col">
+                                <img src="assets/image/af/DPS2.png" style="width:min(18vw,5*18px);">
+                            </div>
+                        </div>
+                        <div class="row mt-4 text-left">
+                            <div class="col" style="padding: 0px;">
+                                <p style="font-size:min( 4vw,5*4px);">2. กดคัดลอกเลขที่บัญชี และนำไปแปะในแอปพลิเคชั่นของธนาคาร ที่ลูกค้าใช้ (ในกรณีที่โอนจากตู้เอทีเอ็ม ลูกค้าสามารถระบุเลข ที่บัญชีของทางเราเข้าไปได้เลย)
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mb-2 cardNO">
+                    <div class="card-body">
+                        <div class="row text-center ">
+                            <div class="col">
+                                <img src="assets/image/af/DPS3.png" style="width:min(18vw,5*18px);">
+                            </div>
+                        </div>
+                        <div class="row mt-4 text-left">
+                            <div class="col" style="padding: 0px;">
+                                <p style="font-size:min( 4vw,5*4px);">3. เมื่อทำการโอนเงินเข้ามาแล้ว กรุณากดที่ปุ่ม
+                                    <b>“แจ้งฝากเงิน”</b> สีชมพูด้านล่าง
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mb-2 cardNO">
+                    <div class="card-body">
+                        <div class="row text-center ">
+                            <div class="col">
+                                <img src="assets/image/af/DPS4.png" style="width:min(18vw,5*18px);">
+                            </div>
+                        </div>
+                        <div class="row mt-4 text-left">
+                            <div class="col" style="padding: 0px;">
+                                <p style="font-size:min( 4vw,5*4px);">4. ยอดเครดิตจะถูกเติมเข้าสู่กระเป๋าตังค์ของลูกค้าโดยอัตโนมัติ ภายใน 1นาที</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card cardNO">
+                    <div class="card-body">
+                        <div class="row text-center ">
+                            <div class="col">
+                                <img src="assets/image/af/DPS5.png" style="width:min(18vw,5*18px);">
+                            </div>
+                        </div>
+                        <div class="row mt-4 text-left">
+                            <div class="col" style="padding: 0px;">
+                                <p style="font-size:min( 4vw,5*4px);"><b>**หมายเหตุ**</b></p>
+                                <p style="font-size:min( 4vw,5*4px);">
+                                    กรุณาโอนเงินจากบัญชีธนาคารที่ใช้ลงทะเบียนไว้กับทาง finnbet เท่านั้น หากมีการโอนมาจากบัญชีอื่นๆทางระบบจะไม่สามารถตรวจ สอบยอดฝากของคุณได้กรุณาเข้ามาตรวจสอบบัญชีธนาคาร ปลายทางก่อนทำการโอนเงินทุกครั้ง เนื่องจากข้อมูลบัญชีอาจ มีการเปลี่ยนแปลงได้ตลอด
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <div class="row text-right" (click)="closeModal()"> <i class="material-icons"
+                        style="position: absolute; right: 2vw; top: 1vw;color: rgb(221, 75, 75);font-weight: bold;">cancel</i>
+                </div> -->
+
+            </div>
+        </div>
+    </div>
+
+</ng-template>

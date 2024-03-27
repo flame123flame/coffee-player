@@ -1,0 +1,785 @@
+<mat-sidenav-container class="ex-container" style=" display: grid; height: 100vh; " [draggable]="true">
+    <mat-sidenav #sidenav [mode]="mode.value" position="end" class="nav ">
+        <div class=" nav-card ">
+            <div class="row mt-2">
+                <div class="col text-left" style="margin-top: 10px;margin-bottom: 5px;">
+                    <i (click)="sidenav.toggle() " style="font-size: min(7vw,5*6px);cursor: pointer;margin-left: 1px;" class="fa fa-times"></i>
+                </div>
+            </div>
+            <div (click)="sidenav.toggle();refresh()" class="card mt-2" style="color: #020A2E; background-color: white;  cursor: pointer;  padding-top: 6px;padding-bottom: 6px;">
+                <div class="card-body mid pd">
+                    <div class="mid"> <img src="assets/image/asset/home.PNG" style="width:min(6vw,5*6px) ;">
+                    </div>
+                    <span class="span3"><b>หน้าหลัก</b></span>
+                </div>
+            </div>
+            <div (click)="sidenav.toggle();lotteryResults()" class="card mt-2 " style="color: #020A2E; background-color: white;cursor: pointer;padding-top: 6px;padding-bottom: 6px;">
+                <div class="card-body pd mid" style="padding-right: min(8vw,5*8px);">
+                    <div class="mid"> <img src="assets/image/icon-main/icon8.png" style="width:min(6vw,5*6px) ;">
+                    </div>
+                    <span class="span3"><b>ผลรางวัลหวย</b></span>
+                </div>
+            </div>
+
+            <a href="https://lin.ee/6poFm7z" style=" outline: none;">
+                <div (click)="sidenav.toggle();" class="card mt-2 " style="background-color: #00B900;color: white;cursor: pointer;padding-top: 6px;padding-bottom: 6px;">
+                    <div class="card-body pd mid" style="padding-right: min(8vw,5*8px);">
+                        <div class="mid"> <img src="./assets/image/icons/line.png" style="height: min(6vw,5*6px);margin-left: 10px;">
+                        </div>
+                        <span class="span3"><b>คลิ้กเพื่อติดต่อผ่านไลน์</b></span>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <app-navbar (onClickEventMenu)="sidenav.toggle()" [showImage]="showImage" (onClickEventLogin)="clickLogin()" (onClickEvent)="clickRegister()"></app-navbar>
+        <div class="row justify-content-center ml-0 mr-0" style="    margin-top: 48px;">
+            <div class="col" style="max-width: 630px;width: 100vw;">
+                <div *ngIf="register == '1'" class="d-flex flex-column justify-content-center align-items-center h-100" style=" margin-top: 35px;">
+                    <div style="width: 100%; padding-right: 36px; padding-left: 36px; ">
+
+                        <div class="row mb-5 " *ngIf="textShowHeaderBoolean">
+                            <div class="col text-center">
+                                <b style="font-size: min(8vw,5*8px);color: #020A2E;">ยินดีต้อนรับ</b>
+                            </div>
+                        </div>
+                        <div class="row " *ngIf="!textShowHeaderBoolean">
+                            <div class="col text-center">
+                                <b style="font-size: min(8vw,5*8px);color: #020A2E;">ยินดีต้อนรับ</b>
+                            </div>
+                        </div>
+                        <div class="row mt-3" *ngIf="!textShowHeaderBoolean">
+                            <div class="col text-center">
+                                <ul class="pagination" style="justify-content: center;    margin-right: -27px;">
+                                    <li class="page-item   mr-4">
+                                        <div class="page-link activeDefluet" [ngClass]="{'activeStep': tabIx == 1,'activeStepComplete': tabIx != 1}">
+                                            <div>1</div>
+                                        </div>
+                                    </li>
+                                    <li class="page-item   mr-4">
+                                        <div class="page-link activeDefluet" [ngClass]="{'activeStep': tabIx == 2,'activeStepComplete': tabIx != 2}">
+                                            <div>2</div>
+                                        </div>
+                                    </li>
+                                    <li class="page-item   mr-4">
+                                        <div class="page-link activeDefluet" [ngClass]="{'activeStep': tabIx == 3,'activeStepComplete': tabIx != 3}">
+                                            <div>3</div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="row mt-2" *ngIf="listBank">
+                            <div class="col text-center p-0">
+                                <ul class="list-unstyled d-flex flex-wrap  text-center" style=" justify-content: center !important">
+                                    <li *ngFor="let item of setListBank; let in = index">
+                                        <div style=" position:relative;padding-top:20px;display:inline-block;">
+                                            <img *ngIf="classActine == in" class="notify-badge" src="./assets/image/bank/check.png">
+
+                                            <img style="opacity: 0.4" (click)="selectBank(item.name,in,item.code)" [src]="item.src" [class]="{'list-box':true, 'activeBank':classActine == in }">
+
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="row mt-2" *ngIf="listBank">
+                            <div class="col text-center p-0">
+                                <div class="alert border border-dark " role="alert">
+                                    <b style="font-size: min(6vw,5*6px) ;color: #020A2E;font-weight: bold;">{{bankName}}</b>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ---------------------------------------  Login Start ----------------------------------------- -->
+                        <form *ngIf="buttonSubmit" [formGroup]="formSave">
+                            <div class="row mt-1 p-0" *ngIf="inputUserName">
+                                <div class="col text-center p-0">
+                                    <input-text formControlName="username" name="username" (input)="checkUsername($event.target.value)" [(ngModel)]="username" valueinput="{{username}}" wording="ชื่อผู้ใช้ของคุณ (ยูเซอร์เนม)">
+                                    </input-text>
+                                </div>
+                            </div>
+                            <div class="row mt-2" *ngIf="inputConfirmPassword">
+                                <div class="col  p-0">
+                                    <div id="accordion">
+                                        <div class="main card shadow-sm">
+                                            <div class="form-group" style="margin-bottom: 0px;">
+                                                <input formControlName="password" name="password" type="password" placeholder="รหัสผ่าน" [(ngModel)]="password" class="form-control stinout shadow-sm  bg-white rounded" style="height: 46px;" data-toggle="collapse" href="#collapseExample1">
+                                            </div>
+                                            <div class="collapse in" id="collapseExample1" *ngIf="!check">
+                                                <div class="card-body shadow-sm">
+                                                    <div style="margin-left: 0px;">{{password}}</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-2 mb-4" *ngIf="inputConfirmPassword">
+                                <div class="col p-0 text-center">
+                                    <div class="form-check">
+                                        <input name="check" [ngModelOptions]="{standalone: true}" [(ngModel)]="check" class="form-check-input" type="checkbox" value="check" data-toggle="collapse" href="#collapseExample1">
+                                        <label class="form-check-label mt-1" for="defaultCheck1">
+                                            <span style="color: #848484;" class="mr-2">ไม่แสดงรหัสผ่าน</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" *ngIf="textErrorLogin != ''&&buttonSubmit ">
+                                <div class="col p-0 ">
+                                    <div class="errorLogin mt-1 text-center">{{textErrorLogin}}</div>
+                                </div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col  p-0 text-center">
+                                    <button type="submit" *ngIf="buttonSubmit" (click)="onLogin()" class="btn responsiveBlogin btn-lg"><b>เข้าสู่ระบบ</b></button> </div>
+                            </div>
+                            <div class="row mt-3" *ngIf="inputShowHeader">
+                                <div class="col p-0 text-center">
+                                    <a style="text-decoration:underline;color: #848484;" (click)="forgotPassword()">ลืมรหัสผ่าน</a>
+                                </div>
+                            </div>
+                        </form>
+                        <!-- ---------------------------------------  Login End ----------------------------------------- -->
+                        <!-- ---------------------------------------  Register step 1: Enter Phone >> Start ----------------------------------------- -->
+                        <form *ngIf="inputPhone" [formGroup]="formSave">
+                            <div class="row mt-3">
+                                <div class="col text-center p-0">
+                                    <input-text formControlName="mobilePhone" name="mobilePhone" (input)="checkPhone($event.target.value)" [(ngModel)]="mobilePhone" valueinput="{{mobilePhone}}" wording="หมายเลขโทรศัพท์ 10 หลักของคุณ">
+                                    </input-text>
+                                </div>
+                            </div>
+                            <div class="row mt-1 p-0">
+                                <div class="col text-center p-0">
+                                    <input-text formControlName="username" name="username" (input)="checkUsername($event.target.value)" [(ngModel)]="username" valueinput="{{username}}" wording="ชื่อผู้ใช้ของคุณ (ยูเซอร์เนม)">
+                                    </input-text>
+                                </div>
+                            </div>
+                            <div class="row  p-0">
+                                <div class="col p-0">
+                                    <div id="accordion">
+                                        <div class="main card shadow-sm">
+                                            <div class="form-group" style="margin-bottom: 0px;">
+                                                <input formControlName="password" name="password" type="password" placeholder="รหัสผ่าน" [(ngModel)]="password" class="form-control stinout shadow-sm  bg-white rounded" style="height: 46px;" data-toggle="collapse" href="#collapseExample1">
+                                            </div>
+                                            <div class="collapse in" id="collapseExample1" *ngIf="!check">
+                                                <div class="card-body shadow-sm">
+                                                    <div style="margin-left: 0px;">{{password}}</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col text-center p-0">
+                                    <div class="errorLogin ">{{showTextValiDate}}</div>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col p-0 text-center" *ngIf="Showcondition">
+                                    <div class="form-check">
+                                        <input [ngModelOptions]="{standalone: true}" [(ngModel)]="check" name="check" class="form-check-input" type="checkbox" value="check" data-toggle="collapse" href="#collapseExample1">
+                                        <label class="form-check-label mt-1" for="defaultCheck1">
+                                            <span style="color: #848484;" class="mr-2">ไม่แสดงรหัสผ่าน</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col  p-0 text-center">
+                                    <button type="submit" (click)="clickConfirm('buttonPhone')" class="btn responsiveBlogin btn-lg"> <b>ยืนยัน </b></button>
+                                </div>
+                            </div>
+                            <div class="row mt-4">
+                                <div class="col p-0 text-center">
+                                    <a (click)="clickLogin()" style="text-decoration: underline;cursor: pointer;"><b
+                                            style="text-decoration: underline;">เข้าสู่ระบบ</b>&nbsp;หากเป็นสมาชิกอยู่แล้ว</a>
+                                </div>
+                            </div>
+                        </form>
+                        <!-- ---------------------------------------  Register step 1: Enter Phone >> End ----------------------------------------- -->
+                        <!-- ---------------------------------------  Register step 2: OTP >> Start ----------------------------------------- -->
+                        <div class="row mt-2 text-center" *ngIf="delayMap[mobilePhone]?.time > 0 && !listBank">
+                            <div class="col-1 text-center">
+                            </div>
+                            <div class="col-10 text-center">
+                                <div class="errorLogintext">ใช้เบอร์นี้ได้อีกใน {{delayMap[mobilePhone].time}} วินาที
+                                </div>
+                            </div>
+                            <div class="col-1 text-center"></div>
+                        </div>
+                        <form *ngIf="inputOTP" [formGroup]="formSave">
+                            <div class="row mt-5">
+                                <div class="col text-center p-0">
+                                    <span style="color: #8C9093;font-size: min(2.4vw,5*3);" class="mr-2">รหัสยืนยันได้ถูกส่งไปที่หมายเลข {{mobilePhone}}</span>
+                                    <a (click)="clickBackRegister()" style="color: #020a2e;;font-size: min(2.4vw,5*3);    text-decoration: underline; cursor: pointer;">แก้ไขหมายเลขโทรศัพท์</a>
+                                </div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col text-center p-0">
+                                    <input-text [(ngModel)]="otp" (input)="checkOTP($event.target.value)" valueinput="{{otp}}" formControlName="otp" name="otp" iconset="fa fa-lock" wording="กรุณากรอก OTP 5 หลัก">
+                                    </input-text>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col text-center p-0">
+                                    <div class="errorLogin ">{{showTextValiDate}}</div>
+                                </div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col  p-0 text-center">
+                                    <button *ngIf="buttonOPT" (click)="clickConfirm('buttonOPT')" type="submit" class="btn responsiveBlogin btn-lg"><b>ยืนยัน </b> </button>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col text-center p-0">
+                                    <button (click)="reqOtp()" type="button" class="btn border border-dark"><b
+                                            style=" font-size: min(5vw, 5*5px);">ส่งรหัส OTP ใหม่อีกครั้ง</b></button>
+                                </div>
+                            </div>
+                        </form>
+                        <!-- ---------------------------------------  Register step 2: OTP >> End ----------------------------------------- -->
+                        <!-- ---------------------------------------  Register step 3: Bank >> Start ----------------------------------------- -->
+                        <form *ngIf="inputBank" [formGroup]="formSave">
+                            <div class="row mt-3" *ngIf="inputBank">
+                                <div class="col text-center p-0">
+                                    <input-text formControlName="bankAccount" (input)="checkBankAccount($event.target.value)" iconset="fa fa-window-restore" name="bankAccount" valueinput="{{bankAccount}}" [(ngModel)]="bankAccount" wording="เลขบัญชีธนาคารของคุณ">
+                                    </input-text>
+                                </div>
+                            </div>
+                            <div class="row mt-2" *ngIf="inputFnameLname">
+                                <div class="col text-center p-0">
+                                    <input-text formControlName="realName" [(ngModel)]="realName" name="realName" valueinput="{{realName}}" iconset="fa fa-user-circle-o" wording="ชื่อ - นามสกุล ที่ใช้ตามบัญชีธนาคารของคุณ">
+                                    </input-text>
+                                </div>
+                            </div>
+                            <div class="row" *ngIf="textErrorLogin != ''&&!buttonSubmit ">
+                                <div class="col p-0">
+                                    <div class="errorLogin mt-1">{{textErrorLogin}}</div>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col text-center p-0">
+                                    <div class="errorLogin ">{{showTextValiDate}}</div>
+                                </div>
+                            </div>
+                            <div class="row mt-3" *ngIf="listBank">
+                                <div class="col text-center p-0">
+                                    <div class="text-center">
+                                        <p style="color:  #E90061;;font-size:min(5vw,5*3px)">
+                                            ***กรุณาตรวจสอบข้อมูลบัญชีธนาคารของคุณให้ถูกต้อง ทางบริษัทขอสงวนสิทธิ์การถอนเงินให้กับบัญชีธนาคารที่ใช้สมัครเข้ามาเท่านั้น***
+                                        </p>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col  p-0 text-center">
+                                    <button *ngIf="buttonBank" (click)="nextBank()" type="submit" class="btn responsiveBlogin btn-lg"><b>ยืนยัน </b> </button>
+                                </div>
+                            </div>
+                        </form>
+                        <!-- ---------------------------------------  Register step 3: Bank >> End ----------------------------------------- -->
+
+                        <ng-container *ngIf="!buttonSubmit">
+                            <div class="row mt-2">
+                                <div class="col  p-0 text-center">
+                                    <!-- <button type="button" *ngIf="buttonSubmit" (click)="onLogin()" class="btn responsiveBlogin btn-lg"><b>เข้าสู่ระบบ</b></button> -->
+                                    <!-- <button *ngIf="buttonPhone" (click)="clickConfirm('buttonPhone')" type="button" class="btn responsiveBlogin btn-lg"> <b>ยืนยัน </b></button> -->
+                                    <!-- <button *ngIf="buttonOPT" (click)="clickConfirm('buttonOPT')" type="button" class="btn responsiveBlogin btn-lg"><b>ยืนยัน </b> </button> -->
+                                    <!-- <button *ngIf="buttonBank" (click)="nextBank()" type="button" class="btn responsiveBlogin btn-lg"><b>ยืนยัน </b> </button> -->
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col p-0 text-center" *ngIf="inputShowHeader">
+                                    <a style="text-decoration:underline;color: #848484;" (click)="forgotPassword()">ลืมรหัสผ่าน</a>
+                                </div>
+                            </div>
+                        </ng-container>
+                    </div>
+                </div>
+                <div class=" d-flex flex-column  " *ngIf="register == '2'">
+                    <div class="row mt-5">
+
+                        <div class="col  p-0 text-center">
+                            <b class="fontHeaderSecName">สมัครสมาชิกสำเร็จ</b>
+                        </div>
+
+                    </div>
+                    <div style="margin-top: 20px;margin-right: 13px;margin-left: 13px;padding-right: 34px;
+                padding-left: 36px;overflow: scroll;">
+                        <div class="row mt-3">
+
+                            <div class="col p-0 text-center">
+                                <p class="fontHeaderSecName">{{username}}</p>
+                            </div>
+
+                        </div>
+                        <div class="row">
+
+                            <div class="col p-0 text-center">
+                                <hr>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col p-0 text-center">
+                                <p class="fontHeaderSecBank">{{bankName}}</p>
+                            </div>
+
+                        </div>
+                        <div class="row">
+
+                            <div class="col p-0 text-center">
+                                <p class="fontHeaderSecBankNumber">{{bankAccount}}</p>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col p-0 text-center">
+                                <p class="fontHeaderSecPhone">เบอร์โทร : {{mobilePhone}}</p>
+                            </div>
+
+                        </div>
+                        <div class="row mb-3">
+
+                            <div class="col p-0 text-center">
+                                <p class="fontHeaderSecUserName">Username : {{username}}</p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row mt-3 mb-3">
+
+                        <div class="col p-0 text-center">
+                            <button (click)="clickConfirm('buttonBank')" type="button" class="btn responsiveBlogin btn-lg mr-4">ยืนยัน </button>
+                            <button (click)="back()" type="button" class="btn responsiveBlogin btn-lg">ย้อนกลับ
+                            </button>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+                <div class="d-flex flex-column justify-content-center align-items-center h-100" *ngIf="register == '3'">
+                    <div style="width: 100%;    padding-right: 36px;
+                padding-left: 36px; overflow: scroll;" style=" margin-top: 35px;">
+
+                        <forgot-password></forgot-password>
+                    </div>
+                </div>
+                <div class="d-flex flex-column justify-content-center align-items-center h-100" *ngIf="register == '4'" style=" margin-top: 35px;">
+                    <div style="width: 100%;    padding-right: 36px;
+                padding-left: 36px; overflow: scroll;">
+                        <new-password></new-password>
+                    </div>
+                </div>
+
+                <div *ngIf="register == '5'" style=" margin-top: 35px;">
+                    <app-change-phone></app-change-phone>
+                </div>
+
+                <div *ngIf="register == '6'" style=" margin-top: 35px;">
+                    <app-lottery-results-ohter></app-lottery-results-ohter>
+                </div>
+
+
+                <div class="container-fluid " *ngIf="register == '0'">
+                    <div class="row">
+                        <div class="col">
+                            <div id="carouselExampleInterval" class="carousel slide text-center" data-ride="carousel">
+                                <div class="carousel-inner text-center">
+                                    <div class="carousel-item  active text-center">
+                                        <div class="row mt-4">
+                                            <div class="col text-center">
+                                                <b class="fontHeder">หวย</b><br>
+                                                <p class="fonSub">บาทละ 900 เล่นง่าย จ่ายหนัก ถูกใจทุกคน!</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mt-1 mb-3">
+                                            <div class="col text-center ">
+                                                <img src="assets/image/landing/lotoo/main_lottomdpi.png" class="d-block imageLanging">
+                                            </div>
+                                        </div>
+                                        <div class="mt-4">
+                                            <div class="row ">
+                                                <div class="col text-center">
+                                                    <button (click)="clickRegister()" type="button" class="btn btn-sm btt "><b
+                                                            style=" font-size: min(6vw, 5*5px);">สมัครทันที</b></button>
+                                                </div>
+                                            </div>
+
+                                            <div class="row mt-2">
+                                                <div class="col-4 text-center p-0">
+                                                    <img src="assets/image/landing/lotoo/yeekeemdpi.png" style="width: min(10vw, 5*10px);">
+
+                                                </div>
+                                                <div class="col-4 text-center p-0">
+                                                    <img src="assets/image/landing/lotoo/hand_upmdpi.png" style="width: min(10vw, 5*10px);">
+
+                                                </div>
+                                                <div class="col-4 text-center p-0">
+                                                    <img src="assets/image/landing/lotoo/hand_pingmdpi.png" style="width: min(10vw, 5*10px);">
+
+                                                </div>
+                                            </div>
+
+                                            <div class="row mb-5 mt-3">
+                                                <div class="col-4 text-center ">
+                                                    <p class="p-0"><b class="fontHederBootom">ซุปเปอร์ยี่กี<br>&nbsp;</b></p>
+                                                    <hr class="under-line" style="background-color: #020a2e;" />
+                                                    <span class="fontButtom">ลุ้นกันได้ทั้งวัน ออกผลทุก 10นาที
+                                                    </span>
+                                                </div>
+                                                <div class="col-4 text-center ">
+                                                    <p class="p-0"><b class="fontHederBootom">รับหมดทุก<br>เลขไม่มีปิด</b></p>
+                                                    <hr class="under-line" style="background-color: #020a2e;" />
+                                                    <span class="fontButtom">ไม่ว่าจะเป็นเลขดังจากสำนักไหน
+                                                        เราก็รับหมด</span>
+                                                </div>
+                                                <div class="col-4 text-center">
+                                                    <p class="p-0"><b class="fontHederBootom">เล่นง่าย <br>
+                                                            เล่นสะดวก</b></p>
+                                                    <hr class="under-line" style="background-color: #020a2e;" />
+                                                    <span class="fontButtom">ระบบที่ออกแบบมาเพื่อพี่น้องชาวไทยโดยเฉพาะ
+                                                    </span>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="row mt-5">
+                                                <div class="col-4 text-center p-0">
+                                                    <img src="assets/image/landing/sub005.png" style="width: min(10vw, 5*10px);">
+
+                                                </div>
+                                                <div class="col-4 text-center p-0">
+                                                    <img src="assets/image/landing/sub006.png" style="width: min(10vw, 5*10px);">
+
+                                                </div>
+                                                <div class="col-4 text-center p-0">
+                                                    <img src="assets/image/landing/sub007.png" style="width: min(10vw, 5*10px);">
+
+                                                </div>
+                                            </div>
+                                            <div class="row mb-5 mt-3">
+                                                <div class="col-4 text-center ">
+                                                    <p class="p-0"><b class="fontHederBootom">ฝากถอน<br>ออโต้</b></p>
+                                                    <hr class="under-line" style="background-color: #020a2e;" />
+                                                    <span class="fontButtom">รวดเร็วสนุกได้ทุกเวลา
+                                                    </span>
+                                                </div>
+                                                <div class="col-4 text-center ">
+                                                    <p class="p-0"><b class="fontHederBootom">ฝ่ายบริการ<br>&nbsp;</b>
+                                                    </p>
+                                                    <hr class="under-line" style="background-color: #020a2e;" />
+                                                    <span class="fontButtom">บริการด้วยใจพร้อมดูแล 24 ชั่วโมง</span>
+                                                </div>
+                                                <div class="col-4 text-center">
+                                                    <p class="p-0"><b class="fontHederBootom">ความมั่นคง<br>&nbsp;</b>
+                                                    </p>
+                                                    <hr class="under-line" style="background-color: #020a2e;" />
+                                                    <span class="fontButtom">เท่าไหร่ก็จ่ายไม่มีลิมิตต่อวัน
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item  text-center">
+                                        <div class="row mt-4">
+                                            <div class="col text-center">
+                                                <b class="fontHeder">เกมส์/สล็อต</b><br>
+                                                <p class="fonSub">คัดมาแล้วเน้นๆ ฟินกันได้ทั้งวัน</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mt-1 mb-3">
+                                            <div class="col text-center ">
+                                                <img src="assets/image/landing/slot/main_slotmdpi.png" class="d-block imageLanging">
+                                            </div>
+                                        </div>
+                                        <div class="mt-4">
+                                            <div class="row ">
+                                                <div class="col text-center">
+                                                    <button (click)="clickRegister()" type="button" class="btn btn-sm btt "><b
+                                                            style=" font-size: min(6vw, 5*5px);">สมัครทันที</b></button>
+                                                </div>
+                                            </div>
+
+                                            <div class="row mt-2">
+                                                <div class="col-4 text-center p-0">
+                                                    <img src="assets/image/landing/slot/cardmdpi.png" style="width: min(12vw, 5*12px);">
+
+                                                </div>
+                                                <div class="col-4 text-center p-0">
+                                                    <img src="assets/image/landing/slot/starmdpi.png" style="width: min(10vw, 5*10px);">
+
+                                                </div>
+                                                <div class="col-4 text-center p-0">
+                                                    <img src="assets/image/landing/slot/gamemdpi.png" style="width: min(12vw, 5*12px);">
+
+                                                </div>
+                                            </div>
+
+                                            <div class="row mb-5 mt-3">
+                                                <div class="col-4 text-center ">
+                                                    <p class="p-0"><b class="fontHederBootom">เครดิตฟรี<br>&nbsp;</b>
+                                                    </p>
+                                                    <hr class="under-line" style="background-color: #020a2e;" />
+                                                    <span class="fontButtom">แจกง่ายทีนี้เท่านั้น
+                                                    </span>
+
+                                                </div>
+                                                <div class="col-4 text-center ">
+                                                    <p class="p-0"><b class="fontHederBootom">เกมส์ยอดนิยม<br>ของคนไทย</b></p>
+                                                    <hr class="under-line" style="background-color: #020a2e;" />
+                                                    <span class="fontButtom">ไฮโล, น้ำเต้าปู่ปลา,โบนัสเพียบ!</span>
+                                                </div>
+                                                <div class="col-4 text-center">
+                                                    <p class="p-0"><b class="fontHederBootom">เล่นง่าย <br> แตกง่าย</b>
+                                                    </p>
+                                                    <hr class="under-line" style="background-color: #020a2e;" />
+                                                    <span class="fontButtom">พร้อมรวยกันทันที
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                            <div class="row mt-5">
+                                                <div class="col-4 text-center p-0">
+                                                    <img src="assets/image/landing/sub005.png" style="width: min(10vw, 5*10px);">
+
+                                                </div>
+                                                <div class="col-4 text-center p-0">
+                                                    <img src="assets/image/landing/sub006.png" style="width: min(10vw, 5*10px);">
+
+                                                </div>
+                                                <div class="col-4 text-center p-0">
+                                                    <img src="assets/image/landing/sub007.png" style="width: min(10vw, 5*10px);">
+
+                                                </div>
+                                            </div>
+                                            <div class="row mb-5 mt-3">
+                                                <div class="col-4 text-center ">
+                                                    <p class="p-0"><b class="fontHederBootom">ฝากถอน<br>ออโต้</b></p>
+                                                    <hr class="under-line" style="background-color: #020a2e;" />
+                                                    <span class="fontButtom">รวดเร็วสนุกได้ทุกเวลา
+                                                    </span>
+                                                </div>
+                                                <div class="col-4 text-center ">
+                                                    <p class="p-0"><b class="fontHederBootom">ฝ่ายบริการ<br>&nbsp;</b>
+                                                    </p>
+                                                    <hr class="under-line" style="background-color: #020a2e;" />
+                                                    <span class="fontButtom">บริการด้วยใจพร้อมดูแล 24 ชั่วโมง</span>
+                                                </div>
+                                                <div class="col-4 text-center">
+                                                    <p class="p-0"><b class="fontHederBootom">ความมั่นคง<br>&nbsp;</b>
+                                                    </p>
+                                                    <hr class="under-line" style="background-color: #020a2e;" />
+                                                    <span class="fontButtom">เท่าไหร่ก็จ่ายไม่มีลิมิตต่อวัน
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item  text-center">
+                                        <div class="row mt-4">
+                                            <div class="col text-center">
+                                                <b class="fontHeder">คาสิโนชั้นนำจากทั่วโลก</b><br>
+                                                <p class="fonSub">ให้คุณได้ลุ้นสุดเหวี่ยงบนหน้าจอของคุณ</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mt-1 mb-3">
+                                            <div class="col text-center ">
+                                                <img src="assets/image/landing/casino/main_casinomdpi.png" class="d-block imageLanging">
+                                            </div>
+                                        </div>
+                                        <div class="mt-4">
+                                            <div class="row ">
+                                                <div class="col text-center">
+                                                    <button (click)="clickRegister()" type="button" class="btn btn-sm btt "><b
+                                                            style=" font-size: min(6vw, 5*5px);">สมัครทันที</b></button>
+                                                </div>
+                                            </div>
+
+                                            <div class="row mt-2">
+                                                <div class="col-4 text-center p-0">
+                                                    <img src="assets/image/landing/casino/smailmdpi.png" style="width: min(10vw, 5*10px);">
+
+                                                </div>
+                                                <div class="col-4 text-center p-0">
+                                                    <img src="assets/image/landing/casino/infinitymdpi.png" style="width: min(12vw, 5*12px);">
+
+                                                </div>
+                                                <div class="col-4 text-center p-0">
+                                                    <img src="assets/image/landing/casino/cash_backmdpi.png" style="width: min(10vw, 5*10px);">
+
+                                                </div>
+                                            </div>
+                                            <div class="row mb-5 mt-3">
+                                                <div class="col-4 text-center ">
+                                                    <p class="p-0"><b class="fontHederBootom">ใครๆ <br>ก็สนุกได้</b></p>
+                                                    <hr class="under-line" style="background-color: #020a2e;" />
+                                                    <span class="fontButtom">แทงขั้นต่ำเพียง5บาทเท่านั้น
+                                                    </span>
+
+                                                </div>
+                                                <div class="col-4 text-center ">
+                                                    <p class="p-0"><b class="fontHederBootom">ครบหมด<br>ทุกแบรนด์</b>
+                                                    </p>
+                                                    <hr class="under-line" style="background-color: #020a2e;" />
+                                                    <span class="fontButtom">(Sexy,SA)</span>
+                                                </div>
+                                                <div class="col-4 text-center">
+                                                    <p class="p-0"><b class="fontHederBootom">รับโบนัสคืน
+                                                            <br>ทุกยอดแทง</b></p>
+                                                    <hr class="under-line" style="background-color: #020a2e;" />
+                                                    <span class="fontButtom">สูงสุด 0.3%
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="row mt-5">
+                                                <div class="col-4 text-center p-0">
+                                                    <img src="assets/image/landing/sub005.png" style="width: min(10vw, 5*10px);">
+                                                </div>
+                                                <div class="col-4 text-center p-0">
+                                                    <img src="assets/image/landing/sub006.png" style="width: min(10vw, 5*10px);">
+                                                </div>
+                                                <div class="col-4 text-center p-0">
+                                                    <img src="assets/image/landing/sub007.png" style="width: min(10vw, 5*10px);">
+                                                </div>
+                                            </div>
+                                            <div class="row mb-5 mt-3">
+                                                <div class="col-4 text-center ">
+                                                    <p class="p-0"><b class="fontHederBootom">ฝากถอน<br>ออโต้</b></p>
+                                                    <hr class="under-line" style="background-color: #020a2e;" />
+                                                    <span class="fontButtom">รวดเร็วสนุกได้ทุกเวลา
+                                                    </span>
+                                                </div>
+                                                <div class="col-4 text-center ">
+                                                    <p class="p-0"><b class="fontHederBootom">ฝ่ายบริการ<br>&nbsp;</b>
+                                                    </p>
+                                                    <hr class="under-line" style="background-color: #020a2e;" />
+                                                    <span class="fontButtom">บริการด้วยใจพร้อมดูแล 24 ชั่วโมง</span>
+                                                </div>
+                                                <div class="col-4 text-center">
+                                                    <p class="p-0"><b class="fontHederBootom">ความมั่นคง<br>&nbsp;</b>
+                                                    </p>
+                                                    <hr class="under-line" style="background-color: #020a2e;" />
+                                                    <span class="fontButtom">เท่าไหร่ก็จ่ายไม่มีลิมิตต่อวัน
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item   text-center">
+                                        <div class="row mt-4">
+                                            <div class="col text-center">
+                                                <b class="fontHeder">ฟุตบอล/กีฬา</b><br>
+                                                <p class="fonSub">ค่ายดัง มาตรฐานอันดับหนึ่งในใจคนไทย</p>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-1 mb-3">
+                                            <div class="col text-center ">
+                                                <img src="assets/image/landing/ball/main_sportmdpi.png" class="d-block imageLanging">
+                                            </div>
+                                        </div>
+                                        <div class="mt-5">
+                                            <div class="row ">
+                                                <div class="col text-center">
+                                                    <button (click)="clickRegister()" type="button" class="btn btn-sm btt "><b
+                                                            style=" font-size: min(6vw, 5*5px);">สมัครทันที</b></button>
+                                                </div>
+                                            </div>
+                                            <div class="row mt-2">
+                                                <div class="col-4 text-center p-0">
+                                                    <img src="assets/image/landing/ball/ballmdpi.png" style="width: min(10vw, 5*10px);">
+                                                </div>
+                                                <div class="col-4 text-center p-0">
+                                                    <img src="assets/image/landing/ball/Boxmdpi.png" style="width: min(10vw, 5*10px);">
+                                                </div>
+                                                <div class="col-4 text-center p-0">
+                                                    <img src="assets/image/landing/ball/Gifemdpi.png" style="width: min(13vw, 5*13px);">
+                                                </div>
+                                            </div>
+                                            <div class="row mb-5 mt-3">
+                                                <div class="col-4 text-center ">
+                                                    <p class="p-0"><b class="fontHederBootom">มันส์ได้ทุก<br>การแข่งขัน</b></p>
+                                                    <hr class="under-line" style="background-color: #020a2e;" />
+                                                    <span class="fontButtom">แทงขั้นต่ำเพียง5บาทเท่านั้น
+                                                    </span>
+                                                </div>
+                                                <div class="col-4 text-center ">
+                                                    <p class="p-0"><b class="fontHederBootom">ปลอดภัย <br> หายห่วง</b>
+                                                    </p>
+                                                    <hr class="under-line" style="background-color: #020a2e;" />
+                                                    <span class="fontButtom">การันตีด้วยชื่อเสียงกว่า20ปี</span>
+                                                </div>
+                                                <div class="col-4 text-center">
+                                                    <p class="p-0"><b class="fontHederBootom">โบนัสมากมาย<br>รอคุณอยู่</b></p>
+                                                    <hr class="under-line" style="background-color: #020a2e;" />
+                                                    <span class="fontButtom">ทั้งเงินฝากและเงินคืน
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="row mt-5">
+                                                <div class="col-4 text-center p-0">
+                                                    <img src="assets/image/landing/sub005.png" style="width: min(10vw, 5*10px);">
+                                                </div>
+                                                <div class="col-4 text-center p-0">
+                                                    <img src="assets/image/landing/sub006.png" style="width: min(10vw, 5*10px);">
+                                                </div>
+                                                <div class="col-4 text-center p-0">
+                                                    <img src="assets/image/landing/sub007.png" style="width: min(10vw, 5*10px);">
+                                                </div>
+                                            </div>
+                                            <div class="row mb-5 mt-3">
+                                                <div class="col-4 text-center ">
+                                                    <p class="p-0"><b class="fontHederBootom">ฝากถอน<br>ออโต้</b></p>
+                                                    <hr class="under-line" style="background-color: #020a2e;" />
+                                                    <span class="fontButtom">รวดเร็วสนุกได้ทุกเวลา
+                                                    </span>
+                                                </div>
+                                                <div class="col-4 text-center ">
+                                                    <p class="p-0"><b class="fontHederBootom">ฝ่ายบริการ<br>&nbsp;</b>
+                                                    </p>
+                                                    <hr class="under-line" style="background-color: #020a2e;" />
+                                                    <span class="fontButtom">บริการด้วยใจพร้อมดูแล 24 ชั่วโมง</span>
+                                                </div>
+                                                <div class="col-4 text-center">
+                                                    <p class="p-0"><b class="fontHederBootom">ความมั่นคง<br>&nbsp;</b>
+                                                    </p>
+                                                    <hr class="under-line" style="background-color: #020a2e;" />
+                                                    <span class="fontButtom">เท่าไหร่ก็จ่ายไม่มีลิมิตต่อวัน
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a class="carousel-control-prev" href="#carouselExampleInterval" role="button" data-slide="prev">
+                                    <span style="color: #020A2E;" class="carousel-control-prev-icon" aria-hidden="true"></span>
+
+                                </a>
+                                <a class="carousel-control-next" href="#carouselExampleInterval" role="button" data-slide="next">
+                                    <span style="color: #020A2E;" class="carousel-control-next-icon" aria-hidden="true"></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </mat-sidenav-content>
+</mat-sidenav-container>

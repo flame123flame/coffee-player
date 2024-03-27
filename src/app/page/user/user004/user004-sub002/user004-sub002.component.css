@@ -1,0 +1,76 @@
+.fontD {
+    font-size: min(4vw, 5*3px);
+    color: #020A2E;
+}
+
+.fontD2 {
+    font-size: min(3.4vw, 5*3.4px);
+    color: #020A2E;
+}
+
+.fontH1 {
+    font-size: min(5vw, 5*5px);
+    color: #020A2E;
+}
+
+.fontH {
+    font-size: min(6vw, 5*6px);
+    color: #020A2E;
+}
+
+.decoration {
+    height: 52px;
+    /* ความสูงของเส้น */
+    width: 1px;
+    /* ความหนาของเส้น */
+    background-color: black;
+    /* สีของเส้น */
+    display: block;
+}
+
+.color01 {
+    background-color: #020A2E;
+}
+
+.color02 {
+    background-color: #00C157;
+}
+
+.color03 {
+    background-color: #FF5DD8;
+}
+
+.color04 {
+    background-color: #3168F0;
+}
+
+.color05 {
+    background-color: #F66700;
+}
+
+.color06 {
+    background-color: #E90061;
+}
+
+.color07 {
+    background-color: #08C6FF;
+}
+
+hr {
+    background-color: #020A2E;
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+}
+
+.buttonStatus {
+    font-size: min(3.5vw, 5*3.5px);
+    padding-left: 10px;
+    margin-top: -4px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 4px;
+    /* background-color: #00C157; */
+    color: #fff;
+    right: 14px;
+    position: absolute;
+}

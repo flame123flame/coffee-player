@@ -1,0 +1,193 @@
+<div class="screen">
+    <div class="card mt-4">
+        <div class="card-header">
+            <div class="row">
+                <div class="col text-left">
+                    <span>{{username}}</span>
+                </div>
+                <div class="col text-right">
+                    <span style="font-size: min(5vw,5*5px);">เปลี่ยนรหัสผ่าน</span>
+                </div>
+            </div>
+        </div>
+        <div class="card-body ">
+            <form>
+                <div class="form-group ">
+                    <label for="input1">ชื่อเข้าสู่ระบบ</label>
+                    <div class="input-group-append">
+                        <input type="text" class="form-control" id="input1" [placeholder]="username" readonly>
+
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <label for="inputfirstName">ชื่อ - นามสกุล</label>
+                    <div class="input-group-append">
+                        <input type="text" class="form-control" id="inputfirstName" placeholder="ชื่อจริง"
+                            [(ngModel)]="firstName" [ngModelOptions]="{standalone: true}" readonly>
+
+                    </div>
+                </div>
+                <!-- <div class="form-group ">
+                    <label for="inputlastName">นามสกุล</label>
+                    <div class="input-group-append">
+                        <input type="text" class="form-control" id="inputlastName" placeholder="นามสกุล" [(ngModel)]="lastName" [ngModelOptions]="{standalone: true}" readonly>
+
+                    </div>
+                </div> -->
+                <div class="form-group ">
+                    <label for="inputnickName">ชื่อเล่น</label>
+                    <div class="input-group-append">
+                        <input type="text" class="form-control" id="inputnickName" placeholder="ชื่อเล่น"
+                            [(ngModel)]="nickName" [ngModelOptions]="{standalone: true}">
+
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <label for="inputdaye">วัน/เดือน/ปี</label>
+                    <div class="row" style="margin: 0;">
+                        <div class="input-group-append col" style="padding: 0;">
+                            <!-- <input type="text" class="form-control" id="inputDay" placeholder="วัน">
+                             -->
+                            <select class="form-control" (change)="selectDay($event.target.value)"
+                                style="width: min(25vw,5*25px);">
+                                <option selected hidden>วัน</option>
+                                <option *ngFor="let item of listDay" [value]="item" [selected]="this.dd==item">{{item}}
+                                </option>
+                            </select>
+
+                        </div>
+                        <div class="input-group-append col" style="padding: 0 2vw 0 2vw;">
+                            <select class="form-control" (change)="selectMM($event.target.value)"
+                                style="width: min(25vw,5*25px);">
+                                <option selected hidden>เดือน</option>
+                                <option *ngFor="let item of listMM" [value]="item" [selected]="this.mm==item">{{item}}
+                                </option>
+                            </select>
+                            <!-- <input (change)="selectMM($event.target.value)" type="text" class="form-control"
+                                id="inputMM" placeholder="เดือน"> -->
+                        </div>
+                        <div class="input-group-append col" style="padding: 0;">
+                            <select class="form-control" (change)="selectYYYY($event.target.value)"
+                                style="width: min(25vw,5*25px);">
+                                <option selected hidden>ปี</option>
+                                <option *ngFor="let item of listYYYY" [value]="item" [selected]="this.yy==item">{{item}}
+                                </option>
+                            </select>
+                            <!-- <input (change)="selectYYYY($event.target.value)" type="text" class="form-control"
+                                id="inputYYYY" placeholder="ปี"> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <label for="inputmail">อีเมล</label>
+                    <div class="input-group-append">
+                        <input type="text" class="form-control" id="inputmail" placeholder="อีเมล" [(ngModel)]="mail"
+                            [ngModelOptions]="{standalone: true}">
+
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <label for="inputTel">โทรศัพท์ติดต่อ</label>
+                    <div class="input-group-append">
+                        <input type="text" class="form-control" id="inputTel" [placeholder]="tel" readonly>
+
+                    </div>
+                </div>
+            </form>
+            <form [formGroup]="formSave" (ngSubmit)="postNewPassword()">
+                <div class="row mt-4 mb-4" style="height: 1px;border-top: 1px solid #e2e2e2;    margin-left: min(1vw,5*1px);
+                margin-right: min(1vw,5*1px);"></div>
+                <span style="font-size: min(5vw,5*5px);"><b>รหัสผ่าน</b></span>
+                <div class="form-group mt-1">
+                    <label for="inputPassword4">รหัสผ่านเดิม</label>
+                    <div class="input-group-append">
+                        <input type="password" class="form-control" id="inputPassword4"
+                            placeholder="กรุณากรอกรหัสผ่านเดิม"
+                            oninvalid="this.setCustomValidity('กรุณากรอกรหัสผ่านเดิม')"
+                            [type]="fieldTextType1 ? 'text' : 'password'" oninput="setCustomValidity('')"
+                            formControlName="oldPass" style=" border-bottom-right-radius: 0px;
+                        border-top-right-radius: 0px;border-right: 0px;">
+                        <span class="input-group-text inputHide">
+                            <i class="fa" [ngClass]="{
+                             'fa-eye-slash': !fieldTextType1,
+                             'fa-eye': fieldTextType1
+                           }" (click)="toggleFieldTextType1()"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <label for="inputPassword5">รหัสผ่านใหม่</label>
+                    <div class="input-group-append">
+                        <input type="password" class="form-control" id="inputPassword5"
+                            placeholder="กรุณากรอกรหัสผ่านใหม่"
+                            oninvalid="this.setCustomValidity('กรุณากรอกรหัสผ่านใหม่')"
+                            [type]="fieldTextType2 ? 'text' : 'password'" oninput="setCustomValidity('')"
+                            formControlName="newPass" style=" border-bottom-right-radius: 0px;
+                        border-top-right-radius: 0px;border-right: 0px;">
+                        <span class="input-group-text inputHide">
+                            <i class="fa" [ngClass]="{
+                              'fa-eye-slash': !fieldTextType2,
+                              'fa-eye': fieldTextType2
+                            }" (click)="toggleFieldTextType2()"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <label for="inputPassword6">ยืนยันรหัสผ่านใหม่</label>
+                    <div class="input-group-append">
+                        <input type="password" class="form-control" id="inputPassword6"
+                            placeholder="กรุณากรอกรหัสผ่านยืนยัน" [type]="fieldTextType3 ? 'text' : 'password'"
+                            oninvalid="this.setCustomValidity('กรุณากรอกรหัสผ่านยืนยัน')"
+                            oninput="setCustomValidity('')" formControlName="newPassEnter" style=" border-bottom-right-radius: 0px;
+                        border-top-right-radius: 0px;border-right: 0px;">
+                        <span class="input-group-text inputHide">
+                            <i class="fa" [ngClass]="{
+                              'fa-eye-slash': !fieldTextType3,
+                              'fa-eye': fieldTextType3
+                            }" (click)="toggleFieldTextType3()"></i>
+                        </span>
+                    </div>
+                </div>
+            </form>
+            <div *ngIf="isWrong" class="text-center">
+                <span style="color: #E90061;">*{{isWrong}}</span>
+            </div>
+            <button type="submit" class="card card-blue  mt-4 noShadow noBorder"
+                style="width: 100%; align-items: center;background: #FFDE0C !important;" (click)="postNewPassword()">
+                <div class="card-body " style="padding: min(3vw,5*3px);"><span
+                        style="font-size:min(6vw,5*6px);color: #020A2E;"><b>บันทึกข้อมูล</b></span>
+                </div>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- ____________________________________  Modal alertText  _________________________________ -->
+<div class="mid">
+    <ng-template #showModal>
+        <div body class="mb-3 mt-2 mr-2">
+            <div class="screen">
+                <div class="row text-right" (click)="closeModal()"> <i class="material-icons"
+                        style="position: absolute; right: min(2vw,5*2px); top: min(1vw,5*1px);color: rgb(221, 75, 75);font-weight: bold;">cancel</i>
+                </div>
+                <div class="row " style="margin: min(12vw,5*12px) 0 0 0;justify-content: center;">
+                    <img *ngIf="isSuccess" src="assets/image/asset/Correct.svg" style="width: min(20vw,5*20px);">
+                    <img *ngIf="!isSuccess" src="assets/image/asset/warnning2.svg" style="width: min(20vw,5*20px);">
+                </div>
+                <div class="mt-4 text-center"> <span style=" font-size: min(7vw,5*7px);">
+                        <b>{{alertText}}</b></span><br>
+                </div>
+                <div class="row mt-4 mb-4" style="height: 1px;border-top: 1px solid #d1d1d1;    margin-left: min(5vw,5*5px);
+                margin-right: min(5vw,5*5px);"></div>
+                <div class=" row" style="justify-content: center;">
+                    <div class="card noShadow mid noShadow NoBorder ml-1" (click)="closeModal()"
+                        style="padding: min(2vw,5*2px);width: min(22vw,5*22px);;border-radius: 7px !important;font-size: min(4vw,5*4px);"
+                        [style.background-color]="isSuccess?'#02BC70':'#E90061'">
+                        <b style="color: white;">ตกลง</b>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </ng-template>
+</div>
