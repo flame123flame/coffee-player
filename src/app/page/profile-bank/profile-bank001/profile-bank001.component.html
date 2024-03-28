@@ -35,7 +35,7 @@
                     <span style="font-size: min(5vw,5*5px);">โบนัสคืนเงินที่จะได้รับฟรีพรุ่งนี้ <span
                             class="textPink"><b>{{turnOverDataRat!=null?turnOverDataRat:'-'}}
                                 เครดิต</b></span>
-                    <br>ยอดแทงวันนี้ <span style="color: #00E38D;">
+                        <br>ยอดแทงวันนี้ <span style="color: #00E38D;">
                             <b>{{turnOverData}}
                                 เครดิต</b></span></span>
                 </div>
@@ -44,18 +44,22 @@
     </div>
     <div class="row mt-2">
         <div class="col">
-            <div class="card mid" style="height: min(19vw,5*17px); border-radius: 13px !important; border: none;align-items: baseline;" [style.background-color]="listUser.color">
+            <div class="card mid"
+                style="height: min(19vw,5*17px); border-radius: 13px !important; border: none;align-items: baseline;"
+                [style.background-color]="listUser.color">
                 <div class=" mid" style="z-index: 1;">
                     <div class="text-right ml-4 mid">
                         <p class="fontBank mr-2 mt-2">
-                            <img [src]='listUser.src' class="banner"></p>
+                            <img [src]='listUser.src' class="banner">
+                        </p>
                     </div>
                     <div class="col">
                         <span class="fontbanName ml-3 mt-2" style="margin:0;"><b>{{realName||"เลขที่บัญชี"}}</b></span>
                         <div> <span class="fontbankAccount ml-3">{{listUser.bankAccount}}</span></div>
                     </div>
                 </div>
-                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 970 180" style="position: absolute; right:  0; bottom: 0;border-radius: 10px;z-index: 0;">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 970 180"
+                    style="position: absolute; right:  0; bottom: 0;border-radius: 10px;z-index: 0;">
                     <g class="cls-1">
                         <g id="Layer_2" data-name="Layer 2">
                             <g id="Layer_1-2" data-name="Layer 1">
@@ -70,11 +74,13 @@
     </div>
     <div class="row mt-3">
         <div class="col" (click)="goToPath('/user/user004/user004-sub001')">
-            <div class="card " style="height: min(17vw,5*17px);background-color: #FFDE0C; border-radius: 13px !important; border: none;">
+            <div class="card "
+                style="height: min(17vw,5*17px);background-color: #FFDE0C; border-radius: 13px !important; border: none;">
                 <div class="card-body mid">
                     <div class="row" style="align-items: center;">
                         <div><img src="assets/image/asset/paper.svg" style="width: min(6vw,5*6px);"></div>
-                        <span class="text-center textBlue ml-2" style="font-size: min(5vw,5*5px);"><b>รายงานเครดิต</b></span>
+                        <span class="text-center textBlue ml-2"
+                            style="font-size: min(5vw,5*5px);"><b>รายงานเครดิต</b></span>
                     </div>
                 </div>
             </div>
@@ -82,14 +88,30 @@
     </div>
     <div class="row mt-3">
         <div class="col" (click)="goToPath('/user/user-setting')">
-            <div class="card " style="height: min(17vw,5*17px);background-color: #C6C6C6; border-radius: 13px !important; border: none;">
+            <div class="card "
+                style="height: min(17vw,5*17px);background-color: #C6C6C6; border-radius: 13px !important; border: none;">
                 <div class="card-body mid">
                     <div class="row" style="align-items: center;">
                         <div><img src="assets/image/asset/setting.svg" style="width: min(6vw,5*6px);"></div>
-                        <span class="text-center textBlue ml-2" style="font-size: min(5vw,5*5px);"><b>ตั้งค่าบัญชี</b></span>
+                        <span class="text-center textBlue ml-2"
+                            style="font-size: min(5vw,5*5px);"><b>ตั้งค่าบัญชี</b></span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <div class="row mt-3">
+        <div class="col" (click)="logout()">
+            <div class="card "
+                style="height: min(17vw,5*17px); border-radius: 13px !important; border: none;">
+                <div class="card-body mid">
+                    <div class="row" style="align-items: center;">
+                        <span class="text-center textBlue ml-2"
+                            style="font-size: min(5vw,5*5px);"><b>ออกจากระบบ</b></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 
 import { listBank } from 'src/app/common/constant/bank-constant';
 import { LayoutComponent } from 'src/app/common/layout/layout.component';
+import { AuthService } from 'src/app/auth/auth.service';
 @Component({
   selector: 'app-profile-bank001',
   templateUrl: './profile-bank001.component.html',
@@ -31,7 +32,8 @@ export class ProfileBank001Component implements OnInit {
   constructor(
     private httpClient: HttpService,
     private router: Router,
-    private layoutComponent: LayoutComponent
+    private layoutComponent: LayoutComponent,
+    private _auth: AuthService,
   ) {
     this.layoutComponent.isProfile = false;
   }
@@ -83,5 +85,9 @@ export class ProfileBank001Component implements OnInit {
           }
         });
       });
+  }
+
+  logout() {
+    this._auth.logout();
   }
 }
