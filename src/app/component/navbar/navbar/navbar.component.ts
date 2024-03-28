@@ -6,9 +6,9 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  @Input() showImage : Boolean = false;
-  @Input() text : String = 'สมัครสมาชิก';
-  
+  @Input() showImage: Boolean = false;
+  @Input() text: String = 'สมัครสมาชิก';
+
   @Output() onClickEvent: EventEmitter<any> = new EventEmitter();
   @Output() onClickEventLogin: EventEmitter<any> = new EventEmitter();
   @Output() onClickEventMenu: EventEmitter<any> = new EventEmitter();
@@ -16,18 +16,18 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     //console.log("showImage",this.showImage);
-    
+
   }
   refresh(): void {
     window.location.reload();
   }
-  click(){
+  click() {
     this.onClickEvent.emit();
   }
-  clickMenu(){
+  clickMenu() {
     this.onClickEventMenu.emit();
   }
-  CliclLogin(){
+  CliclLogin() {
     this.onClickEventLogin.emit();
   }
 }
