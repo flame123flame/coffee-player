@@ -1,45 +1,52 @@
-<div class="screen">
+<div class="screen" style="    width: 100%;">
     <!-- ___________________ รายการเกมส์ ___________________ -->
     <br>
     <div class="row mt-2 margin" style="justify-content: space-around">
-        <div (click)="enterGame()">
-            <div class="row mt-4">
+        <div (click)="goTo()">
+            <div class="col img_wrp" style="padding-right: 0px;padding-left: 0px;cursor: pointer;">
+                <img [src]="'assets/image/img_lottery.png'" style="width: 100%;">
+                <button type="button" class="btn bottonInimage "><b>เข้าซื้อหวยไทย</b></button>
+            </div>
+            <!-- <div class="row mt-4">
                 <div class="col-12 ml-2 text-left" style="padding-right: 0px;padding-left: 0px;">
                     <b class="textGameButoom">หวย</b>
                 </div>
-    
+
             </div>
             <div class="row mt-2 mb-2">
                 <div class="col img_wrp" style="padding-right: 0px;padding-left: 0px;">
-                    <img loading="lazy" [src]="'assets/image/img_lottery.png'" id="imgUNcover" height="180px" width="200px">
+                    <img loading="lazy" [src]="'assets/image/img_lottery.png'" src="    width: 100%;" id="imgUNcover">
                     <button type="button" class="btn bottonInimage "><b>เข้าเล่น</b></button>
                 </div>
             </div>
-            <hr style="margin-top: 0rem;margin-bottom: 0rem;">
+            <hr style="margin-top: 0rem;margin-bottom: 0rem;"> -->
         </div>
     </div>
-    
+
     <br>
     <div class="card  margin">
         <div class="card-body" style="    padding: 1.60rem;">
             <div class="row text-center" style="justify-content: space-around;">
                 <div class="col">
                     <div (click)="openContract()" style="margin-top: auto;cursor: pointer !important;">
-                        <div style="height: min(13vw,5*13px);"> <img src="assets/image/icon-main/icon1.png" style="width:min(9vw,5*9px) ;">
+                        <div style="height: min(13vw,5*13px);"> <img src="assets/image/icon-main/icon1.png"
+                                style="width:min(9vw,5*9px) ;">
                         </div>
                         <div class="mt-1"><span style="font-size: min(4vw,5*4px);">ติดต่อเรา</span></div>
                     </div>
                 </div>
                 <div class="col">
                     <div (click)="openRecommendUntra()" style="margin-top: auto;cursor: pointer !important;">
-                        <div style="height: min(13vw,5*13px);"> <img src="assets/image/icon-main/icon2.png" style="width:min(12vw,5*12px) ;">
+                        <div style="height: min(13vw,5*13px);"> <img src="assets/image/icon-main/icon2.png"
+                                style="width:min(12vw,5*12px) ;">
                         </div>
                         <div class="mt-1"><span style="font-size: min(4vw,5*4px);">แนะนำสร้างรายได้</span></div>
                     </div>
                 </div>
                 <div class="col">
                     <div (click)="openPoylottery()" style="margin-top: auto;cursor: pointer !important;">
-                        <div style="height: min(13vw,5*13px);"> <img src="assets/image/icon-main/icon6.png" style="width:min(12vw,5*12px) ;">
+                        <div style="height: min(13vw,5*13px);"> <img src="assets/image/icon-main/icon6.png"
+                                style="width:min(12vw,5*12px) ;">
                         </div>
                         <div class="mt-1"><span style="font-size: min(4vw,5*4px);">ดูโพยหวย</span></div>
                     </div>
@@ -48,21 +55,24 @@
             <div class="row text-center mt-4" style="justify-content: space-around;">
                 <div class="col">
                     <div (click)="openSerieslottery()" style="margin-top: auto;cursor: pointer !important;">
-                        <div style="height: min(13vw,5*13px);"> <img src="assets/image/icon-main/icon7.png" style="width:min(12vw,5*12px) ;">
+                        <div style="height: min(13vw,5*13px);"> <img src="assets/image/icon-main/icon7.png"
+                                style="width:min(12vw,5*12px) ;">
                         </div>
                         <div class="mt-1"><span style="font-size: min(4vw,5*4px);">เลขชุด</span></div>
                     </div>
                 </div>
                 <div class="col">
                     <div (click)="openRecommend()" style="margin-top: auto;cursor: pointer !important;">
-                        <div style="height: min(13vw,5*13px);"> <img src="assets/image/icon-main/icon8.png" style="width:min(10vw,5*10px) ;">
+                        <div style="height: min(13vw,5*13px);"> <img src="assets/image/icon-main/icon8.png"
+                                style="width:min(10vw,5*10px) ;">
                         </div>
                         <div class="mt-1"><span style="font-size: min(4vw,5*4px);">ผลรางวัลหวย</span></div>
                     </div>
                 </div>
                 <div class="col">
                     <div (click)="openProfileBank()" style="margin-top: auto;cursor: pointer !important;">
-                        <div style="height: min(13vw,5*13px);"> <img src="assets/image/icon-main/icon9.png" style="width:min(12vw,5*12px) ;">
+                        <div style="height: min(13vw,5*13px);"> <img src="assets/image/icon-main/icon9.png"
+                                style="width:min(12vw,5*12px) ;">
                         </div>
                         <div class="mt-1"><span style="font-size: min(4vw,5*4px);">ดูข้อมูลส่วนตัว</span></div>
                     </div>

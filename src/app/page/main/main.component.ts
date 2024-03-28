@@ -38,7 +38,7 @@ export class MainComponent implements OnInit, OnDestroy {
     private modalService: BsModalService,
     private layoutComponent: LayoutComponent,
     public a2hs: A2hsService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.username = localStorage.getItem('username');
@@ -80,28 +80,8 @@ export class MainComponent implements OnInit, OnDestroy {
   toggleFieldTextType() {
     this.fieldTextType = !this.fieldTextType;
   }
-  goTo(item) {
-    if (item.productCode == 'LOTTO') {
-      this.router.navigate(['/lottery/game-lotto'], {});
-    } else if (item.productCode == 'SPORT') {
-      this.router.navigate(['/games/game004'], {
-        queryParams: {
-          productCode: item.productCode,
-        },
-      });
-    } else if (item.productCode == 'CASINO') {
-      this.router.navigate(['/games/game003'], {
-        queryParams: {
-          productCode: item.productCode,
-        },
-      });
-    } else {
-      this.router.navigate(['/games/game001'], {
-        queryParams: {
-          productCode: item.productCode,
-        },
-      });
-    }
+  goTo() {
+    this.router.navigate(['/lottery/game-lotto'], {});
   }
   getMoney() {
     this.httpClient
@@ -158,7 +138,7 @@ export class MainComponent implements OnInit, OnDestroy {
     //   this.checkAuthWindow('fb')
     // }, 1000);
   }
-  
+
   openProfileBank() {
     this.router.navigate(['/profile']);
   }

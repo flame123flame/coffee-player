@@ -150,9 +150,10 @@ b {
 }
 
 .bottonInimage {
-    width: 24%;
+    width: 30%;
     position: absolute;
     top: 43%;
+    height: 40%;
     left: 81%;
     background-color: #FFDE0C;
     transform: translate(-50%, -50%);

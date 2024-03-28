@@ -1,5 +1,4 @@
 <mat-sidenav-container class="ex-container" style=" display: grid; height: 100vh; " [draggable]="true">
-
     <mat-sidenav-content>
         <app-navbar (onClickEventMenu)="sidenav.toggle()" [showImage]="showImage" (onClickEventLogin)="clickLogin()"
             (onClickEvent)="clickRegister()"></app-navbar>
@@ -8,15 +7,11 @@
                 <div *ngIf="register == '1'" class="d-flex flex-column justify-content-center align-items-center h-100"
                     style=" margin-top: 35px;">
                     <div style="width: 100%; padding-right: 36px; padding-left: 36px; ">
-
                         <div class="row mb-5 ">
                             <div class="col text-center">
                                 <b style="font-size: min(8vw,5*8px);color: #020A2E;">เข้าสู่ระบบ</b>
                             </div>
                         </div>
-
-
-
                         <div class="row mt-1 p-0" *ngIf="inputUserName">
                             <div class="col text-center p-0">
                                 <div class="form-group" style="    display: grid; justify-items: start;">
@@ -33,7 +28,6 @@
                                     <input type="text" [(ngModel)]="password" class="form-control"
                                         placeholder="รหัสผ่าน">
                                 </div>
-
                             </div>
                         </div>
                         <div class="row mt-5">
@@ -48,29 +42,9 @@
                                 <div class="errorLogin mt-1 text-center">{{textErrorLogin}}</div>
                             </div>
                         </div>
-
-
-
-                        <!-- ---------------------------------------  Login End ----------------------------------------- -->
-                        <!-- ---------------------------------------  Register step 1: Enter Phone >> Start ----------------------------------------- -->
-
-                        <!-- ---------------------------------------  Register step 1: Enter Phone >> End ----------------------------------------- -->
-                        <!-- ---------------------------------------  Register step 2: OTP >> Start ----------------------------------------- -->
-
-
-                        <!-- ---------------------------------------  Register step 2: OTP >> End ----------------------------------------- -->
-                        <!-- ---------------------------------------  Register step 3: Bank >> Start ----------------------------------------- -->
-
-                        <!-- ---------------------------------------  Register step 3: Bank >> End ----------------------------------------- -->
-
                     </div>
                 </div>
-
-
-
             </div>
-
         </div>
-
     </mat-sidenav-content>
 </mat-sidenav-container>
