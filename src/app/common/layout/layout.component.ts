@@ -81,32 +81,23 @@ export class LayoutComponent implements OnInit {
       isGame: true,
     },
     {
-      text: 'เล่นเกมส์/สล็อต',
+      text: 'ดูโพยหวย',
       productCode: 'GAMB',
-      link: '/games/game001',
+      link: '/lottery/poy-lotto/poyLottery005',
       active: false,
       icon: 'slot.svg',
       icon2: 'slot copy.svg',
       isGame: true,
     },
     {
-      text: 'คาสิโน',
+      text: 'ข้อมูลส่วนตัว',
       productCode: 'CASINO',
-      link: '/games/game003',
+      link: '/profile',
       active: false,
       icon: 'casino.svg',
       icon2: 'casino copy.svg',
       isGame: true,
-    },
-    {
-      text: 'แทงบอล/กีฬา',
-      productCode: 'SPORT',
-      link: '/games/game004',
-      active: false,
-      icon: 'sport.svg',
-      icon2: 'sport copy.svg',
-      isGame: true,
-    },
+    }
   ];
 
   listLinkForGame: link[] = [

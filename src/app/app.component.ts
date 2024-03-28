@@ -10,7 +10,7 @@ declare let gtag: Function;
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'finbet';
+  title = 'banthung';
   token: any;
 
   constructor(public a2hs: A2hsService,

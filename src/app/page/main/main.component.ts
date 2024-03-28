@@ -21,12 +21,7 @@ export class MainComponent implements OnInit, OnDestroy {
     { text: '3', url: 'cicle-000.png' },
     { text: '4', url: 'cicle-000.png' },
   ];
-  listGames: any[] = [
-    // { name: "เกมส์สล็อต/เกมส์ยิงปลา", url: "assets/image/asset/fish.png", path: "/games/game001" },
-    // { name: "แทงหวย", url: "assets/image/asset/lotto.png", path: "/lottery/game-lotto" },
-    // { name: "กีฬา", url: "assets/image/asset/ball.png", path: "/games/game004" },
-    // { name: "คาสิโน", url: "assets/image/asset/casino.png", path: "/games/game003" },
-  ];
+  listGames: any[] = [];
 
   username: any;
   money: any = '0.00';
@@ -50,13 +45,6 @@ export class MainComponent implements OnInit, OnDestroy {
     this.getMoney();
     this.getGame();
     this.layoutComponent.isProfile = false;
-    //console.log('promptIntercepted : ', this.a2hs.promptIntercepted);
-    //console.log('promptSaved :', this.a2hs.promptSaved);
-    //console.log('deferredPromptShown : ', this.a2hs.deferredPromptShown);
-    //console.log('deferredPromptRejected : ', this.a2hs.deferredPromptRejected);
-    //console.log('userInstalled : ', this.a2hs.userInstalled);
-    //console.log('isChrome : ', this.a2hs.isChrome);
-    //console.log('isSafari : ', this.a2hs.isSafari);
   }
 
   ngOnDestroy() {
@@ -73,37 +61,6 @@ export class MainComponent implements OnInit, OnDestroy {
     localStorage.setItem('closeModal', 'close');
     this.modalRef.hide();
   }
-
-  // getDropDawn() {
-  //   let url = `https://www.glo.or.th/api/lottery/getLatestLottery`;
-  //   const proxyurl = "https://cors-anywhere.herokuapp.com/";
-  //   let req = new Request(proxyurl + url, {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //       'mode': 'no-cors'
-  //     }
-  //   });
-  //   fetch(req)
-  //     .then(response => response.text())
-  //     .then((contents) => {
-  //       this.result = JSON.parse(contents);
-  //       //console.log(JSON.parse(contents))
-  //       if (this.result.response) {
-  //         // do something
-  //         //console.log("LOTTO : ", this.result.response.data);
-  //         this.displayDate = this.result.response.displayDate;
-  //         this.first = this.result.response.data.first.number;
-  //         this.last2 = this.result.response.data.last2.number;
-  //         this.last3b = this.result.response.data.last3b.number;
-  //         this.last3f = this.result.response.data.last3f.number;
-  //         this.openModal()
-  //       } else {
-  //         // do something
-  //       }
-  //     })
-  //     .catch(() => //console.log("Can’t access " + url + " response. Blocked by browser?"))
-  // }
 
   openModal() {
     this.modalRef = this.modalService.show(this.showModal, {
@@ -172,15 +129,6 @@ export class MainComponent implements OnInit, OnDestroy {
   }
   openContract() {
     this.router.navigate(['/user/user002']);
-  }
-  openPromotion() {
-    this.router.navigate(['/promotion']);
-  }
-  openDeposit() {
-    this.router.navigate(['/deposit']);
-  }
-  openWitdrow() {
-    this.router.navigate(['/profile/profile-bank002']);
   }
   openPoylottery() {
     this.router.navigate(['/lottery/poy-lotto/poyLottery005']);
