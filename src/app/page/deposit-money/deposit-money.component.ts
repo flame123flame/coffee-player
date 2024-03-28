@@ -295,6 +295,31 @@ export class DepositMoneyComponent implements OnInit {
   }
 
   postDeposit() {
+
+    this.httpClient
+      .doPost(URL.SAVE_DEPOSIT, {
+        depositOrder: this.depositOrder,
+        username: this.username,
+        companyAccountCode: "BBL",
+        depositType: this.type,
+        amount: 100000,
+        depositDate: this.date,
+        slip: null,
+      })
+      .subscribe((res) => {
+        if (res.status == 'SUCCESS') {
+          this.isSuccess = true;
+          this.alertText = 'ทำรายการเรียบร้อย';
+          this.router.navigate(['/']);
+        } else {
+          this.alertText = res.message;
+          this.isSuccess = false;
+        }
+        this.openModal();
+      });
+    return;
+
+
     var x = this.isAutoTap
       ? new Date()
       : (<HTMLInputElement>document.getElementById('myDate')).value;
@@ -304,7 +329,7 @@ export class DepositMoneyComponent implements OnInit {
       (Number(this.bankData.maxDepositDaily.replace(/,/g, '')) <
         Number(this.number) ||
         Number(this.bankData.minDeposit.replace(/,/g, '')) >
-          Number(this.number) ||
+        Number(this.number) ||
         this.number == null) &&
       !this.isAutoTap
     ) {
