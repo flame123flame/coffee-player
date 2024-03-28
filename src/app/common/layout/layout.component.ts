@@ -94,8 +94,8 @@ export class LayoutComponent implements OnInit {
       productCode: 'CASINO',
       link: '/profile',
       active: false,
-      icon: 'casino.svg',
-      icon2: 'casino copy.svg',
+      icon: 'profile.svg',
+      icon2: 'profile copy.svg',
       isGame: true,
     }
   ];
