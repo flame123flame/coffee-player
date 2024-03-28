@@ -148,3 +148,17 @@ b {
     border-radius: .25rem;
     background-color: #ffc107;
 }
+
+.bottonInimage {
+    width: 24%;
+    position: absolute;
+    top: 43%;
+    left: 81%;
+    background-color: #FFDE0C;
+    transform: translate(-50%, -50%);
+}
+
+.img_wrp {
+    /* display: inline-block;
+    position: relative; */
+}

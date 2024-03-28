@@ -117,6 +117,48 @@ export class MainComponent implements OnInit, OnDestroy {
         }).format(this.money);
       });
   }
+
+  enterGame(providerCode?, openType?, iconUrl?) {
+    if (openType == 'ONEPAGE') {
+      this.httpClient
+        .doPost('web-player/playgame/launch-game', {
+          username: this.username,
+          iconUrl: iconUrl,
+          providerCode: providerCode,
+        })
+        .subscribe((res) => {
+          // if (this.a2hs.isChrome == true) {
+          //   this.openFBAuth(res.data.url)
+          // } else {
+          //   this.openFBAuth2(res.data.url)
+          //   // document.location.href = res.data.url;
+          // }
+        });
+    } else {
+      this.router.navigate(['/games/game001-detail'], {
+        queryParams: {
+          providerCode: providerCode,
+        },
+      });
+    }
+  }
+
+  openFBAuth(url) {
+    // this.fbAuthWindow = window.open(url);
+    // this.checkWindow1 = true;
+    // setTimeout(() => {
+    //   this.checkAuthWindow('fb')
+    // }, 1000);
+  }
+
+  openFBAuth2(url) {
+    // this.fbAuthWindow = window.location.href = url;
+    // this.checkWindow1 = true;
+    // setTimeout(() => {
+    //   this.checkAuthWindow('fb')
+    // }, 1000);
+  }
+  
   openProfileBank() {
     this.router.navigate(['/profile']);
   }

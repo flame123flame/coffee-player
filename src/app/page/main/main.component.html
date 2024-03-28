@@ -2,13 +2,23 @@
     <!-- ___________________ รายการเกมส์ ___________________ -->
     <br>
     <div class="row mt-2 margin" style="justify-content: space-around">
-        <div class=" cardRM text-center" *ngFor="let item of listGames;let index=index" (click)="goTo(item)" style="    justify-content: center;align-items: center;display: grid;">
-            <img src='{{item.iconUrl}}' class="imgGame" style="margin: auto;">
-            <button type="button" class="btn   btn-block mt-2" style="background-color: #FFDE0C;padding: 0;width: min(30vw,5*30px);height: min(7vw,5*7px);"><b>
-                    {{item.nameTh}} </b>
-            </button>
+        <div (click)="enterGame()">
+            <div class="row mt-4">
+                <div class="col-12 ml-2 text-left" style="padding-right: 0px;padding-left: 0px;">
+                    <b class="textGameButoom">หวย</b>
+                </div>
+    
+            </div>
+            <div class="row mt-2 mb-2">
+                <div class="col img_wrp" style="padding-right: 0px;padding-left: 0px;">
+                    <img loading="lazy" [src]="'assets/image/img_lottery.png'" id="imgUNcover" height="180px" width="200px">
+                    <button type="button" class="btn bottonInimage "><b>เข้าเล่น</b></button>
+                </div>
+            </div>
+            <hr style="margin-top: 0rem;margin-bottom: 0rem;">
         </div>
     </div>
+    
     <br>
     <div class="card  margin">
         <div class="card-body" style="    padding: 1.60rem;">
