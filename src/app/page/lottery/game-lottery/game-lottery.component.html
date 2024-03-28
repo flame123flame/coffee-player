@@ -35,10 +35,10 @@
                                     </div>
                                 </div>
                                 <div class="row"
-                                    style="justify-content: end;padding-left: 2px;padding-right: 6px;padding-top: 8px;padding-bottom: 2px;margin: 0;height: 130px;">
-                                    <div class="col-12 text-right" style="align-items: start;padding-right: 0;display: flex;justify-content: flex-end;">
+                                    style="justify-content: center;padding-left: 2px;padding-right: 6px;padding-top: 8px;padding-bottom: 2px;margin: 0;height: 130px;">
+                                    <div class="col-12 text-center" style="align-items: center;padding-right: 0;display: flex;justify-content: center;justify-items: center;">
                                         <img [src]="(item.timeCount>0&&item.timeCountOpen>0)&&item.status != 'HIDE'?'assets/image/asset/time.svg':'assets/image/asset/block.svg'"
-                                            style="width: min(5vw,5*4px);">
+                                            style="width: min(5vw,5*5px);" class="mb-1">
                                         <span style="font-size:min(4vw,5*4px);color: #020A2E;" class="ml-2"><b
                                                 *ngIf="item.status == 'SHOW'&&item.timeCount>0&&item.timeCountOpen>0">
                                                 <countdown [config]="countdownTimeUnits(item.timeCount)">
@@ -54,9 +54,6 @@
                                             </b>
                                         </span><br>
                                     </div>
-                                    <div class="col-12"></div>
-                                    <div class="col-12"></div>
-                                    <div class="col-12"></div>
                                 </div>
                             </div>
                         </div>
