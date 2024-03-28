@@ -10,13 +10,13 @@ export const environment = {
 
   // BASE_URL: '172.19.93.12:8080/COFFEE',
   // LOTTO_URL: '172.19.93.12:8080/coffee-beans',
-  // FINNBET: '172.19.93.12:8080'
+  FINNBET: 'http://192.168.1.197:8082/coffee-bean',
 
   // BASE_URL: 'http://baiwa.ddns.net:9440/COFFEE',
   // LOTTO_URL: 'http://baiwa.ddns.net:9440/coffee-beans',
 
-  BASE_URL: 'http://localhost:8080/COFFEE',
-  LOTTO_URL: 'http://localhost:8082/coffee-beans',
+  BASE_URL: 'http://192.168.1.197:8080/COFFEE',
+  LOTTO_URL: 'http://192.168.1.197:8082/coffee-beans',
 };
 
 /*

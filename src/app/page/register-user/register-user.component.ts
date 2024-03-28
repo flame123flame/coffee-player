@@ -376,27 +376,27 @@ export class RegisterUserComponent implements OnInit {
   }
 
   async onLogin() {
-    this.router.navigate(['/main']);
-    // var inputs = document.querySelectorAll('input');
-    // for (let index = 0; index < inputs.length; index++) {
-    //   inputs[index].blur()
-    // }
-    // try {
-    //   const res = await this.httpSV.doAuth({
-    //     username: this.username.toLocaleLowerCase().trim(),
-    //     password: this.password.trim(),
-    //   });
-    //   if (res != null) {
-    //     this.authSV.login(res.jwttoken, res.username);
-    //     this.textErrorLogin = '';
-    //   }
-    // } catch (error) {
-    //   if (error.error.message == '') {
-    //     this.textErrorLogin = 'User หรือ Password ไม่ถูกต้อง';
-    //   } else {
-    //     this.textErrorLogin = error.error.message;
-    //   }
-    // }
+    // this.router.navigate(['/main']);
+    var inputs = document.querySelectorAll('input');
+    for (let index = 0; index < inputs.length; index++) {
+      inputs[index].blur()
+    }
+    try {
+      const res = await this.httpSV.doAuth({
+        username: this.username.toLocaleLowerCase().trim(),
+        password: this.password.trim(),
+      });
+      if (res != null) {
+        this.authSV.login(res.jwttoken, res.username);
+        this.textErrorLogin = '';
+      }
+    } catch (error) {
+      if (error.error.message == '') {
+        this.textErrorLogin = 'User หรือ Password ไม่ถูกต้อง';
+      } else {
+        this.textErrorLogin = error.error.message;
+      }
+    }
   }
   /* 1. req otp */
   reqOtp() {
