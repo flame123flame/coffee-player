@@ -23,7 +23,7 @@ interface sta {
 })
 export class RegisterUserComponent implements OnInit {
   @ViewChild('sidenav') sidenav: any;
-  @Input() register: string = '0';
+  @Input() register: string = '1';
   @Input() phone: string = '';
   classActine = 999;
   message: string;
@@ -150,6 +150,7 @@ export class RegisterUserComponent implements OnInit {
       // this.getAffiliate();
       this.clickRegister();
     }
+    this.clickLogin();
   }
   checkPhone(e: String) {
     this.mobilePhone = this.checkNumber(e)
@@ -376,11 +377,7 @@ export class RegisterUserComponent implements OnInit {
   }
 
   async onLogin() {
-    // this.router.navigate(['/main']);
-    var inputs = document.querySelectorAll('input');
-    for (let index = 0; index < inputs.length; index++) {
-      inputs[index].blur()
-    }
+
     try {
       const res = await this.httpSV.doAuth({
         username: this.username.toLocaleLowerCase().trim(),

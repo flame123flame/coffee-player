@@ -26,7 +26,7 @@ export class Register001Component implements OnInit {
   ngOnInit(): void {
   }
 
-  clickRegister(){
+  clickRegister() {
     this.buttonPhone = true;
     this.buttonSubmit = false;
     this.buttonOPT = false;
@@ -34,10 +34,10 @@ export class Register001Component implements OnInit {
     this.inputUserName = false;
     this.inputPassword = false;
     this.inputPhone = true;
-    this.textShowHeader = "สมัครสมาชิก";
+    // this.textShowHeader = "สมัครสมาชิก";
 
   }
-  clickConfirm(status){
+  clickConfirm(status) {
     this.inputShowHeader = false;
     this.inputOTP = false;
     this.inputPhone = false;
@@ -61,7 +61,7 @@ export class Register001Component implements OnInit {
       case 'buttonBank':
 
         break;
-     
+
     }
 
   }
